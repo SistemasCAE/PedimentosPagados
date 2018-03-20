@@ -16,7 +16,7 @@
        	
         <preference name="SplashScreenDelay" value="5000" />
 
-        <name>Consulta Pedimentos Pagados </name>
+        <name>Consulta Pedimentos Pagados</name>
 		<description>
             Aplicación para visualizar pedimentos pagados.
         </description>

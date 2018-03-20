@@ -34,7 +34,7 @@ var fn = {
 	 * En esta sección vamos a asociar
 	 * todos los eventos del "Click" al HTML
 	 */
-	  $("#botonIniciarSesion").tap(fn.iniciarSesion);
+	  $("#botonAcceder").tap(fn.iniciarSesion);
 	 
 	 
 	}

@@ -1,30 +1,3 @@
-var VIEWER_OPTIONS = {
-    documentView: {
-        closeLabel: "Fertig"
-    },
-    navigationView: {
-        closeLabel: "Zurück"
-    },
-    email: {
-        enabled: false
-    },
-    print: {
-        enabled: true
-    },
-    openWith: {
-        enabled: false
-    },
-    bookmarks: {
-        enabled: false
-    },
-    search: {
-        enabled: false
-    },
-    autoClose: {
-        onPause: false
-    }
-};
-
 var fn = {
 	deviceready: function(){
 		document.addEventListener("deviceready", fn.init/*this.init*/, false);
@@ -35,12 +8,13 @@ var fn = {
 	 * todos los eventos del "Click" al HTML
 	 */
 	  $("#botonAcceder").tap(fn.iniciarSesion);
-	 
-	 
 	},
 	iniciarSesion: function(){
-		console.log("Llegue");
-		cordova.plugins.SitewaertsDocumentViewer.canViewDocument(
+
+		alert("Llegue");
+		var _sdv;
+		_sdv = cordova.plugins.SitewaertsDocumentViewer;
+		_sdv.canViewDocument(
 		"http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf", 
 		"application/pdf", 
 		options,
@@ -65,7 +39,7 @@ var fn = {
 			entry.canView = false;
 			next();
 		});
-	};
+	}
 }
 
 

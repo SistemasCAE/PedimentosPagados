@@ -11,13 +11,13 @@ var fn = {
 	},
 	iniciarSesion: function(){
 		alert("Llegue");
-		var ref = cordova.InAppBrowser.open('http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf', '_blank', 'location=yes');
+		//var ref = cordova.InAppBrowser.open('http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf', '_blank', 'location=yes');
 		
-		window.open = cordova.InAppBrowser.open;
+		//window.open = cordova.InAppBrowser.open;
 		
-		alert("fin metodo");
+		
 		//window.open("http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf",'_blank', 'location=no,toolbar=no,hardwareback=yes');
-		/*var _sdv;
+		var _sdv;
 		_sdv = cordova.plugins.SitewaertsDocumentViewer;
 		_sdv.canViewDocument(
 		"http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf", 
@@ -43,7 +43,8 @@ var fn = {
 			window.console.log(error);
 			entry.canView = false;
 			next();
-		});*/
+		});
+		alert("fin metodo");
 	}
 }
 

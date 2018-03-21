@@ -19,37 +19,22 @@ var fn = {
 		//window.open("http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf",'_blank', 'location=no,toolbar=no,hardwareback=yes');
 		var _sdv;
 		_sdv = cordova.plugins.SitewaertsDocumentViewer;
-		_sdv.canViewDocument(
-		"8000404_IC_PN_1.pdf", 
+		_sdv.viewDocument(
+		"http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf", 
 		"application/pdf",
-		function onPossible()
-		{
-			entry.canView = true;
-			alert("Posible");
-			next();
-			
+		function onShow(){
+		  alert('document shown');
+		  //e.g. track document usage
 		},
-		function onMissingApp()
-		{
-			entry.canView = true;
-			alert("no hay app");
-			next();
-			
+		function onClose(){
+		 alert('document closed');
+		  //e.g. remove temp files
 		},
-		function onImpossible()
+		function onMissingApp(appId, installer)
 		{
-			entry.canView = false;
-			alert("no se puede");
-			next();
-			
-		},
-		function onError(error)
-		{
-			window.console.log(error);
-			entry.canView = false;
-			alert("Error");
-			next();
-		});
+			alert('sin app');
+		}
+		);
 		alert("fin metodo");
 	}
 }

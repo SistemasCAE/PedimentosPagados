@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.cae3076.valesMetaCaeApp"
+        id          = "com.cae3076.pedimentosPagados"
         version     = "1.0.0"
         versionCode = "1" >
 		<!-- versionCode is optional and Android only -->
@@ -16,9 +16,9 @@
        	
         <preference name="SplashScreenDelay" value="5000" />
 
-        <name>Vales META/CAE aa</name>
+        <name>Pedimentos Pagados</name>
 		<description>
-            Aplicación para controlar los vales META/CAE.
+            Aplicación para consultar los Pedimentos Pagados.
         </description>
 		<author href="#" email="sistemas_cae@cae3076.com">
             Sistemas CAE
@@ -43,6 +43,7 @@
 	    <gap:plugin name="cordova-plugin-network-information" source="npm"/>
         <gap:plugin name="cordova-plugin-x-toast" source="npm" />
         <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
+		<gap:plugin name="cordova-plugin-inappbrowser" source="npm"/>
 
         <access origin="*"/>
         <allow-intent href="*"/>

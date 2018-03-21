@@ -7,6 +7,10 @@
 		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
 		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
 		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/supersized.css">
+        <link rel="stylesheet" href="assets/css/style.css">
 	</head>
 	<body>
 	
@@ -17,28 +21,23 @@
 			<h1>Bienvenido</h1>
 		</div>
 		<div class="ui-content" id="opciones">
-			<center>
-				<img src="img/logo.png" id="imagenLogo">
-				<br>
-			</center>
+		 	<div class="page-container">
+				<h1>Inicio de Sesión</h1>
+				<form>
+					<input type="text" name="username" class="username" placeholder="Username">
+					<input type="password" name="password" class="password" placeholder="Password">
+					<button type="submit">Ingresar</button>
+					<div class="error"><span>+</span></div>
+				</form>
+        	</div>
+			<div class="connect">
+				<p>No estas registrado?</p>
+				<button type="submit">Registrar</button>
+			</div>
 		</div>
 		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li>
-						<a id="botonAcceder" href="#inicioSesion" class="ui-btn-active">
-							Acceder
-						</a>
-					</li>
-				</ul>
-				<br>
-				<ul>
-					<li>
-						<a id="botonRegistrar" href="#" class="ui-btn-active">
-							Registrate
-						</a>
-					</li>
-				</ul>
+			<div>
+				<p>Copyright Todos los Derechos Reservados</p>
 			</div>
 		</div>
 	</div>
@@ -47,6 +46,12 @@
 	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="js/API/networkInformation.js"></script>
 	<script type="text/javascript" src="js/actions.js"></script>
+	
+	
+	<script src="assets/js/jquery-1.8.2.min.js"></script>
+	<script src="assets/js/supersized.3.2.7.min.js"></script>
+	<script src="assets/js/supersized-init.js"></script>
+	<script src="assets/js/scripts.js"></script>
 	
 	</body>
 </html>

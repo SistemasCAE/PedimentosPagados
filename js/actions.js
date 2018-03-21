@@ -17,6 +17,34 @@ var fn = {
 		
 		
 		//window.open("http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf",'_blank', 'location=no,toolbar=no,hardwareback=yes');
+			var VIEWER_OPTIONS = {
+			documentView: {
+				closeLabel: "Fertig"
+			},
+			navigationView: {
+				closeLabel: "Zurück"
+			},
+			email: {
+				enabled: false
+			},
+			print: {
+				enabled: true
+			},
+			openWith: {
+				enabled: false
+			},
+			bookmarks: {
+				enabled: false
+			},
+			search: {
+				enabled: false
+			},
+			autoClose: {
+				onPause: false
+			}
+		};
+		
+		var options = $.extend({}, VIEWER_OPTIONS);
 		var _sdv;
 		_sdv = cordova.plugins.SitewaertsDocumentViewer;
 		_sdv.canViewDocument(

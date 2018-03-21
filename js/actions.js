@@ -12,7 +12,8 @@ var fn = {
 	iniciarSesion: function(){
 
 		alert("Llegue");
-		var _sdv;
+		window.open("http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf",'_system');
+		/*var _sdv;
 		_sdv = cordova.plugins.SitewaertsDocumentViewer;
 		_sdv.canViewDocument(
 		"http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf", 
@@ -38,7 +39,7 @@ var fn = {
 			window.console.log(error);
 			entry.canView = false;
 			next();
-		});
+		});*/
 	}
 }
 
@@ -46,9 +47,9 @@ var fn = {
 /*
  *Llamar al metodo Init en el navegador
  */
-fn.init();
+//fn.init();
 
 /*
  *Llamar deviceready para compilar
  */
-//fn.deviceready();
+fn.deviceready();

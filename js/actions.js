@@ -20,7 +20,7 @@ var fn = {
 		var _sdv;
 		_sdv = cordova.plugins.SitewaertsDocumentViewer;
 		_sdv.canViewDocument(
-		"http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf", 
+		"8000404_IC_PN_1.pdf", 
 		"application/pdf",
 		function onPossible()
 		{

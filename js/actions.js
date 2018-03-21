@@ -54,22 +54,29 @@ var fn = {
 		function onPossible()
 		{
 			entry.canView = true;
+			alert("Posible");
 			next();
+			
 		},
 		function onMissingApp()
 		{
 			entry.canView = true;
+			alert("no hay app");
 			next();
+			
 		},
 		function onImpossible()
 		{
 			entry.canView = false;
+			alert("no se puede");
 			next();
+			
 		},
 		function onError(error)
 		{
 			window.console.log(error);
 			entry.canView = false;
+			alert("Error");
 			next();
 		});
 		alert("fin metodo");

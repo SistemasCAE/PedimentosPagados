@@ -10,7 +10,7 @@ var fn = {
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	},
 	iniciarSesion: function(){
-		alert("Llegue");
+		//alert("Llegue");
 		var ref = cordova.InAppBrowser.open('http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf', '_blank', 'location=yes');
 		
 		window.open = cordova.InAppBrowser.open;

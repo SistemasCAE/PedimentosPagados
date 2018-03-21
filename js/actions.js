@@ -11,8 +11,8 @@ var fn = {
 	},
 	iniciarSesion: function(){
 		//alert("Llegue");
-		var ref = cordova.InAppBrowser.open('http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf', '_blank', 'location=yes');
-		
+		var UrlFile = 'http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf';
+		var ref = cordova.InAppBrowser.open('https://docs.google.com/viewer?url='+UrlFile+'&embedded=true', '_blank', 'location=yes');
 		window.open = cordova.InAppBrowser.open;
 		
 		//alert("fin metodo");

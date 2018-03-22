@@ -8,23 +8,32 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
-        <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="assets/css/supersized.css">
-        <link rel="stylesheet" href="assets/css/style.css">
 	</head>
 	<body>
 	
 	<!--//////////////////////////////////////////////////////////// PAGINA PRINCIPAL ////////////////////////////////////////////////////////-->
 	
-	<div id="paginaInicio" data-role="page">
-		<div data-role="header">
+	<div id="paginaInicio">
+		<div class="loginHeader">
 			<h1>Bienvenido</h1>
 		</div>
-		<div class="ui-content" id="opciones">
-		</div>
-		<div data-role="footer" data-position="fixed">
-			
+		<center>
+			<div class="loginBody" id="opciones">
+				<center>
+					<div class="datosLog">
+						<p>Log In</p>
+						<input type="text" placeholder="Usuario">
+						<input type="text" placeholder="Contraseña">
+					</div>
+					<div class="botonLog">
+						<input type="button" value="Acceder">
+					</div>
+				</center>
+			</div>
+		</center>
+		
+		<div data-role="footer" data-position="fixed" class="loginFooter">
+			<p>Copyright all rights reserved</p>
 		</div>
 	</div>
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>

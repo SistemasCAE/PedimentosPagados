@@ -37,5 +37,16 @@
 }
 
 p {
-	text-align: center;
+  font: 1em/1.5 Arial, Helvetica, sans-serif; /* short hand to set font, comfortable line-height for reading */ 
+  margin-top: 0; 
+  margin-bottom: 1.5em; /* margin-bottom same as line height */
+  /*  adjust font size for different fonts */
+  text-align: center;
+}
+@media only screen and (min-width: 32em) {
+  p {
+    line-height: 1.75em;
+    margin-bottom: 1.75em; /* match the line height */
+    /* grow the font-size with the available width, 1.5em is the maximum font size */
+  }
 }

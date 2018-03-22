@@ -1,17 +1,11 @@
-html{
-	height: 100%;
+body{
+	background-color: aqua;
 }
-
-html, body {
-	margin: 0; 
-	padding: 0;
-}
-
 .loginHeader{
 	text-align: center;
 	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-	background-color: #E9E9E9;
-	font-size: 8px;
+	background-color: antiquewhite;
+	font-size: 20px;
 	position: absolute; /*(o relative, según tu diseño)*/
 	top: 0px;
 	width: 100%;
@@ -23,38 +17,20 @@ html, body {
 }
 
 .loginBody{
-	margin-top: 20%;
-	width: 50%;
-}
-
-.datosLog{
-	text-align: center;
-	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-	width: 80%;
-	margin-top: 15%;
-}
-.datosLog p{
-	font-size: 15px;
-	text-align: center;
-	color: #575454;
-}
-
-.datosLog input{
-	font-size: 12px;
 	
-}
-
-.botonLog{
-	font-size: 12px;
-	width: 80%;
-}
-
-.botonLog input{
-	background: #84ADFF;
 }
 
 .loginFooter{
 	text-align: center;
 	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-	font-size: 8px;
+	font-size: 10px;
+	background-color: antiquewhite;
+	position: absolute;
+  	bottom: 0;
+	width: 100%;
+	height: 6%;
+	display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }

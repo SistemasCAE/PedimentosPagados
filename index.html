@@ -10,34 +10,61 @@
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
 	</head>
 	<body>
-	<section id="paginaInicio" data-role="page"  data-content-theme="a"> 
-		<!--<div class="loginHeader">
-			<h1>Bienvenido</h1>
-		</div>
-		<div class="ui-content" id="opciones">
-			
-		</div>
-		<div class="loginFooter">
-			<p>Copyrigth</p>
-		</div>-->
-		<div data-role="header" data-theme="b">
-			<h1>Bienvenido</h1>
-		</div>
-		<div data-role="content">
-			<div class="loginBody">
-				<p>Log in</p>
-				<input type="text" value="Usuario" data-icon="css/images/icons-png/user-black.png">
-				<input type="text" value="Contraseña">
-				<br>
-				<a id="botonAcceder" href="#inicioSesion" data-role="button">
-					Acceder
-				</a>
+	
+		<!---------------------------------------PAGINA DE INICIO DE SESION-------------------------------------->
+		<section id="paginaInicio" data-role="page"  data-content-theme="a">
+			<div data-role="header" data-theme="b">
+				<h1>Bienvenido</h1>
 			</div>
-		</div>
-		<div data-role="footer" data-position="fixed" data-theme="b">
-			<p>Copyrigth</p>
-		</div>
-	</section>
+			<div data-role="content">
+				<div class="loginBody">
+					<p>Log in</p>
+					<input type="text" value="Usuario">
+					<input type="text" value="Contraseña">
+					<br>
+					<button data-icon="css/images/icons-png/carat-r-black.png" data-iconpos="right" id="botonAcceder">Acceder</button>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<p>Copyrigth</p>
+			</div>
+		</section>
+		<!---------------------------------------PAGINA DE INICIO DE SESION-------------------------------------->
+		<section id="inicio" data-role="page"  data-content-theme="a" >
+			<div data-role="header" data-theme="b">
+				<h1>Consulta de Pedimentos</h1>
+				
+			</div>
+			<div data-role="content">
+				<div data-role="tabs">
+					<div data-role="navbar"  data-theme="a">
+						<ul>
+							<li>
+								<a id="" href="#noPedimento">
+									No. de Pedimento
+								</a>
+							</li>
+							<li>
+								<a id="" href="#fechaPago">
+									Fecha de Pago
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div id="noPedimento">
+						<p>Pedimento</p>
+					</div>
+					<div id="fechaPago">
+						<p>fecha de pago</p>
+					</div>	
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<p>Copyrigth</p>
+			</div>
+		</section>
+		
+		
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 		<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>

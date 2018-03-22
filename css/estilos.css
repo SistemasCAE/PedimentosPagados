@@ -10,8 +10,8 @@ html, body {
 .loginHeader{
 	text-align: center;
 	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-	background-color: #C9C9C9;
-	font-size: 15px;
+	background-color: #E9E9E9;
+	font-size: 8px;
 	position: absolute; /*(o relative, según tu diseño)*/
 	top: 0px;
 	width: 100%;
@@ -34,26 +34,28 @@ html, body {
 	margin-top: 15%;
 }
 .datosLog p{
-	font-size: 30px;
+	font-size: 15px;
 	text-align: center;
+	background: #CBD6F0;
+	color: #575454;
 }
 
 .datosLog input{
-	font-size: 15px;
+	font-size: 12px;
 	
 }
 
 .botonLog{
-	font-size: 15px;
+	font-size: 12px;
 	width: 80%;
 }
 
 .botonLog input{
-	background: #005DAA;
+	background: #84ADFF;
 }
 
 .loginFooter{
 	text-align: center;
 	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-	font-size: 15px;
+	font-size: 8px;
 }

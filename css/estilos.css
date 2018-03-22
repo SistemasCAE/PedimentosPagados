@@ -30,7 +30,7 @@ html, body {
 .datosLog{
 	text-align: center;
 	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-	width: 40%;
+	width: 80%;
 	margin-top: 15%;
 }
 .datosLog p{
@@ -45,7 +45,7 @@ html, body {
 
 .botonLog{
 	font-size: 15px;
-	width: 40%;
+	width: 80%;
 }
 
 .botonLog input{

@@ -14,7 +14,11 @@
 }
 
 .loginBody{
-	
+	margin-top: 10%;
+	display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }
 
 .loginFooter{
@@ -30,4 +34,8 @@
     justify-content: center;
     align-content: center;
     flex-direction: column;
+}
+
+p {
+	text-align: center;
 }

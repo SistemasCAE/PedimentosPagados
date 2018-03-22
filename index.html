@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
 	</head>
 	<body>
-	<section id="paginaInicio" data-role="page" data-theme="b" data-content-theme="a"> 
+	<section id="paginaInicio" data-role="page"  data-content-theme="a"> 
 		<!--<div class="loginHeader">
 			<h1>Bienvenido</h1>
 		</div>
@@ -20,30 +20,22 @@
 		<div class="loginFooter">
 			<p>Copyrigth</p>
 		</div>-->
-		<div data-role="header">
+		<div data-role="header" data-theme="b">
 			<h1>Bienvenido</h1>
 		</div>
-		<div data-role="content" id="opciones">
-			<div data-role="navbar">
-				<ul>
-					<li>
-						<a id="botonAcceder" href="#inicioSesion" class="ui-btn-active">
-							Acceder
-						</a>
-					</li>
-				</ul>
+		<div data-role="content">
+			<div class="loginBody">
+				<p>Log in</p>
+				<input type="text" value="Usuario">
+				<input type="text" value="Contraseña">
 				<br>
-				<ul>
-					<li>
-						<a id="botonRegistrar" href="#" class="ui-btn-active">
-							Registrate
-						</a>
-					</li>
-				</ul>
+				<a id="botonAcceder" href="#inicioSesion" data-role="button">
+					Acceder
+				</a>
 			</div>
 		</div>
 		</div>
-		<div data-role="footer" data-position="fixed">
+		<div data-role="footer" data-position="fixed" data-theme="b">
 			<p>Copyrigth</p>
 		</div>
 	</section>

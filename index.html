@@ -40,7 +40,7 @@
 			</div>
 		</section>
 		<!---------------------------------------PAGINA DE INICIO DE SESION-------------------------------------->
-		<section id="inicio" data-role="page" data-content-theme="a">
+		<section id="inicio" data-role="page" data-content-theme="a" data-fullscreen="true">
 			<div data-role="header" data-theme="b">
 				<a href="#paginaInicio" data-role="button" data-icon="delete">Cerrar</a>
 				<h1>Consulta de Pedimentos</h1>
@@ -50,12 +50,12 @@
 					<div data-role="navbar"  data-theme="a">
 						<ul>
 							<li>
-								<a id="" href="#noPedimento">
+								<a id="" href="#contenido1">
 									No. de Pedimento
 								</a>
 							</li>
 							<li>
-								<a id="" href="#fechaPago">
+								<a id="" href="#contenido2">
 									Fecha de Pago
 								</a>
 							</li>
@@ -63,7 +63,7 @@
 					</div>
 					<br><br>
 					<center>
-						<div id="divContenido1">
+						<div id="contenido1">
 							<strong><span id="aduanaNp"></span></strong>
 							<br><br>
 							<p>Pedimento</p>
@@ -72,7 +72,7 @@
 							<button id="botonConsultarPedimento">Consultar</button>
 						</div>
 					</center>
-					<div id="divContenido2">
+					<div id="contenido2">
 						<center>
 							<strong><span id="aduanaFp"></span></strong>
 							<br><br>
@@ -82,7 +82,7 @@
 							<input type="date" data-role="date" id="fechaFin" class="hasDatepicker">
 							<br>
 							<fieldset>
-								<select name="operacion" id="operacion">
+								<select name="combo" id="combo">
 									<option value="imp/exp">IMP / EXP</option>
 									<option value="imp">IMPORTACION</option>
 									<option value="exp">EXPORTACION</option>

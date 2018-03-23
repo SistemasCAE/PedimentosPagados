@@ -22,6 +22,16 @@
 					<input type="text" value="Usuario">
 					<input type="text" value="Contraseña">
 					<br>
+					<center>
+						<fieldset data-role="controlgroup" data-type="horizontal">
+							<legend for="select1">Aduana:</legend>
+							<select name="aduana" id="aduana">
+								<option value="puebla">Puebla</option>
+								<option value="aicm">AICM</option>
+							</select>
+						</fieldset>
+					</center>
+					<br>
 					<button data-icon="css/images/icons-png/carat-r-black.png" data-iconpos="right" id="botonAcceder">Acceder</button>
 				</div>
 			</div>
@@ -52,10 +62,16 @@
 						</ul>
 					</div>
 					<div id="noPedimento">
+						<spam id="aduanaNp"></spam>
+						<br>
 						<p>Pedimento</p>
+						<input type="text" id="noPedimento">
+						<br>
+						<button id="botonConsultarPedimento">Consultar</button>
 					</div>
 					<div id="fechaPago">
-						<p>fecha de pago</p>
+						<spam id="aduanaFp"></spam>
+						<br>
 					</div>	
 				</div>
 			</div>

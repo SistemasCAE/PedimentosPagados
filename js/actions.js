@@ -14,13 +14,13 @@ var fn = {
 		var aduana = $("#aduana").val();
 		if(aduana=='puebla')
 		{
-			aduana = $("#aduanaNp").val('Aduana: Puebla');
-			aduana = $("#aduanaFp").val('Aduana: Puebla');
+			$("#aduanaNp").text('Aduana: Puebla');
+			$("#aduanaFp").text('Aduana: Puebla');
 		}
 		else
 		{
-			aduana = $("#aduanaNp").val('Aduana: AICM');
-			aduana = $("#aduanaFp").val('Aduana: AICM');
+			$("#aduanaNp").text('Aduana: AICM');
+			$("#aduanaFp").text('Aduana: AICM');
 		}
 		/*var UrlFile = 'http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf';
 		var ref = cordova.InAppBrowser.open('https://docs.google.com/viewer?url='+UrlFile+'&embedded=true', '_blank', 'location=yes');
@@ -30,9 +30,9 @@ var fn = {
 /*
  *Llamar al metodo Init en el navegador
  */
-//fn.init();
+fn.init();
 
 /*
  *Llamar deviceready para compilar
  */
-fn.deviceready();
+//fn.deviceready();

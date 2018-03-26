@@ -12,6 +12,7 @@ var fn = {
 	  $("#botonConsultarFecha").tap(fn.consultaFechaPago);
 	  $("#linkConsultaNoPedimento").tap(fn.divPorPedimento);
 	  $("#linkConsultaFechaPago").tap(fn.divPorFechaPago);
+	  $("#cierraSesion").tap(fn.cierraSesion);
 	  
 	},
 	iniciarSesion: function(){
@@ -31,6 +32,14 @@ var fn = {
 		var ref = cordova.InAppBrowser.open('https://docs.google.com/viewer?url='+UrlFile+'&embedded=true', '_blank', 'location=yes');
 		window.open = cordova.InAppBrowser.open;*/
 	},
+	
+	cierraSesion: function(){
+		//window.localStorage.removeItem("nombreUsuario");
+		//$("#usuarioSesion").val("");
+		//$("#passwordSesion").val(""); 
+		window.location.href = "#inicioSesion";
+	},
+	
 	consultaPedimento: function(){
 		$('#resultado').html('');
 		$('#resultado').html('Resultado Consulta Pedimento');
@@ -45,7 +54,6 @@ var fn = {
 	divPorFechaPago: function(){
 		$('#resultado').html('');
 	}
-	
 }
 /*
  *Llamar al metodo Init en el navegador

@@ -50,3 +50,6 @@ p {
     /* grow the font-size with the available width, 1.5em is the maximum font size */
   }
 }
+#resultado{
+	text-align: center;
+}

@@ -49,9 +49,15 @@ var fn = {
 		$('#resultado').html('Resultado Consulta Fecha Pago');
 	},
 	divPorPedimento: function(){
+		$('#noPedimento').val('')
+		$('#fechaInicio').val('');
+		$('#fechaFin').val('');
 		$('#resultado').html('');
 	},
 	divPorFechaPago: function(){
+		$('#noPedimento').val('')
+		$('#fechaInicio').val('');
+		$('#fechaFin').val('');
 		$('#resultado').html('');
 	}
 }

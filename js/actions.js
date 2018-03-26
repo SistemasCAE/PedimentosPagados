@@ -37,7 +37,7 @@ var fn = {
 		//window.localStorage.removeItem("nombreUsuario");
 		//$("#usuarioSesion").val("");
 		//$("#passwordSesion").val(""); 
-		window.location.href = "#inicioSesion";
+		window.location.href = "#paginaInicio";
 	},
 	
 	consultaPedimento: function(){

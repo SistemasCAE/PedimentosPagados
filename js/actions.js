@@ -8,6 +8,11 @@ var fn = {
 	 * todos los eventos del "Click" al HTML
 	 */
 	  $("#botonAcceder").tap(fn.iniciarSesion);
+   	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
+	  $("#botonConsultarFecha").tap(fn.consultaFechaPago);
+	  $("#linkConsultaNoPedimento").tap(fn.divPorPedimento);
+	  $("#linkConsultaFechaPago").tap(fn.divPorFechaPago);
+	  
 	},
 	iniciarSesion: function(){
 		window.location.href="#inicio";
@@ -25,7 +30,22 @@ var fn = {
 		/*var UrlFile = 'http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf';
 		var ref = cordova.InAppBrowser.open('https://docs.google.com/viewer?url='+UrlFile+'&embedded=true', '_blank', 'location=yes');
 		window.open = cordova.InAppBrowser.open;*/
+	},
+	consultaPedimento: function(){
+		$('#resultado').html('');
+		$('#resultado').html('Resultado Consulta Pedimento');
+	},
+	consultaFechaPago: function(){
+		$('#resultado').html('');
+		$('#resultado').html('Resultado Consulta Fecha Pago');
+	},
+	divPorPedimento: function(){
+		$('#resultado').html('');
+	},
+	divPorFechaPago: function(){
+		$('#resultado').html('');
 	}
+	
 }
 /*
  *Llamar al metodo Init en el navegador

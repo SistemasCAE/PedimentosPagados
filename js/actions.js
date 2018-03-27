@@ -36,16 +36,60 @@ var fn = {
 	cierraSesion: function(){
 		//window.localStorage.removeItem("nombreUsuario");
 		//$("#usuarioSesion").val("");
-		//$("#passwordSesion").val(""); 
+		//$("#passwordSesion").val("");
 		window.location.href = "#paginaInicio";
 	},
 	
 	consultaPedimento: function(){
+		var noPedimento= $("#noPedimento").val();
+		try{
+			if(noPedimento == ""){
+				throw new Error("No ha indicado el pedimento");
+			}
+		}catch(error){
+			window.plugins.toast.show(error, 'short', 'center');
+		}
 		$('#resultado').html('');
-		$('#resultado').html('Resultado Consulta Pedimento');
+		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
+		$.ajax({
+				method: "GET",
+				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento.php",
+				data: { 
+					opcion: 1,
+					noPedimento: noPedimento
+				}
+			}).done(function(mensaje){
+				//alert("Datos enviados");
+				if(mensaje != "0"){
+					$('#resultado').html(mensaje);
+				}else{
+					window.plugins.toast.show("Error", 'long', 'center');
+				}
+
+			}).fail(function(error){
+				alert(error.status);
+				alert(error.message);
+				alert(error.responseText);
+			});
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	},
 	consultaFechaPago: function(){
+		var fechaInicio= $("#fechaInicio").val();
+		var fechaFin= $("#fechaFin").val();
+		try{
+			if(fechaInicio == ""){
+				throw new Error("No ha indicado Fecha Inicio");
+			}
+			if(fechaFin == ""){
+				throw new Error("No ha indicado Fecha Final");
+			}
+		}catch(error){
+			window.plugins.toast.show(error, 'short', 'center');
+		}
 		$('#resultado').html('');
+		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
+		
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		$('#resultado').html('Resultado Consulta Fecha Pago');
 	},
 	divPorPedimento: function(){

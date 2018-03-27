@@ -53,3 +53,26 @@ h1 {
 #resultado{
 	text-align: center;
 }
+
+@media (min-width: 360px) {
+  body {
+    font-size: 1.0em;
+  }
+}
+
+@media (min-width: 500px) {
+  .seven-day-fc .temp-low,
+  .seven-day-fc .temp-high {
+    display: inline-block;
+    width: 45%;
+  }
+
+  .seven-day-fc .seven-day-temp {
+    margin-left: 5%;
+  }
+
+  .seven-day-fc .icon {
+    width: 64px;
+    height: 64px;
+  }
+}

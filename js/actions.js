@@ -60,8 +60,10 @@ var fn = {
 					noPedimento: noPedimento
 				}
 			}).done(function(mensaje){
-				//alert("Datos enviados");
+				alert("Datos enviados");
 				if(mensaje !== "0"){
+					alert(mensaje);
+					alert(mensaje[0][0]);
 					$('#resultado').html(mensaje[1][0]);
 				}else{
 					window.plugins.toast.show("Error", 'long', 'center');

@@ -50,7 +50,6 @@ var fn = {
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
 		}
-		$('#resultado').html('');
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$.ajax({
 				type: "GET",
@@ -59,20 +58,14 @@ var fn = {
 					opcion: 1,
 					noPedimento: noPedimento
 				},
-				dataType: "json",
+				dataType: "json"
 			}).done(function(data, textStatus, jqXHR){
-				alert("Datos Enviados");
-				alert(data);
-				alert(data[0][0]);
-				alert(data[0][1]);
-				/*alert("Datos enviados");
-				if(mensaje !== "0"){
-					alert(mensaje);
-					alert(mensaje[0].Ruta);
-					$('#resultado').html(mensaje[0].Archivo);
-				}else{
-					window.plugins.toast.show("Error", 'long', 'center');
-				}*/
+				$('#resultado').html('');
+				for(var x=0; x<data.length; x++)
+				{
+					$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
+				}
+					
 
 			}).fail(function(error){
 				alert(error.status);
@@ -82,8 +75,12 @@ var fn = {
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	},
 	
-	abrePDF : function(ruta_completa){
-		alert("llegue" + ruta_completa);
+	abrePDF : function(archivo,ruta){
+		var vector = ruta.split("/");
+		var nuevaRuta = vector[5]+"/"+vector[6]+"/"+vector[7]+"/"+vector[8]+"/"+vector[9]+"/"+archivo;
+		var UrlFile = 'http://enlinea.cae3076.com/Portal_CAE/'+nuevaRuta;
+		var ref = cordova.InAppBrowser.open('https://docs.google.com/viewer?url='+UrlFile+'&embedded=true', '_blank', 'location=yes');
+		window.open = cordova.InAppBrowser.open;
 	},
 	
 	consultaFechaPago: function(){

@@ -63,8 +63,8 @@ var fn = {
 				alert("Datos enviados");
 				if(mensaje !== "0"){
 					alert(mensaje);
-					alert(mensaje[0][0]);
-					$('#resultado').html(mensaje[1]);
+					alert(mensaje.Ruta);
+					$('#resultado').html(mensaje.Archivo);
 				}else{
 					window.plugins.toast.show("Error", 'long', 'center');
 				}

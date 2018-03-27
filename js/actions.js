@@ -41,6 +41,7 @@ var fn = {
 	},
 	
 	consultaPedimento: function(){
+		$('#resultado').html("Cargando...");
 		var noPedimento= $("#noPedimento").val();
 		try{
 			if(noPedimento == ""){
@@ -73,6 +74,11 @@ var fn = {
 			});
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	},
+	
+	abrePDF : function(){
+		alert("llegue");
+	},
+	
 	consultaFechaPago: function(){
 		var fechaInicio= $("#fechaInicio").val();
 		var fechaFin= $("#fechaFin").val();

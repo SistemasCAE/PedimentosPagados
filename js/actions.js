@@ -62,15 +62,7 @@ var fn = {
 			}).done(function(mensaje){
 				//alert("Datos enviados");
 				if(mensaje != "0"){
-					//$('#resultado').html(mensaje[0][0]);
-					$.getJSON(mensaje, function(data) {
-                  		alert("recibi jason");
-						alert(data);
-						alert([0][0]);
-               		});
-					
-					
-					
+					$('#resultado').html(mensaje.data[0][0]);
 				}else{
 					window.plugins.toast.show("Error", 'long', 'center');
 				}

@@ -52,17 +52,9 @@ var fn = {
 		}
 		$('#resultado').html('');
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
-		$http({
-			method: 'GET',
-			url: "http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento.php?opcion="+1+"&noPedimento="+noPedimento
-	   	}).then(function (success){
-			alert(success.data[0][0]);
-	   	},function (error){
-
-		});
-		/*$.ajax({
+		$.ajax({
 				method: "GET",
-				url: "",
+				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento.php",
 				data: { 
 					opcion: 1,
 					noPedimento: noPedimento
@@ -70,7 +62,7 @@ var fn = {
 			}).done(function(mensaje){
 				//alert("Datos enviados");
 				if(mensaje != "0"){
-					$('#resultado').html(mensaje.data[0][0]);
+					$('#resultado').html(mensaje.data[1][0]);
 				}else{
 					window.plugins.toast.show("Error", 'long', 'center');
 				}
@@ -79,7 +71,7 @@ var fn = {
 				alert(error.status);
 				alert(error.message);
 				alert(error.responseText);
-			});*/
+			});
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	},
 	

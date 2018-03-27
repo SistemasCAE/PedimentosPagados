@@ -63,7 +63,8 @@ var fn = {
 			}).done(function(data, textStatus, jqXHR){
 				alert("Datos Enviados");
 				alert(data);
-				
+				alert(data[0][0]);
+				alert(data[0][1]);
 				/*alert("Datos enviados");
 				if(mensaje !== "0"){
 					alert(mensaje);

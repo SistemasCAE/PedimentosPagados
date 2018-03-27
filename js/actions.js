@@ -62,7 +62,7 @@ var fn = {
 			}).done(function(mensaje){
 				//alert("Datos enviados");
 				if(mensaje != "0"){
-					$('#resultado').html(mensaje);
+					$('#resultado').html(mensaje[0][0]);
 				}else{
 					window.plugins.toast.show("Error", 'long', 'center');
 				}

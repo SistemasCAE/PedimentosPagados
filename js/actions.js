@@ -64,7 +64,7 @@ var fn = {
 				if(mensaje !== "0"){
 					alert(mensaje);
 					alert(mensaje[0][0]);
-					$('#resultado').html(mensaje[1][0]);
+					$('#resultado').html(mensaje[1]);
 				}else{
 					window.plugins.toast.show("Error", 'long', 'center');
 				}

@@ -54,7 +54,7 @@ var fn = {
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$http({
 			method: 'GET',
-			url: "http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento.php?opcion="+1+&"noPedimento="+noPedimento
+			url: "http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento.php?opcion="+1+"&noPedimento="+noPedimento
 	   	}).then(function (success){
 			alert(success.data[0][0]);
 	   	},function (error){

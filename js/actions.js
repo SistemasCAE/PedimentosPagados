@@ -53,21 +53,25 @@ var fn = {
 		$('#resultado').html('');
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$.ajax({
-				method: "GET",
+				type: "GET",
 				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento.php",
 				data: { 
 					opcion: 1,
 					noPedimento: noPedimento
-				}
-			}).done(function(mensaje){
-				alert("Datos enviados");
+				},
+				dataType: "json",
+			}).done(function(data, textStatus, jqXHR){
+				alert("Datos Enviados");
+				alert(data);
+				
+				/*alert("Datos enviados");
 				if(mensaje !== "0"){
 					alert(mensaje);
 					alert(mensaje[0].Ruta);
 					$('#resultado').html(mensaje[0].Archivo);
 				}else{
 					window.plugins.toast.show("Error", 'long', 'center');
-				}
+				}*/
 
 			}).fail(function(error){
 				alert(error.status);

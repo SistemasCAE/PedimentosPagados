@@ -44,7 +44,7 @@ var fn = {
 		$('#resultado').html("Cargando...");
 		var noPedimento= $("#noPedimento").val();
 		try{
-			if(noPedimento == ""){
+			if(noPedimento === ""){
 				throw new Error("No ha indicado el pedimento");
 			}
 		}catch(error){
@@ -61,8 +61,8 @@ var fn = {
 				}
 			}).done(function(mensaje){
 				//alert("Datos enviados");
-				if(mensaje != "0"){
-					$('#resultado').html(mensaje[0][1]);
+				if(mensaje !== "0"){
+					$('#resultado').html(mensaje[1][0]);
 				}else{
 					window.plugins.toast.show("Error", 'long', 'center');
 				}

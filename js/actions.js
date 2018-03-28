@@ -28,8 +28,7 @@ var fn = {
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
 			return;
-		}
-		
+		}		
 		var aduana = $("#aduana").val();
 		if(aduana=='puebla')
 		{
@@ -46,9 +45,9 @@ var fn = {
 	},
 	enviaSesion: function(archivoSesion,usuario,password){
 	console.log("http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion);
-		if(networkInfo.estaConectado() == false){
+		/*if(networkInfo.estaConectado() == false){
 			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
-		}else{
+		}else{*/
 			$.ajax({
 				method: "POST",
 				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion,
@@ -57,7 +56,6 @@ var fn = {
 					pass: password
 				}
 			}).done(function(mensaje){
-				//alert("Datos enviados");
 				if(mensaje != "0"){
 					window.localStorage.setItem("nombreUsuario", usuario);
 					window.location.href="#inicio";
@@ -67,7 +65,7 @@ var fn = {
 			}).fail(function(error){
 				alert("hubo error");
 			});
-		}
+		//}
 	},
 	
 	cierraSesion: function(){

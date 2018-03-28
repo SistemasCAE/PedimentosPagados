@@ -21,12 +21,15 @@ var fn = {
 		try{
 			if(usuario === ""){
 				throw new Error("No ha indicado el usuario");
+				return;
 			}
 			if(password === ""){
 				throw new Error("No ha indicado la contraseña");
+				return;
 			}
 		}catch(error){
-			window.plugins.toast.show(error, 'short', 'center');
+			//window.plugins.toast.show(error, 'short', 'center');
+			console.log(error);
 			return;
 		}		
 		var aduana = $("#aduana").val();
@@ -40,7 +43,7 @@ var fn = {
 		{
 			$("#aduanaNp").text('Aduana: AICM');
 			$("#aduanaFp").text('Aduana: AICM');
-			fn.enviaSesion("compruebaSesion47.php")
+			fn.enviaSesion("compruebaSesion47.php",usuario,password)
 		}
 	},
 	enviaSesion: function(archivoSesion,usuario,password){
@@ -69,9 +72,9 @@ var fn = {
 	},
 	
 	cierraSesion: function(){
-		//window.localStorage.removeItem("nombreUsuario");
-		//$("#usuarioSesion").val("");
-		//$("#passwordSesion").val("");
+		window.localStorage.removeItem("nombreUsuario");
+		$("#uduario").val("");
+		$("#password").val("");
 		window.location.href = "#paginaInicio";
 	},
 	

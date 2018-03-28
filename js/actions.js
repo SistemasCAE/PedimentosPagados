@@ -7,30 +7,73 @@ var fn = {
 	 * En esta sección vamos a asociar
 	 * todos los eventos del "Click" al HTML
 	 */
+	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
 	  $("#botonConsultarFecha").tap(fn.consultaFechaPago);
 	  $("#linkConsultaNoPedimento").tap(fn.divPorPedimento);
 	  $("#linkConsultaFechaPago").tap(fn.divPorFechaPago);
 	  $("#cierraSesion").tap(fn.cierraSesion);
-	  
 	},
 	iniciarSesion: function(){
-		window.location.href="#inicio";
+		var usuario = $("#usuario").val();
+		var password = $("#password").val();
+		try{
+			if(usuario === ""){
+				throw new Error("No ha indicado el usuario");
+			}
+			if(password === ""){
+				throw new Error("No ha indicado la contraseña");
+			}
+		}catch(error){
+			window.plugins.toast.show(error, 'short', 'center');
+			return;
+		}
+		
 		var aduana = $("#aduana").val();
 		if(aduana=='puebla')
 		{
 			$("#aduanaNp").text('Aduana: Puebla');
 			$("#aduanaFp").text('Aduana: Puebla');
+			fn.enviaSesion("compruebaSesion.php",usuario,password);
 		}
 		else
 		{
 			$("#aduanaNp").text('Aduana: AICM');
 			$("#aduanaFp").text('Aduana: AICM');
+			fn.enviaSesion("compruebaSesion47.php")
 		}
-		/*var UrlFile = 'http://enlinea.cae3076.com/Portal_CAE/PDFS/2017/AAM9712016M2/20171127/3076-75-7066204/7066204-PC.pdf';
-		var ref = cordova.InAppBrowser.open('https://docs.google.com/viewer?url='+UrlFile+'&embedded=true', '_blank', 'location=yes');
-		window.open = cordova.InAppBrowser.open;*/
+	},
+	enviaSesion: function(archivoSesion,usuario,password,usuario,password){
+		if(networkInfo.estaConectado() == false){
+			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
+		}else{
+			$.ajax({
+				method: "POST",
+				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion,
+				data: { 
+					usu: usuario,
+					pass: password
+				}
+			}).done(function(mensaje){
+				//alert("Datos enviados");
+				if(mensaje != "0"){
+					window.localStorage.setItem("nombreUsuario", usuario);
+					window.location.href="#inicio";
+				}else{
+					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
+				}
+
+
+				//alert(mensaje);
+				//fn.sleep(3000);
+				//bcs.abrirCamara().delay( 3000 );
+			}).fail(function(error){
+				alert(error.status);
+				alert(error.message);
+				alert(error.responseText);
+			});
+		}
 	},
 	
 	cierraSesion: function(){
@@ -38,6 +81,12 @@ var fn = {
 		//$("#usuarioSesion").val("");
 		//$("#passwordSesion").val("");
 		window.location.href = "#paginaInicio";
+	},
+	
+	compruebaSesion: function(){
+		if(window.localStorage.getItem("nombreUsuario") != null){
+			window.location.href="#inicio";
+		}
 	},
 	
 	consultaPedimento: function(){
@@ -49,6 +98,7 @@ var fn = {
 			}
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
+			return;
 		}
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$.ajax({
@@ -65,8 +115,6 @@ var fn = {
 				{
 					$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
 				}
-					
-
 			}).fail(function(error){
 				alert(error.status);
 				alert(error.message);

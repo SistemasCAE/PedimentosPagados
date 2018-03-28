@@ -28,7 +28,7 @@ var fn = {
 				return;
 			}
 		}catch(error){
-			//window.plugins.toast.show(error, 'short', 'center');
+			window.plugins.toast.show(error, 'short', 'center');
 			console.log(error);
 			return;
 		}		
@@ -47,10 +47,10 @@ var fn = {
 		}
 	},
 	enviaSesion: function(archivoSesion,usuario,password){
-	console.log("http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion);
-		/*if(networkInfo.estaConectado() == false){
+	//console.log("http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion);
+		if(networkInfo.estaConectado() == false){
 			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
-		}else{*/
+		}else{
 			$.ajax({
 				method: "POST",
 				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion,
@@ -68,12 +68,12 @@ var fn = {
 			}).fail(function(error){
 				alert("hubo error");
 			});
-		//}
+		}
 	},
 	
 	cierraSesion: function(){
 		window.localStorage.removeItem("nombreUsuario");
-		$("#uduario").val("");
+		$("#usuario").val("");
 		$("#password").val("");
 		window.location.href = "#paginaInicio";
 	},

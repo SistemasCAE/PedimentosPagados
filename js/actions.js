@@ -50,9 +50,9 @@ var fn = {
 	},
 	enviaSesion: function(archivoSesion,usuario,password){
 	console.log("http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion);
-		if(networkInfo.estaConectado() == false){
+		/*if(networkInfo.estaConectado() == false){
 			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
-		}else{
+		}else{*/
 			$.ajax({
 				method: "POST",
 				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion,
@@ -70,7 +70,7 @@ var fn = {
 			}).fail(function(error){
 				alert("hubo error");
 			});
-		}
+		//}
 	},
 	
 	cierraSesion: function(){
@@ -93,6 +93,7 @@ var fn = {
 					$("#aduanaNp").text('Aduana: AICM');
 					$("#aduanaFp").text('Aduana: AICM');
 				}
+				
 				window.location.href="#inicio";
 			}
 		}

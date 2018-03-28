@@ -44,7 +44,8 @@ var fn = {
 			fn.enviaSesion("compruebaSesion47.php")
 		}
 	},
-	enviaSesion: function(archivoSesion,usuario,password,usuario,password){
+	enviaSesion: function(archivoSesion,usuario,password){
+	console.log("http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion);
 		if(networkInfo.estaConectado() == false){
 			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
 		}else{
@@ -63,15 +64,8 @@ var fn = {
 				}else{
 					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
 				}
-
-
-				//alert(mensaje);
-				//fn.sleep(3000);
-				//bcs.abrirCamara().delay( 3000 );
 			}).fail(function(error){
-				alert(error.status);
-				alert(error.message);
-				alert(error.responseText);
+				alert("hubo error");
 			});
 		}
 	},

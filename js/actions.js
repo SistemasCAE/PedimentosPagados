@@ -37,17 +37,19 @@ var fn = {
 		{
 			$("#aduanaNp").text('Aduana: Puebla');
 			$("#aduanaFp").text('Aduana: Puebla');
+			window.localStorage.setItem("aduana", aduana);
 			fn.enviaSesion("compruebaSesion.php",usuario,password);
 		}
 		else
 		{
 			$("#aduanaNp").text('Aduana: AICM');
 			$("#aduanaFp").text('Aduana: AICM');
+			window.localStorage.setItem("aduana", aduana);
 			fn.enviaSesion("compruebaSesion47.php",usuario,password)
 		}
 	},
 	enviaSesion: function(archivoSesion,usuario,password){
-	//console.log("http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion);
+	console.log("http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion);
 		if(networkInfo.estaConectado() == false){
 			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
 		}else{
@@ -80,7 +82,19 @@ var fn = {
 	
 	compruebaSesion: function(){
 		if(window.localStorage.getItem("nombreUsuario") != null){
-			window.location.href="#inicio";
+			if(window.localStorage.getItem("aduana") != null){
+				if(window.localStorage.getItem("aduana")=='puebla')
+				{
+					$("#aduanaNp").text('Aduana: Puebla');
+					$("#aduanaFp").text('Aduana: Puebla');
+				}
+				else
+				{
+					$("#aduanaNp").text('Aduana: AICM');
+					$("#aduanaFp").text('Aduana: AICM');
+				}
+				window.location.href="#inicio";
+			}
 		}
 	},
 	
@@ -95,10 +109,19 @@ var fn = {
 			window.plugins.toast.show(error, 'short', 'center');
 			return;
 		}
+		
+		if(window.localStorage.getItem("aduana")=='puebla')
+		{
+			var archivoConsulta = 'buscaPedimento.php';
+		}
+		else{
+			var archivoConsulta = 'buscaPedimento47.php';
+		}
+		
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$.ajax({
 				type: "GET",
-				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento.php",
+				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoConsulta,
 				data: { 
 					opcion: 1,
 					noPedimento: noPedimento

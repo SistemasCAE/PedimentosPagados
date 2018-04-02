@@ -14,6 +14,7 @@ var fn = {
 	  $("#linkConsultaNoPedimento").tap(fn.divPorPedimento);
 	  $("#linkConsultaFechaPago").tap(fn.divPorFechaPago);
 	  $("#cierraSesion").tap(fn.cierraSesion);
+	  
 	},
 	iniciarSesion: function(){
 		var usuario = $("#usuario").val();
@@ -75,6 +76,10 @@ var fn = {
 	
 	cierraSesion: function(){
 		window.localStorage.removeItem("nombreUsuario");
+		$('#noPedimento').val('')
+		$('#fechaInicio').val('');
+		$('#fechaFin').val('');
+		$('#resultado').html('');
 		$("#usuario").val("");
 		$("#password").val("");
 		window.location.href = "#paginaInicio";
@@ -130,10 +135,17 @@ var fn = {
 				dataType: "json"
 			}).done(function(data, textStatus, jqXHR){
 				$('#resultado').html('');
-				for(var x=0; x<data.length; x++)
+				if(data[0].Archivo=='nada')
 				{
-					$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
+					$('#resultado').html('No se encontraron registros');
 				}
+				else{
+					for(var x=0; x<data.length; x++)
+					{
+						$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
+					}
+				}
+				
 			}).fail(function(error){
 				alert(error.status);
 				alert(error.message);
@@ -163,11 +175,37 @@ var fn = {
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
 		}
-		$('#resultado').html('');
+		//$('#resultado').html('');
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
-		
+		$.ajax({
+				type: "GET",
+				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoConsulta,
+				data: { 
+					opcion: 2,
+					fechaInicio: fechaInicio,
+					fechaFin: fechaFin
+				},
+				dataType: "json"
+			}).done(function(data, textStatus, jqXHR){
+				$('#resultado').html('');
+				if(data[0].Archivo=='nada')
+				{
+					$('#resultado').html('No se encontraron registros');
+				}
+				else{
+					for(var x=0; x<data.length; x++)
+					{
+						$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
+					}
+				}
+				
+			}).fail(function(error){
+				alert(error.status);
+				alert(error.message);
+				alert(error.responseText);
+			});
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		$('#resultado').html('Resultado Consulta Fecha Pago');
+		//$('#resultado').html('Resultado Consulta Fecha Pago');
 	},
 	divPorPedimento: function(){
 		$('#noPedimento').val('')

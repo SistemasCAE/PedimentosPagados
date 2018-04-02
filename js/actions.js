@@ -168,6 +168,7 @@ var fn = {
 		$('#resultado').html("Cargando...");
 		var empresa_rfc = window.localStorage.getItem("nombreUsuario");
 		var fechaInicio= $("#fechaInicio").val();
+		var operacion= $("#combo").val();
 		var fechaFin= $("#fechaFin").val();
 		
 		if(window.localStorage.getItem("aduana")=='puebla')
@@ -197,7 +198,8 @@ var fn = {
 					opcion: 2,
 					fechaInicio: fechaInicio,
 					fechaFin: fechaFin,
-					rfc : empresa_rfc
+					rfc : empresa_rfc,
+					operacion : operacion
 				},
 				dataType: "json"
 			}).done(function(data, textStatus, jqXHR){

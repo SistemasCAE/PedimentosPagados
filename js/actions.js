@@ -106,6 +106,7 @@ var fn = {
 	
 	consultaPedimento: function(){
 		$('#resultado').html("Cargando...");
+		var empresa_rfc = window.localStorage.getItem("nombreUsuario");
 		var noPedimento= $("#noPedimento").val();
 		try{
 			if(noPedimento === ""){
@@ -130,7 +131,8 @@ var fn = {
 				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoConsulta,
 				data: { 
 					opcion: 1,
-					noPedimento: noPedimento
+					noPedimento: noPedimento,
+					rfc : empresa_rfc
 				},
 				dataType: "json"
 			}).done(function(data, textStatus, jqXHR){
@@ -163,8 +165,19 @@ var fn = {
 	},
 	
 	consultaFechaPago: function(){
+		$('#resultado').html("Cargando...");
+		var empresa_rfc = window.localStorage.getItem("nombreUsuario");
 		var fechaInicio= $("#fechaInicio").val();
 		var fechaFin= $("#fechaFin").val();
+		
+		if(window.localStorage.getItem("aduana")=='puebla')
+		{
+			var archivoConsulta = 'buscaPedimento.php';
+		}
+		else{
+			var archivoConsulta = 'buscaPedimento47.php';
+		}
+		
 		try{
 			if(fechaInicio == ""){
 				throw new Error("No ha indicado Fecha Inicio");
@@ -183,7 +196,8 @@ var fn = {
 				data: { 
 					opcion: 2,
 					fechaInicio: fechaInicio,
-					fechaFin: fechaFin
+					fechaFin: fechaFin,
+					rfc : empresa_rfc
 				},
 				dataType: "json"
 			}).done(function(data, textStatus, jqXHR){
@@ -198,11 +212,8 @@ var fn = {
 						$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
 					}
 				}
-				
 			}).fail(function(error){
-				alert(error.status);
-				alert(error.message);
-				alert(error.responseText);
+				alert("Error");
 			});
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//$('#resultado').html('Resultado Consulta Fecha Pago');

@@ -205,6 +205,7 @@ var fn = {
 			}).done(function(data, textStatus, jqXHR){
 				$('#resultado').html('');
 				//alert(data[0].Pedimento);
+				console.log(data);
 				if(data[0].Pedimento=='nada')
 				{
 					$('#resultado').html('No se encontraron registros');
@@ -239,6 +240,7 @@ var fn = {
 				}
 			}).fail(function(error){
 				alert("Error");
+				console.log(error.responseText);
 			});
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//$('#resultado').html('Resultado Consulta Fecha Pago');

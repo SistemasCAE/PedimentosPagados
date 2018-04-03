@@ -204,14 +204,16 @@ var fn = {
 				dataType: "json"
 			}).done(function(data, textStatus, jqXHR){
 				$('#resultado').html('');
-				if(data[0].Archivo=='nada')
+				//alert(data[0].Pedimento);
+				if(data[0].Pedimento=='nada')
 				{
 					$('#resultado').html('No se encontraron registros');
 				}
 				else{
 					for(var x=0; x<data.length; x++)
 					{
-						$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
+						$('#resultado').append('<div id="'+data[x].Pedimento+'">'+data[x].Pedimento+'</div><br>');	
+						//$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
 					}
 				}
 			}).fail(function(error){

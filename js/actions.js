@@ -209,10 +209,31 @@ var fn = {
 				{
 					$('#resultado').html('No se encontraron registros');
 				}
-				else{
+				else
+				{
+					$('#resultado').html('<div class = "ui-grid-b" id="cuadricula"></div>');
 					for(var x=0; x<data.length; x++)
-					{
-						$('#resultado').append('<div id="'+data[x].Pedimento+'">'+data[x].Pedimento+'</div><br>');	
+					{	
+						//alert();
+						if(((x+1)%3)==1)
+						{
+							$('#cuadricula').append('<div id="'+data[x].Pedimento+'" class="ui-block-a">'+data[x].Pedimento+'</div>');
+						}
+						else
+						{
+							if(((x+1)%3)==2)
+							{
+								$('#cuadricula').append('<div id="'+data[x].Pedimento+'" class="ui-block-b">'+data[x].Pedimento+'</div');
+							}
+							else
+							{
+								if(((x+1)%3)==0)
+								{
+									$('#cuadricula').append('<div id="'+data[x].Pedimento+'" class="ui-block-c">'+data[x].Pedimento+'</div>');
+								}
+							}
+						}
+						//$('#resultado').append('<div id="'+data[x].Pedimento+'">'+data[x].Pedimento+'</div><br>');	
 						//$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
 					}
 				}

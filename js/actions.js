@@ -98,13 +98,15 @@ var fn = {
 					$("#aduanaNp").text('Aduana: AICM');
 					$("#aduanaFp").text('Aduana: AICM');
 				}
-				
 				window.location.href="#inicio";
 			}
 		}
 	},
 	
 	consultaPedimento: function(){
+	/*if(networkInfo.estaConectado() == false){
+			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
+		}else{*/
 		$('#resultado').html("Cargando...");
 		var empresa_rfc = window.localStorage.getItem("nombreUsuario");
 		var noPedimento= $("#noPedimento").val();
@@ -147,13 +149,13 @@ var fn = {
 						$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
 					}
 				}
-				
 			}).fail(function(error){
 				alert(error.status);
 				alert(error.message);
 				alert(error.responseText);
 			});
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//}
 	},
 	
 	abrePDF : function(archivo,ruta){
@@ -165,6 +167,9 @@ var fn = {
 	},
 	
 	consultaFechaPago: function(){
+	/*if(networkInfo.estaConectado() == false){
+			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
+		}else{*/	
 		$('#resultado').html("Cargando...");
 		var empresa_rfc = window.localStorage.getItem("nombreUsuario");
 		var fechaInicio= $("#fechaInicio").val();
@@ -189,7 +194,6 @@ var fn = {
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
 		}
-		//$('#resultado').html('');
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$.ajax({
 				type: "GET",
@@ -204,7 +208,6 @@ var fn = {
 				dataType: "json"
 			}).done(function(data, textStatus, jqXHR){
 				$('#resultado').html('');
-				//alert(data[0].Pedimento);
 				console.log(data);
 				if(data[0].Pedimento=='nada')
 				{
@@ -234,8 +237,6 @@ var fn = {
 								}
 							}
 						}
-						//$('#resultado').append('<div id="'+data[x].Pedimento+'">'+data[x].Pedimento+'</div><br>');	
-						//$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
 					}
 				}
 			}).fail(function(error){
@@ -243,7 +244,7 @@ var fn = {
 				console.log(error.responseText);
 			});
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		//$('#resultado').html('Resultado Consulta Fecha Pago');
+		//}
 	},
 	
 	consultaPedimento2: function(noPedimento){
@@ -256,7 +257,6 @@ var fn = {
 		else{
 			var archivoConsulta = 'buscaPedimento47.php';
 		}
-		
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$.ajax({
 				type: "GET",
@@ -300,6 +300,7 @@ var fn = {
 		$('#fechaFin').val('');
 		$('#resultado').html('');
 	},
+	
 	divPorFechaPago: function(){
 		$('#noPedimento').val('')
 		$('#fechaInicio').val('');

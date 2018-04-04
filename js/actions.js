@@ -215,22 +215,22 @@ var fn = {
 					$('#resultado').html('<div class = "ui-grid-b" id="cuadricula"></div>');
 					for(var x=0; x<data.length; x++)
 					{	
-						//alert();
+						console.log(data[x].Pedimento);
 						if(((x+1)%3)==1)
 						{
-							$('#cuadricula').append('<div id="'+data[x].Pedimento+'" class="ui-block-a">'+data[x].Pedimento+'</div>');
+							$('#cuadricula').append('<div id="'+data[x].Pedimento+'" class="ui-block-a" onClick="fn.consultaPedimento2('+"'"+data[x].Pedimento+"'"+')">'+data[x].Pedimento+'</div>');
 						}
 						else
 						{
 							if(((x+1)%3)==2)
 							{
-								$('#cuadricula').append('<div id="'+data[x].Pedimento+'" class="ui-block-b">'+data[x].Pedimento+'</div');
+								$('#cuadricula').append('<div id="'+data[x].Pedimento+'" class="ui-block-b" onClick="fn.consultaPedimento2('+"'"+data[x].Pedimento+"'"+')">'+data[x].Pedimento+'</div');
 							}
 							else
 							{
 								if(((x+1)%3)==0)
 								{
-									$('#cuadricula').append('<div id="'+data[x].Pedimento+'" class="ui-block-c">'+data[x].Pedimento+'</div>');
+									$('#cuadricula').append('<div id="'+data[x].Pedimento+'" class="ui-block-c" onClick="fn.consultaPedimento2('+"'"+data[x].Pedimento+"'"+')">'+data[x].Pedimento+'</div>');
 								}
 							}
 						}
@@ -245,6 +245,55 @@ var fn = {
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//$('#resultado').html('Resultado Consulta Fecha Pago');
 	},
+	
+	consultaPedimento2: function(noPedimento){
+		console.log(noPedimento);
+		var empresa_rfc = window.localStorage.getItem("nombreUsuario");
+		if(window.localStorage.getItem("aduana")=='puebla')
+		{
+			var archivoConsulta = 'buscaPedimento.php';
+		}
+		else{
+			var archivoConsulta = 'buscaPedimento47.php';
+		}
+		
+		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
+		$.ajax({
+				type: "GET",
+				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoConsulta,
+				data: { 
+					opcion: 1,
+					noPedimento: noPedimento,
+					rfc : empresa_rfc
+				},
+				dataType: "json"
+			}).done(function(data, textStatus, jqXHR){
+				$('#popup').html('');
+				if(data[0].Archivo=='nada')
+				{
+					$('#popup').html('No se encontraron registros');
+				}
+				else{
+					for(var x=0; x<data.length; x++)
+					{
+						$('#popup').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
+					}
+					fn.mostrarPopUp();
+				}
+				
+			}).fail(function(error){
+				alert(error.status);
+				alert(error.message);
+				alert(error.responseText);
+			});
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	},
+	
+	mostrarPopUp : function()
+	{
+		$("#popup").popup("open");
+	},
+	
 	divPorPedimento: function(){
 		$('#noPedimento').val('')
 		$('#fechaInicio').val('');

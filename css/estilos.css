@@ -76,3 +76,16 @@ h1 {
     height: 64px;
   }
 }
+.ui-popup-container,
+.ui-popup{
+	height: auto;
+	width: 100%;
+	position: absolute;;
+	top: 50px !important;
+	left: 0;
+}
+
+.ui-popup-screen.in{
+	background: black;
+	opacity: 0.6 !important;
+}

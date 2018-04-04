@@ -274,14 +274,13 @@ var fn = {
 					$('#popup').html('No se encontraron registros');
 				}
 				else{
-					$('#popup').html('<h1><strong>Archivos Disponibles</strong></h1><br>');
+					$('#popup').html('<a href="#" data-rel="back" class="ui-btn ui-icon-delete ui-btn-icon-left"></a><h1><strong>Archivos Disponibles</strong></h1><br>');
 					for(var x=0; x<data.length; x++)
 					{
 						$('#popup').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
 					}
 					fn.mostrarPopUp();
 				}
-				
 			}).fail(function(error){
 				alert(error.status);
 				alert(error.message);

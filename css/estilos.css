@@ -78,7 +78,7 @@ h1 {
 }
 .ui-popup-container,
 .ui-popup{
-	height: auto;
+	height: 50%;
 	width: 100%;
 	position: absolute;;
 	top: 50px !important;
@@ -88,4 +88,8 @@ h1 {
 .ui-popup-screen.in{
 	background: black;
 	opacity: 0.6 !important;
+}
+#popup{
+	text-align: center;
+	vertical-align: middle;
 }

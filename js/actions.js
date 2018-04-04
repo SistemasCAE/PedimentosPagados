@@ -274,6 +274,7 @@ var fn = {
 					$('#popup').html('No se encontraron registros');
 				}
 				else{
+					$('#popup').html('<h1><strong>Archivos Disponibles</strong></h1><br>');
 					for(var x=0; x<data.length; x++)
 					{
 						$('#popup').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');

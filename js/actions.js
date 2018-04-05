@@ -291,6 +291,9 @@ var fn = {
 	},
 	
 	consultaPedimento2: function(noPedimento){
+	/*if(networkInfo.estaConectado() == false){
+			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
+		}else{*/	
 		console.log(noPedimento);
 		var empresa_rfc = window.localStorage.getItem("nombreUsuario");
 		if(window.localStorage.getItem("modeloNegocio")=='CAE')
@@ -334,6 +337,7 @@ var fn = {
 				alert(error.message);
 				alert(error.responseText);
 			});
+		//}
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	},
 	

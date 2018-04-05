@@ -197,9 +197,9 @@ var fn = {
 		}
 		else
 		{
-			var UrlFile = '/opt/lampp/htdocs/enlinea.laser-oe.com.mx/'+nuevaRuta;
+			var UrlFile = 'http://enlinea.laser-oe.com.mx/'+nuevaRuta;
 		}
-		//console.log(UrlFile);
+		console.log(UrlFile);
 		var ref = cordova.InAppBrowser.open('https://docs.google.com/viewer?url='+UrlFile+'&embedded=true', '_blank', 'location=yes');
 		window.open = cordova.InAppBrowser.open;
 	},

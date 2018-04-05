@@ -50,23 +50,45 @@ var fn = {
 		}
 	},
 	enviaSesion: function(archivoSesion,usuario,password){
-	console.log("http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion);
 		/*if(networkInfo.estaConectado() == false){
 			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
 		}else{*/
+			console.log("http://enlinea.laser-oe.com.mx/AppConsultaPedimentos/"+archivoSesion);
 			$.ajax({
 				method: "POST",
-				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion,
+				url: "http://enlinea.laser-oe.com.mx/AppConsultaPedimentos/"+archivoSesion,
 				data: { 
 					usu: usuario,
 					pass: password
 				}
 			}).done(function(mensaje){
 				if(mensaje != "0"){
+					console.log(mensaje);
 					window.localStorage.setItem("nombreUsuario", usuario);
+					window.localStorage.setItem("modeloNegocio", "META");
 					window.location.href="#inicio";
 				}else{
-					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
+					//window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
+					///////////////////////////////// sesion en cae ////////////////////////////////////////////////
+					$.ajax({
+						method: "POST",
+						url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoSesion,
+						data: { 
+							usu: usuario,
+							pass: password
+						}
+					}).done(function(mensaje){
+						if(mensaje != "0"){
+							window.localStorage.setItem("nombreUsuario", usuario);
+							window.localStorage.setItem("modeloNegocio", "CAE");
+							window.location.href="#inicio";
+						}else{
+							window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
+						}
+					}).fail(function(error){
+						alert("hubo error");
+					});
+					///////////////////////////////// sesion en cae ////////////////////////////////////////////////
 				}
 			}).fail(function(error){
 				alert("hubo error");
@@ -76,6 +98,8 @@ var fn = {
 	
 	cierraSesion: function(){
 		window.localStorage.removeItem("nombreUsuario");
+		window.localStorage.removeItem("modeloNegocio");
+		window.localStorage.removeItem("aduana");
 		$('#noPedimento').val('')
 		$('#fechaInicio').val('');
 		$('#fechaFin').val('');
@@ -119,18 +143,24 @@ var fn = {
 			return;
 		}
 		
-		if(window.localStorage.getItem("aduana")=='puebla')
+		if(window.localStorage.getItem("modeloNegocio")=='CAE')
 		{
-			var archivoConsulta = 'buscaPedimento.php';
+			if(window.localStorage.getItem("aduana")=='puebla')
+			{
+				var archivoConsulta = 'http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento.php';
+			}
+			else{
+				var archivoConsulta = 'http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento47.php';
+			}
+		}else{
+			var archivoConsulta = 'http://enlinea.laser-oe.com.mx/AppConsultaPedimentos/buscaPedimento.php';
 		}
-		else{
-			var archivoConsulta = 'buscaPedimento47.php';
-		}
+		
 		
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$.ajax({
 				type: "GET",
-				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoConsulta,
+				url: archivoConsulta,
 				data: { 
 					opcion: 1,
 					noPedimento: noPedimento,
@@ -161,7 +191,14 @@ var fn = {
 	abrePDF : function(archivo,ruta){
 		var vector = ruta.split("/");
 		var nuevaRuta = vector[5]+"/"+vector[6]+"/"+vector[7]+"/"+vector[8]+"/"+vector[9]+"/"+archivo;
-		var UrlFile = 'http://enlinea.cae3076.com/Portal_CAE/'+nuevaRuta;
+		if(window.localStorage.getItem("modeloNegocio")=='CAE')
+		{
+			var UrlFile = 'http://enlinea.cae3076.com/Portal_CAE/'+nuevaRuta;
+		}
+		{
+			var UrlFile = '/opt/lampp/htdocs/enlinea.laser-oe.com.mx/'+nuevaRuta;
+		}
+		console.log(UrlFile);
 		var ref = cordova.InAppBrowser.open('https://docs.google.com/viewer?url='+UrlFile+'&embedded=true', '_blank', 'location=yes');
 		window.open = cordova.InAppBrowser.open;
 	},
@@ -176,12 +213,17 @@ var fn = {
 		var operacion= $("#combo").val();
 		var fechaFin= $("#fechaFin").val();
 		
-		if(window.localStorage.getItem("aduana")=='puebla')
+		if(window.localStorage.getItem("modeloNegocio")=='CAE')
 		{
-			var archivoConsulta = 'buscaPedimento.php';
-		}
-		else{
-			var archivoConsulta = 'buscaPedimento47.php';
+			if(window.localStorage.getItem("aduana")=='puebla')
+			{
+				var archivoConsulta = 'http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento.php';
+			}
+			else{
+				var archivoConsulta = 'http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento47.php';
+			}
+		}else{
+			var archivoConsulta = 'http://enlinea.laser-oe.com.mx/AppConsultaPedimentos/buscaPedimento.php';
 		}
 		
 		try{
@@ -197,7 +239,7 @@ var fn = {
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$.ajax({
 				type: "GET",
-				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoConsulta,
+				url: archivoConsulta,
 				data: { 
 					opcion: 2,
 					fechaInicio: fechaInicio,
@@ -240,7 +282,7 @@ var fn = {
 					}
 				}
 			}).fail(function(error){
-				alert("Error");
+				//alert("Error");
 				console.log(error.responseText);
 			});
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -250,17 +292,22 @@ var fn = {
 	consultaPedimento2: function(noPedimento){
 		console.log(noPedimento);
 		var empresa_rfc = window.localStorage.getItem("nombreUsuario");
-		if(window.localStorage.getItem("aduana")=='puebla')
+		if(window.localStorage.getItem("modeloNegocio")=='CAE')
 		{
-			var archivoConsulta = 'buscaPedimento.php';
-		}
-		else{
-			var archivoConsulta = 'buscaPedimento47.php';
+			if(window.localStorage.getItem("aduana")=='puebla')
+			{
+				var archivoConsulta = 'http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento.php';
+			}
+			else{
+				var archivoConsulta = 'http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento47.php';
+			}
+		}else{
+			var archivoConsulta = 'http://enlinea.laser-oe.com.mx/AppConsultaPedimentos/buscaPedimento.php';
 		}
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$.ajax({
 				type: "GET",
-				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/"+archivoConsulta,
+				url: archivoConsulta,
 				data: { 
 					opcion: 1,
 					noPedimento: noPedimento,

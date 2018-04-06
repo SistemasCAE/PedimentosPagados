@@ -16,7 +16,7 @@
        	
         <preference name="SplashScreenDelay" value="5000" />
 
-        <name>Pedimentos Pagados</name>
+        <name>Pedimentos Pagados CAE</name>
 		<description>
             Aplicación para consultar pedimentos Pagados.
         </description>

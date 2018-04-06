@@ -53,7 +53,7 @@ var fn = {
 		/*if(networkInfo.estaConectado() == false){
 			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
 		}else{*/
-			console.log("http://enlinea.laser-oe.com.mx/AppConsultaPedimentos/"+archivoSesion);
+			/*console.log("http://enlinea.laser-oe.com.mx/AppConsultaPedimentos/"+archivoSesion);
 			$.ajax({
 				method: "POST",
 				url: "http://enlinea.laser-oe.com.mx/AppConsultaPedimentos/"+archivoSesion,
@@ -67,7 +67,7 @@ var fn = {
 					window.localStorage.setItem("nombreUsuario", usuario);
 					window.localStorage.setItem("modeloNegocio", "META");
 					window.location.href="#inicio";
-				}else{
+				}else{*/
 					//window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
 					///////////////////////////////// sesion en cae ////////////////////////////////////////////////
 					$.ajax({
@@ -89,10 +89,10 @@ var fn = {
 						alert("hubo error");
 					});
 					///////////////////////////////// sesion en cae ////////////////////////////////////////////////
-				}
+				/*}
 			}).fail(function(error){
 				alert("hubo error");
-			});
+			});*/
 		//}
 	},
 	
@@ -140,6 +140,7 @@ var fn = {
 			}
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
+			$('#resultado').html("");
 			return;
 		}
 		
@@ -236,6 +237,7 @@ var fn = {
 			}
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
+			$('#resultado').html("");
 		}
 		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 		$.ajax({

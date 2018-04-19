@@ -5,11 +5,11 @@ var ArrMenu =[
 	},
 	{
 		nombre: "Consulta Notificaciones",
-		url:""
+		url:"notificaciones"
 	},
 	{
 		nombre: "Configuracion",
-		url:""
+		url:"configuracion"
 	}
 ]
 var fn = {
@@ -21,6 +21,7 @@ var fn = {
 	 * En esta sección vamos a asociar
 	 * todos los eventos del "Click" al HTML
 	 */
+	  fn.Menu();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -29,6 +30,16 @@ var fn = {
 	  $("#linkConsultaFechaPago").tap(fn.divPorFechaPago);
 	  $("#cierraSesion").tap(fn.cierraSesion);
 	  
+	},
+	Menu : function()
+	{
+		var tamArreglo=ArrMenu.length;
+		for(var i = 0; i<tamArreglo; i++)
+		{
+			$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow">'+ArrMenu[i].nombre+'</a></li>');
+		}
 	},
 	iniciarSesion: function(){
 		var usuario = $("#usuario").val();

@@ -36,11 +36,11 @@ var fn = {
 		alert('Received Device Ready Event');
         alert('calling setup push');
         plataforma=device.platform;
-        var element = document.getElementById('deviceProperties');
+        //var element = document.getElementById('deviceProperties');
 
-        element.innerHTML = 'Device Platform: ' + plataforma + '<br />' + 
-                        'Device UUID: '     + device.uuid     + '<br />' + 
-                        'Device Version: '  + device.version  + '<br />';
+        //element.innerHTML = 'Device Platform: ' + plataforma + '<br />' + 
+                        //'Device UUID: '     + device.uuid     + '<br />' + 
+                       // 'Device Version: '  + device.version  + '<br />';
         fn.setupPush();
 	},
 	setupPush: function() {
@@ -69,7 +69,7 @@ var fn = {
         dataType:'json',
         success:function(response){
           if (response.msg=='primera'){
-            alert('Su teléfono ha quedado registrado');
+            alert('Se ha Registrado para recibir Notificaciones');
           }
         },
         error:function(xhr, status){

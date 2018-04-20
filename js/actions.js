@@ -61,6 +61,12 @@ var fn = {
 
         push.on('registration', function(data) {
 		//alert('registration event: ' + data.registrationId);
+		if(window.localStorage.getItem("switchNotifica") != null){
+			window.localStorage.removeItem("switchNotifica");
+		}
+		if(window.localStorage.getItem("frecuenciaNotifica") != null){
+			window.localStorage.removeItem("frecuenciaNotifica");
+		}
 		
 		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
 		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
@@ -73,6 +79,7 @@ var fn = {
         success:function(response){
           if (response.msg=='primera'){
             alert('Se ha guardado su configuración');
+			
           }else{
 		    
 		  }

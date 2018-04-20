@@ -79,9 +79,8 @@ var fn = {
         success:function(response){
           if (response.msg=='primera'){
             alert('Se ha guardado su configuración');
-			
           }else{
-		    
+		    alert('Se ha actualizado su configuración');
 		  }
         },
         error:function(xhr, status){

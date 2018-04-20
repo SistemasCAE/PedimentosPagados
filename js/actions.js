@@ -33,8 +33,8 @@ var fn = {
 	  
 	},
 	inicioRegistroCel : function(){
-		alert('Received Device Ready Event');
-        alert('calling setup push');
+		//alert('Received Device Ready Event');
+        //alert('calling setup push');
         plataforma=device.platform;
         //var element = document.getElementById('deviceProperties');
 
@@ -44,7 +44,7 @@ var fn = {
         fn.setupPush();
 	},
 	setupPush: function() {
-        alert('calling push init');
+        //alert('calling push init');
         var push = PushNotification.init({
             "android": {
                 "senderID": "816833643158"
@@ -57,20 +57,25 @@ var fn = {
             },
             "windows": {}
         });
-        alert('after init');
+        //alert('after init');
 
         push.on('registration', function(data) {
-		alert('registration event: ' + data.registrationId);
-
+		//alert('registration event: ' + data.registrationId);
+		
+		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
+		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
+			
         jQuery.ajax({
         url: 'http://enlinea.cae3076.com/Notificaciones/funciones.php',
         type:'GET',
-        data:'datos='+data.registrationId+'||'+plataforma,
+        data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario"),
         dataType:'json',
         success:function(response){
           if (response.msg=='primera'){
-            alert('Se ha Registrado para recibir Notificaciones');
-          }
+            alert('Se ha guardado su configuración');
+          }else{
+		    
+		  }
         },
         error:function(xhr, status){
           alert(status, 'ERROR');
@@ -86,13 +91,13 @@ var fn = {
         });
 
         push.on('error', function(e) {
-		alert("push error = " + e.message);
-      	alert("push error = " + e.message);
+		//alert("push error = " + e.message);
+      	//alert("push error = " + e.message);
 
         });
 
         push.on('notification', function(data) {
-        alert('notification event');
+        //alert('notification event');
 
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(

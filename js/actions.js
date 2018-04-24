@@ -36,11 +36,6 @@ var fn = {
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
         plataforma=device.platform;
-        //var element = document.getElementById('deviceProperties');
-
-        //element.innerHTML = 'Device Platform: ' + plataforma + '<br />' + 
-                        //'Device UUID: '     + device.uuid     + '<br />' + 
-                       // 'Device Version: '  + device.version  + '<br />';
         fn.setupPush();
 	},
 	setupPush: function() {
@@ -184,6 +179,9 @@ var fn = {
 	cierraSesion: function(){
 		window.localStorage.removeItem("nombreUsuario");
 		window.localStorage.removeItem("aduana");
+		window.localStorage.removeItem("switchNotifica");
+		window.localStorage.removeItem("frecuenciaNotifica");
+		
 		$('#noPedimento').val('')
 		$('#fechaInicio').val('');
 		$('#fechaFin').val('');
@@ -194,6 +192,14 @@ var fn = {
 	},
 	
 	compruebaSesion: function(){
+		if(window.localStorage.getItem("switchNotifica") != null){
+			$("#switchNotificaciones").val(window.localStorage.getItem("switchNotifica"))
+		}
+		if(window.localStorage.getItem("frecuenciaNotifica") != null){
+			$("#rango").val(window.localStorage.getItem("frecuenciaNotifica"))
+		}
+	
+	
 		if(window.localStorage.getItem("nombreUsuario") != null){
 			if(window.localStorage.getItem("aduana") != null){
 				if(window.localStorage.getItem("aduana")=='puebla')

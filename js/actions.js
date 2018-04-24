@@ -193,10 +193,12 @@ var fn = {
 	
 	compruebaSesion: function(){
 		if(window.localStorage.getItem("switchNotifica") != null){
-			$("#switchNotificaciones").val(window.localStorage.getItem("switchNotifica"))
+			alert(window.localStorage.getItem("switchNotifica"));
+			$("#switchNotificaciones").val(window.localStorage.getItem("switchNotifica"));
 		}
 		if(window.localStorage.getItem("frecuenciaNotifica") != null){
-			$("#rango").val(window.localStorage.getItem("frecuenciaNotifica"))
+			alert(window.localStorage.getItem("frecuenciaNotifica"));
+			$("#rango").val(window.localStorage.getItem("frecuenciaNotifica"));
 		}
 	
 	

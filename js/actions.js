@@ -199,22 +199,22 @@ var fn = {
 		if(window.localStorage.getItem("frecuenciaNotifica") != null){
 			alert(window.localStorage.getItem("frecuenciaNotifica"));
 			if(window.localStorage.getItem("frecuenciaNotifica")==1){
-				$("#rango").val(window.localStorage.getItem("1"));
+				$("#rango").val("1");
 			}
 			if(window.localStorage.getItem("frecuenciaNotifica")==2){
-				$("#rango").val(window.localStorage.getItem("2"));
+				$("#rango").val("2");
 			}
 			if(window.localStorage.getItem("frecuenciaNotifica")==3){
-				$("#rango").val(window.localStorage.getItem("3"));
+				$("#rango").val("3");
 			}
 			if(window.localStorage.getItem("frecuenciaNotifica")==4){
-				$("#rango").val(window.localStorage.getItem("4"));
+				$("#rango").val("4");
 			}
 			if(window.localStorage.getItem("frecuenciaNotifica")==5){
-				$("#rango").val(window.localStorage.getItem("5"));
+				$("#rango").val("5");
 			}
 			if(window.localStorage.getItem("frecuenciaNotifica")==6){
-				$("#rango").val(window.localStorage.getItem("6"));
+				$("#rango").val("6");
 			}
 		}
 	

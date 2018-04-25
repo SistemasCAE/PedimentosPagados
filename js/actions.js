@@ -198,24 +198,9 @@ var fn = {
 		}
 		if(window.localStorage.getItem("frecuenciaNotifica") != null){
 			//alert(window.localStorage.getItem("frecuenciaNotifica"));
-			if(window.localStorage.getItem("frecuenciaNotifica")=="1"){
-				$("#rango").val("1");
-			}
-			if(window.localStorage.getItem("frecuenciaNotifica")=="2"){
-				$("#rango").val("2");
-			}
-			if(window.localStorage.getItem("frecuenciaNotifica")=="3"){
-				$("#rango").val("3");
-			}
-			if(window.localStorage.getItem("frecuenciaNotifica")=="4"){
-				$("#rango").val("4");
-			}
-			if(window.localStorage.getItem("frecuenciaNotifica")=="5"){
-				$("#rango").val("5");
-			}
-			if(window.localStorage.getItem("frecuenciaNotifica")=="6"){
-				$("#rango").val("6");
-			}
+			$('#slider').html('');
+			var cadena = '<input type="range" data-show-value="true" data-popup-enabled="true" min="1" max="6" value="'+window.localStorage.getItem("frecuenciaNotifica")+'" id="rango">';
+			$('#slider').html(cadena);
 		}
 	
 	

@@ -202,8 +202,7 @@ var fn = {
 			var cadena = '<input type="range" data-show-value="true" data-popup-enabled="true" min="1" max="6" value="'+window.localStorage.getItem("frecuenciaNotifica")+'" id="rango">';
 			$('#slider').html(cadena);
 		}
-	
-	
+		
 		if(window.localStorage.getItem("nombreUsuario") != null){
 			if(window.localStorage.getItem("aduana") != null){
 				if(window.localStorage.getItem("aduana")=='puebla')

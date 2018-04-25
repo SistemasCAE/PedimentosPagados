@@ -8,7 +8,7 @@ var ArrMenu =[
 		url:"notificaciones"
 	},
 	{
-		nombre: "Configuracion",
+		nombre: "Configuración",
 		url:"configuracion"
 	}
 ]

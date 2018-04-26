@@ -30,6 +30,8 @@ var fn = {
 	  $("#linkConsultaNoPedimento").tap(fn.divPorPedimento);
 	  $("#linkConsultaFechaPago").tap(fn.divPorFechaPago);
 	  $("#cierraSesion").tap(fn.cierraSesion);
+	  $("#cierraSesion2").tap(fn.cierraSesion);
+	  $("#cierraSesion3").tap(fn.cierraSesion);
 	  
 	},
 	inicioRegistroCel : function(){
@@ -103,12 +105,15 @@ var fn = {
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         // message
-                null,                 // callback
+		        accionAlerta,         // callback
                 data.title,           // title
                 'Ok'                  // buttonName
             );
        });
     },
+	accionAlerta : function (){
+		alert("Has visto la notificacion");
+	},
 	Menu : function()
 	{
 		var tamArreglo=ArrMenu.length;
@@ -315,7 +320,7 @@ var fn = {
 			window.plugins.toast.show(error, 'short', 'center');
 			$('#resultado').html("");
 		}
-		////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////// Envio AJAX //////////////////////////////////////////////////////////////////
 		$.ajax({
 				type: "GET",
 				url: archivoConsulta,

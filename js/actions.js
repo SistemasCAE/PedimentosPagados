@@ -44,7 +44,8 @@ var fn = {
         //alert('calling push init');
         var push = PushNotification.init({
             "android": {
-                "senderID": "816833643158"
+                "senderID": "816833643158",
+				"ecb":"fn.onNotificationGCM"
             },
             "browser": {},
             "ios": {
@@ -54,8 +55,7 @@ var fn = {
             },
             "windows": {}
         });
-        //alert('after init');
-
+		
         push.on('registration', function(data) {
 		//alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){
@@ -105,15 +105,42 @@ var fn = {
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         // message
-		        fn.accionAlerta(),    // callback
+		        null   // callback
                 data.title,           // title
                 'Ok'                  // buttonName
             );
        });
     },
-	accionAlerta : function (){
-		alert("Has visto la notificacion");
-	},
+	
+	 onNotificationGCM: function(e) { 
+        switch( e.event ) 
+        { 
+            case 'registered': 
+                if ( e.registrationId.length > 0 ) 
+                { 
+                    console.log("Regid " + e.registrationId); 
+                    alert('registration id = '+e.registrationId); 
+                    //Cuando se registre le pasamos el regid al input 
+                    //document.getElementById('regId').value = e.registrationId; 
+                } 
+            break; 
+
+            case 'message': 
+              // NOTIFICACION!!! 
+              alert('message = '+e.message+' msgcnt = '+e.msgcnt); 
+            break; 
+
+            case 'error': 
+              alert('GCM error = '+e.msg); 
+            break; 
+
+            default: 
+              alert('An unknown GCM event has occurred'); 
+              break; 
+        } 
+    },
+	
+	
 	Menu : function()
 	{
 		var tamArreglo=ArrMenu.length;
@@ -221,9 +248,6 @@ var fn = {
 					$("#aduanaFp").text('Aduana: AICM');
 				}
 				window.location.href="#inicio";
-				var notificationReceived = function(message) {
-					navigator.notification.alert(JSON.stringify(message));
-				};
 			}
 		}
 	},

@@ -44,8 +44,7 @@ var fn = {
         //alert('calling push init');
         var push = PushNotification.init({
             "android": {
-                "senderID": "816833643158",
-				"ecb":"fn.onNotificationGCM"
+                "senderID": "816833643158"
             },
             "browser": {},
             "ios": {
@@ -88,6 +87,7 @@ var fn = {
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
+			alert(receivedElement);
 
             listeningElement.setAttribute('style', 'display:none;');
             receivedElement.setAttribute('style', 'display:block;');
@@ -111,36 +111,6 @@ var fn = {
             );
        });
     },
-	
-	 onNotificationGCM: function(e) { 
-        switch( e.event ) 
-        { 
-            case 'registered': 
-                if ( e.registrationId.length > 0 ) 
-                { 
-                    console.log("Regid " + e.registrationId); 
-                    alert('registration id = '+e.registrationId); 
-                    //Cuando se registre le pasamos el regid al input 
-                    //document.getElementById('regId').value = e.registrationId; 
-                } 
-            break; 
-
-            case 'message': 
-              // NOTIFICACION!!! 
-              alert('message = '+e.message+' msgcnt = '+e.msgcnt); 
-            break; 
-
-            case 'error': 
-              alert('GCM error = '+e.msg); 
-            break; 
-
-            default: 
-              alert('An unknown GCM event has occurred'); 
-              break; 
-        } 
-    },
-	
-	
 	Menu : function()
 	{
 		var tamArreglo=ArrMenu.length;

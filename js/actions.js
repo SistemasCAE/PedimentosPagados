@@ -100,7 +100,7 @@ var fn = {
         });
 
         push.on('notification', function(data) {
-        //alert('notification event');
+        alert('notification event');
 
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(

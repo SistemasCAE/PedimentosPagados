@@ -99,18 +99,7 @@ var fn = {
 
         });
 		
-		push.on('notification', function(data) {
-		  alert('notification event');
-		  navigator.notification.alert(
-			data.message,         // message
-			fn.accionAlerta(),,                 // callback
-			data.title,           // title
-			'Ok'                  // buttonName
-		  );
-		});
-		
-		
-       /* push.on('notification', function(data) {
+        push.on('notification', function(data) {
         //alert('notification event');
 			
     	cordova.plugins.notification.badge.set(0);
@@ -120,7 +109,7 @@ var fn = {
                 data.title,           // title
                 'Ok'                  // buttonName
             );
-       });*/
+       });
     },
 	accionAlerta : function (){
 		alert("Has visto la notificacion");

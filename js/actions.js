@@ -20,7 +20,7 @@ var fn = {
 	/*
 	 * En esta sección vamos a asociar
 	 * todos los eventos del "Click" al HTML
-	 */
+	 */	  
 	  fn.Menu();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
@@ -221,6 +221,9 @@ var fn = {
 					$("#aduanaFp").text('Aduana: AICM');
 				}
 				window.location.href="#inicio";
+				var notificationReceived = function(message) {
+					navigator.notification.alert(JSON.stringify(message));
+				};
 			}
 		}
 	},

@@ -20,7 +20,7 @@ var fn = {
 	/*
 	 * En esta sección vamos a asociar
 	 * todos los eventos del "Click" al HTML
-	 */	  
+	 */
 	  fn.Menu();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
@@ -54,7 +54,8 @@ var fn = {
             },
             "windows": {}
         });
-		
+        //alert('after init');
+
         push.on('registration', function(data) {
 		//alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){
@@ -87,7 +88,6 @@ var fn = {
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
-			alert(receivedElement);
 
             listeningElement.setAttribute('style', 'display:none;');
             receivedElement.setAttribute('style', 'display:block;');
@@ -100,17 +100,20 @@ var fn = {
         });
 
         push.on('notification', function(data) {
-        alert('notification event');
+        //alert('notification event');
 
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         // message
-		        null   // callback
+		        fn.accionAlerta(),         // callback
                 data.title,           // title
                 'Ok'                  // buttonName
             );
        });
     },
+	accionAlerta : function (){
+		alert("Has visto la notificacion");
+	},
 	Menu : function()
 	{
 		var tamArreglo=ArrMenu.length;

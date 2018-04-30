@@ -23,7 +23,6 @@ var fn = {
 	 */
 	  fn.Menu();
 	  fn.compruebaSesion();
-	  fn.accionAlerta();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -94,20 +93,25 @@ var fn = {
       	//alert("push error = " + e.message);
 
         });
-    },
-	accionAlerta : function (){
-		push.on('notification', function(data) {
+		
+        push.on('notification', function(data) {
         //alert('notification event');
-		/*alert(data.message);	
+		alert(data.message);	
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         // message
 		        fn.accionAlerta(),    // callback
                 data.title,           // title
                 'Ok'                  // buttonName
-            );*/
-		$('#prueba').html("Esto es una prueba");
+            );
+		$('#prueba').html("Esto es una prueba");	
+			
+			
+			
        });
+    },
+	accionAlerta : function (){
+		alert("Has visto la notificacion");
 	},
 	Menu : function()
 	{

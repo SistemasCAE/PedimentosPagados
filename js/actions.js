@@ -107,7 +107,6 @@ var fn = {
 		$('#prueba').html("Esto es una prueba");	
 			
 			
-			
        });
     },
 	accionAlerta : function (){

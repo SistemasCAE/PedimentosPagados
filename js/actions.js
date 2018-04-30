@@ -23,6 +23,7 @@ var fn = {
 	 */
 	  fn.Menu();
 	  fn.compruebaSesion();
+	  fn.inicioRegistroCel();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -57,35 +58,34 @@ var fn = {
         //alert('after init');
 
         push.on('registration', function(data) {
-		//alert('registration event: ' + data.registrationId);
-		if(window.localStorage.getItem("switchNotifica") != null){
-			window.localStorage.removeItem("switchNotifica");
-		}
-		if(window.localStorage.getItem("frecuenciaNotifica") != null){
-			window.localStorage.removeItem("frecuenciaNotifica");
-		}
-		
-		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
-		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
-			
-			jQuery.ajax({
-			url: 'http://enlinea.cae3076.com/Notificaciones/funciones.php',
-			type:'GET',
-			data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario"),
-			dataType:'json',
-			success:function(response){
-			  if (response.msg=='primera'){
-				alert('Se ha guardado su configuración');
-			  }else{
-				alert('Se ha actualizado su configuración');
-			  }
-			},
-			error:function(xhr, status){
-			  alert(status, 'ERROR');
-
+			//alert('registration event: ' + data.registrationId);
+			if(window.localStorage.getItem("switchNotifica") != null){
+				window.localStorage.removeItem("switchNotifica");
 			}
-		  });
-            
+			if(window.localStorage.getItem("frecuenciaNotifica") != null){
+				window.localStorage.removeItem("frecuenciaNotifica");
+			}
+
+			window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
+			window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
+
+			jQuery.ajax({
+				url: 'http://enlinea.cae3076.com/Notificaciones/funciones.php',
+				type:'GET',
+				data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario"),
+				dataType:'json',
+				success:function(response){
+				  if (response.msg=='primera'){
+					alert('Se ha guardado su configuración');
+				  }else{
+					alert('Se ha actualizado su configuración');
+				  }
+				},
+				error:function(xhr, status){
+				  alert(status, 'ERROR');
+
+				}
+			});
         });
 
         push.on('error', function(e) {

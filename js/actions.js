@@ -104,7 +104,7 @@ var fn = {
                 data.title,           // title
                 'Ok'                  // buttonName
             );*/
-		$('#prueba').append("<div>Esto es una prueba</div>");	
+		$('#prueba').html("<div>Esto es una prueba</div>");	
 			
 			
 			

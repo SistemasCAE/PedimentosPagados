@@ -23,6 +23,7 @@ var fn = {
 	 */
 	  fn.Menu();
 	  fn.compruebaSesion();
+	  fn.accionAlerta();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -93,8 +94,9 @@ var fn = {
       	//alert("push error = " + e.message);
 
         });
-		
-        push.on('notification', function(data) {
+    },
+	accionAlerta : function (){
+		push.on('notification', function(data) {
         //alert('notification event');
 		/*alert(data.message);	
     	cordova.plugins.notification.badge.set(0);
@@ -104,14 +106,8 @@ var fn = {
                 data.title,           // title
                 'Ok'                  // buttonName
             );*/
-		$('#prueba').html("<div>Esto es una prueba</div>");	
-			
-			
-			
+		$('#prueba').html("Esto es una prueba");
        });
-    },
-	accionAlerta : function (){
-		alert("Has visto la notificacion");
 	},
 	Menu : function()
 	{

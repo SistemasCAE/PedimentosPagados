@@ -97,7 +97,6 @@ var fn = {
        });
 		
 	},
-	
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
@@ -176,7 +175,7 @@ var fn = {
             );
        });
     },
-	accionAlerta : function(mensaje){
+	accionAlerta : function(){
 		//if(mensaje.length>0){
 			alert("Has visto la notificacion");
 			//alert(mensaje);

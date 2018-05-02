@@ -35,8 +35,7 @@ var fn = {
 	  
 	},
 	sondeo : function(){
-		plataforma2=device.platform;
-        alert(plataforma2);
+		alert("entre a sondeo");
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

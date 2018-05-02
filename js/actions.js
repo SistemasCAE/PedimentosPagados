@@ -56,15 +56,6 @@ var fn = {
 		
 		push.on('registration', function(data) {
 		//alert('registration event: ' + data.registrationId);
-		if(window.localStorage.getItem("switchNotifica") != null){
-			window.localStorage.removeItem("switchNotifica");
-		}
-		if(window.localStorage.getItem("frecuenciaNotifica") != null){
-			window.localStorage.removeItem("frecuenciaNotifica");
-		}
-		
-		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
-		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
 			
         jQuery.ajax({
 				url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
@@ -172,7 +163,7 @@ var fn = {
             );
        });
     },
-	accionAlerta : function(){
+	accionAlerta : function(mensaje){
 		//if(mensaje.length>0){
 			alert("Has visto la notificacion");
 			//alert(mensaje);

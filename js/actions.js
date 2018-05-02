@@ -36,7 +36,6 @@ var fn = {
 	},
 	sondeo : function(){
 		alert("entre a sondeo");
-		fn.setupPush();
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

@@ -36,6 +36,62 @@ var fn = {
 	},
 	sondeo : function(){
 		alert("entre a sondeo");
+		//alert('calling push init');
+        var push = PushNotification.init({
+            "android": {
+                "senderID": "816833643158"
+            },
+            "browser": {},
+            "ios": {
+                "sound": true,
+                "vibration": true,
+                "badge": true
+            },
+            "windows": {}
+        });
+        //alert('after init');
+
+        push.on('registration', function(data) {
+		//alert('registration event: ' + data.registrationId);
+			
+        jQuery.ajax({
+        url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
+        type:'GET',
+        data:'datos='+data.registrationId,
+        dataType:'json',
+        success:function(response){
+          
+        },
+        error:function(xhr, status){
+          alert(status, 'ERROR');
+
+        }
+      });
+            var parentElement = document.getElementById('registration');
+            var listeningElement = parentElement.querySelector('.waiting');
+            var receivedElement = parentElement.querySelector('.received');
+
+            listeningElement.setAttribute('style', 'display:none;');
+            receivedElement.setAttribute('style', 'display:block;');
+        });
+
+        push.on('error', function(e) {
+		//alert("push error = " + e.message);
+      	//alert("push error = " + e.message);
+
+        });
+		
+        push.on('notification', function(data) {
+        //alert('notification event');
+		alert(data.message);	
+    	cordova.plugins.notification.badge.set(0);
+            navigator.notification.alert(
+                data.message,         // message
+		        fn.accionAlerta(),         // callback
+                data.title,           // title
+                'Ok'                  // buttonName
+            );
+       });
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
@@ -115,7 +171,7 @@ var fn = {
        });
     },
 	accionAlerta : function (){
-		
+		alert("entre a accionAlerta");
 	},
 	Menu : function()
 	{

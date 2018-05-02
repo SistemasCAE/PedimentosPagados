@@ -92,7 +92,7 @@ var fn = {
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         // message
-		        fn.accionAlerta(data.message),         // callback
+		        fn.accionAlerta(),         // callback
                 data.title,           // title
                 'Ok'                  // buttonName
             );
@@ -166,17 +166,17 @@ var fn = {
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         // message
-		        fn.accionAlerta(data.message),    // callback
+		        fn.accionAlerta(),    // callback
                 data.title,           // title
                 'Ok'                  // buttonName
             );
        });
     },
-	accionAlerta : function (mensaje){
-		if(mensaje.length>0){
+	accionAlerta : function(){
+		//if(mensaje.length>0){
 			alert("Has visto la notificacion");
-			alert(mensaje);
-		}
+			//alert(mensaje);
+		//}
 	},
 	Menu : function()
 	{

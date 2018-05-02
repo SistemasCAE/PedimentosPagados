@@ -224,8 +224,8 @@ var fn = {
 					$("#aduanaNp").text('Aduana: AICM');
 					$("#aduanaFp").text('Aduana: AICM');
 				}
-				fn.sondeo();
 				window.location.href="#inicio";
+				fn.sondeo();
 			}
 		}
 	},

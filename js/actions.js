@@ -23,7 +23,6 @@ var fn = {
 	 */
 	  fn.Menu();
 	  fn.compruebaSesion();
-	  
 	  fn.sondeo();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
@@ -40,7 +39,7 @@ var fn = {
 		plataforma=device.platform;
         fn.iniciaSondeo();
 	},
-	iniciSondeo : function(){
+	iniciaSondeo : function(){
 		alert("entre a inicia sondeo");
 		fn.accionAlerta();
 	},

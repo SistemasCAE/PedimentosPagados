@@ -23,7 +23,6 @@ var fn = {
 	 */
 	  fn.Menu();
 	  fn.compruebaSesion();
-	  fn.accionAlerta();
 	  fn.sondeoCel();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
@@ -59,15 +58,14 @@ var fn = {
 		//alert('registration event: ' + data.registrationId);
 			
         jQuery.ajax({
-        url: 'http://enlinea.cae3076.com/Notificaciones/funciones.php',
+        url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
         type:'GET',
         data:'datos='+data.registrationId+'||'+plataforma,
         dataType:'json',
         success:function(response){
-          if (response.msg=='primera'){
-            alert('Se ha guardado su configuración');
+          
           }else{
-		    alert('Se ha actualizado su configuración');
+		    
 		  }
         },
         error:function(xhr, status){

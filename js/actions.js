@@ -92,7 +92,7 @@ var fn = {
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         // message
-		        fn.accionAlerta(),         // callback
+		        fn.accionAlerta(data.message),         // callback
                 data.title,           // title
                 'Ok'                  // buttonName
             );

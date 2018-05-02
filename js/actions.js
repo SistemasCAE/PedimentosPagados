@@ -166,14 +166,17 @@ var fn = {
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         // message
-		        fn.accionAlerta(),         // callback
+		        fn.accionAlerta(data.message),    // callback
                 data.title,           // title
                 'Ok'                  // buttonName
             );
        });
     },
-	accionAlerta : function (){
-		alert("Has visto la notificacion");
+	accionAlerta : function (mensaje){
+		if(mensaje.length>0){
+			alert("Has visto la notificacion");
+			alert(mensaje);
+		}
 	},
 	Menu : function()
 	{

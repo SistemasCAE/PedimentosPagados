@@ -24,7 +24,6 @@ var fn = {
 	  fn.Menu();
 	  fn.compruebaSesion();
 	  fn.accionAlerta();
-	  fn.sondeoCel();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -35,67 +34,6 @@ var fn = {
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
 	  
-	},
-	sondeoCel : function(){
-		plataforma=device.platform;
-        fn.iniciaSondeo();
-	},
-	iniciaSondeo : function(){
-		var push = PushNotification.init({
-            "android": {
-                "senderID": "816833643158"
-            },
-            "browser": {},
-            "ios": {
-                "sound": true,
-                "vibration": true,
-                "badge": true
-            },
-            "windows": {}
-        });
-		
-		push.on('registration', function(data) {
-		//alert('registration event: ' + data.registrationId);
-			
-        jQuery.ajax({
-				url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
-				type:'GET',
-				data:'datos='+data.registrationId+'||'+plataforma,
-				dataType:'json',
-				success:function(response){
-				},
-				error:function(xhr, status){
-				  alert(status, 'ERROR');
-
-				}
-      		});
-			
-			var parentElement = document.getElementById('registration');
-            var listeningElement = parentElement.querySelector('.waiting');
-            var receivedElement = parentElement.querySelector('.received');
-
-            listeningElement.setAttribute('style', 'display:none;');
-            receivedElement.setAttribute('style', 'display:block;');
-        });
-
-        push.on('error', function(e) {
-		//alert("push error = " + e.message);
-      	//alert("push error = " + e.message);
-
-        });
-		
-        push.on('notification', function(data) {
-        //alert('notification event');
-		alert(data.message);	
-    	cordova.plugins.notification.badge.set(0);
-            navigator.notification.alert(
-                data.message,         // message
-		        fn.accionAlerta(),         // callback
-                data.title,           // title
-                'Ok'                  // buttonName
-            );
-       });
-		
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
@@ -148,13 +86,12 @@ var fn = {
 
         }
       });
-	  var parentElement = document.getElementById('registration');
+            var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
 
             listeningElement.setAttribute('style', 'display:none;');
             receivedElement.setAttribute('style', 'display:block;');
-			
         });
 
         push.on('error', function(e) {
@@ -169,17 +106,13 @@ var fn = {
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         // message
-		        fn.accionAlerta(),    // callback
+		        fn.accionAlerta(),         // callback
                 data.title,           // title
                 'Ok'                  // buttonName
             );
        });
     },
-	accionAlerta : function(){
-		//if(mensaje.length>0){
-			alert("Has visto la notificacion");
-			//alert(mensaje);
-		//}
+	accionAlerta : function (){
 	},
 	Menu : function()
 	{

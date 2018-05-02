@@ -36,6 +36,7 @@ var fn = {
 	},
 	sondeo : function(){
 		alert("entre a sondeo");
+		fn.setupPush();
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
@@ -44,7 +45,7 @@ var fn = {
         fn.setupPush();
 	},
 	setupPush: function() {
-        //alert('calling push init');
+        alert('calling push init');
         var push = PushNotification.init({
             "android": {
                 "senderID": "816833643158"
@@ -57,10 +58,10 @@ var fn = {
             },
             "windows": {}
         });
-        //alert('after init');
+        alert('after init');
 
         push.on('registration', function(data) {
-		//alert('registration event: ' + data.registrationId);
+		alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){
 			window.localStorage.removeItem("switchNotifica");
 		}
@@ -103,7 +104,7 @@ var fn = {
         });
 		
         push.on('notification', function(data) {
-        //alert('notification event');
+        alert('notification event');
 		alert(data.message);	
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(

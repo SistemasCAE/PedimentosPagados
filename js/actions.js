@@ -23,7 +23,6 @@ var fn = {
 	 */
 	  fn.Menu();
 	  fn.compruebaSesion();
-	  fn.sondeo();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -36,6 +35,8 @@ var fn = {
 	  
 	},
 	sondeo : function(){
+		plataforma2=device.platform;
+        alert(plataforma2);
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
@@ -223,6 +224,7 @@ var fn = {
 					$("#aduanaNp").text('Aduana: AICM');
 					$("#aduanaFp").text('Aduana: AICM');
 				}
+				fn.sondeo();
 				window.location.href="#inicio";
 			}
 		}

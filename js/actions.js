@@ -23,7 +23,8 @@ var fn = {
 	 */
 	  fn.Menu();
 	  fn.compruebaSesion();
-	  fn.accionAlerta();
+	  
+	  fn.sondeo();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -34,6 +35,14 @@ var fn = {
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
 	  
+	},
+	sondeo : function(){
+		plataforma=device.platform;
+        fn.iniciaSondeo();
+	},
+	iniciSondeo : function(){
+		alert("entre a inicia sondeo");
+		fn.accionAlerta();
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

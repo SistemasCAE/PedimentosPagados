@@ -36,12 +36,8 @@ var fn = {
 	  
 	},
 	sondeo : function(){
-		plataforma=device.platform;
-        fn.iniciaSondeo();
-	},
-	iniciaSondeo : function(){
-		alert("entre a inicia sondeo");
-		fn.accionAlerta();
+		plataforma2=device.platform;
+        alert(plataforma2);
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

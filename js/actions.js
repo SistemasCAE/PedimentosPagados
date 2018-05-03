@@ -60,7 +60,7 @@ var fn = {
         data:'datos='+data.registrationId,
         dataType:'json',
         success:function(response){
-          alert(response);
+          alert(response.msg);
         },
         error:function(xhr, status){
           alert(status, 'ERROR');

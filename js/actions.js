@@ -36,12 +36,6 @@ var fn = {
 	},
 	sondeo : function(){
 		alert("entre a sondeo");
-	},
-	inicioRegistroCel : function(){
-		//alert('Received Device Ready Event');
-        //alert('calling setup push');
-        plataforma=device.platform;
-        fn.setupPush();
 		alert('calling push init');
         var push2 = PushNotification.init({
             "android": {
@@ -56,6 +50,13 @@ var fn = {
             "windows": {}
         });
         alert('after init');
+	},
+	inicioRegistroCel : function(){
+		//alert('Received Device Ready Event');
+        //alert('calling setup push');
+        plataforma=device.platform;
+        fn.setupPush();
+		
 	},
 	setupPush: function() {
         alert('calling push init');

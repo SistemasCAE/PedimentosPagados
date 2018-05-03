@@ -51,24 +51,7 @@ var fn = {
        });
 	   alert("fin notification event");*/
 	   
-	   jsonPush.on('registration', function(data) {
-		alert('registration event: ' + data.registrationId);
-			
-        jQuery.ajax({
-        url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
-        type:'GET',
-        data:'datos='+data.registrationId,
-        dataType:'json',
-        success:function(response){
-          alert(response.msg);
-        },
-        error:function(xhr, status){
-          alert(status, 'ERROR');
-
-        }
-      });
-            
-        });
+	
 	   
 	   alert("Fin registration");
 	},

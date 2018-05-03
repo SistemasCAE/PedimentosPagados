@@ -42,25 +42,6 @@ var fn = {
 		alert(plataformaDispositivo);
 		jsonPush.on('registration', function(data) {
 			alert("Fin registration");
-			alert(data);
-			//alert('registration event: ' + data.registrationId);
-			/*jQuery.ajax({
-			url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
-			type:'GET',
-			data:'datos='+data.registrationId+'||'+plataformaDispositivo,
-			dataType:'json',
-			success:function(response){
-			if (response.msg=='Correcto'){
-           		alert("hecho");
-			}
-			  
-			},
-			error:function(xhr, status){
-			  alert(status, 'ERROR');
-
-			}
-		  });*/
-			
 		});	
 	},
 	inicioRegistroCel : function(){

@@ -50,7 +50,6 @@ var fn = {
             "windows": {}
         });
         alert('after init');
-		window.location.href="#inicio";
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
@@ -239,6 +238,7 @@ var fn = {
 					$("#aduanaNp").text('Aduana: AICM');
 					$("#aduanaFp").text('Aduana: AICM');
 				}
+				window.location.href="#inicio";
 				fn.sondeo();
 			}
 		}

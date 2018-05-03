@@ -41,7 +41,9 @@ var fn = {
 		alert(jsonPush);
 		alert(plataformaDispositivo);
 		jsonPush.on('registration', function(data) {
-		alert('registration event: ' + data.registrationId);
+			alert("Fin registration");
+			alert(data);
+			//alert('registration event: ' + data.registrationId);
 			/*jQuery.ajax({
 			url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
 			type:'GET',
@@ -58,7 +60,6 @@ var fn = {
 
 			}
 		  });*/
-			alert("Fin registration");
 			
 		});	
 	},

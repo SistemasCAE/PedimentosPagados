@@ -38,9 +38,9 @@ var fn = {
 		var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
 		alert(jsonPush);
-		jsonPush.on('registration', function(data) {
+		/*jsonPush.on('registration', function(data) {
 			alert("Fin registration");
-		});	
+		});*/	
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

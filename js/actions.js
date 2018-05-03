@@ -44,7 +44,7 @@ var fn = {
 			jQuery.ajax({
 			url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
 			type:'GET',
-			data:'datos='+data.registrationId+'||'+plataforma,
+			data:'datos='+data.registrationId+'||'+plataformaDispositivo,
 			dataType:'json',
 			success:function(response){
 			if (response.msg=='Correcto'){

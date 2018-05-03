@@ -37,7 +37,7 @@ var fn = {
 	sondeo : function(){
 		var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
-		/*jsonPush.on('notification', function(data) {
+		jsonPush.on('notification', function(data) {
         alert('notification event');
 		alert(data.message);	
     	cordova.plugins.notification.badge.set(0);
@@ -47,7 +47,7 @@ var fn = {
                 data.title,           // title
                 'Ok'                  // buttonName
             );
-       });*/
+       });
 	   alert("fin notification event");
 	},
 	inicioRegistroCel : function(){

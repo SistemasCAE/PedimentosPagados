@@ -42,6 +42,20 @@ var fn = {
         //alert('calling setup push');
         plataforma=device.platform;
         fn.setupPush();
+		alert('calling push init');
+        var push2 = PushNotification.init({
+            "android": {
+                "senderID": "816833643158"
+            },
+            "browser": {},
+            "ios": {
+                "sound": true,
+                "vibration": true,
+                "badge": true
+            },
+            "windows": {}
+        });
+        alert('after init');
 	},
 	setupPush: function() {
         alert('calling push init');

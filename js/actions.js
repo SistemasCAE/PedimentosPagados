@@ -37,7 +37,6 @@ var fn = {
 	sondeo : function(){
 		var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
-		alert(push);
 		alert(jsonPush);
 		/*jsonPush.on('notification', function(data) {
         alert('notification event');

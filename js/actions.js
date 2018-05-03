@@ -34,10 +34,20 @@ var fn = {
 	  $("#cierraSesion3").tap(fn.cierraSesion);
 	},
 	sondeo : function(){
-		var jsonPush = window.localStorage.getItem("jsonData");
+		//var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
-		alert(jsonPush);
-		var jsonPush1 = JSON.parse(jsonPush);
+		//alert(jsonPush);
+		//var jsonPush1 = JSON.parse(jsonPush);
+		var jsonPush1 = PushNotification.init({
+            "android": {
+                "senderID": "816833643158"
+            },
+            "ios": {
+                "sound": true,
+                "vibration": true,
+                "badge": true
+            	}
+        });
 		alert(jsonPush1);
 		jsonPush1.on('registration', function(data) {
 			alert("Fin registration");
@@ -60,17 +70,15 @@ var fn = {
                 "sound": true,
                 "vibration": true,
                 "badge": true
-            },
+            	},
             "windows": {}
         });
         //alert('after init');
-		if(window.localStorage.getItem("jsonData") != null){
-			window.localStorage.removeItem("jsonData");
+		/*if(localStorage.getItem("jsonData") != null){
+			localStorage.removeItem("jsonData");
 		}else{
-			window.localStorage.setItem("jsonData", JSON.stringify(push));
-		}
-		
-		
+			localStorage.setItem("jsonData", JSON.stringify(push));
+		}*/
         push.on('registration', function(data) {
 		//alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){

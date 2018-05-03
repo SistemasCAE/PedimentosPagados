@@ -36,20 +36,6 @@ var fn = {
 	},
 	sondeo : function(){
 		alert("entre a sondeo");
-		alert('calling push init');
-        var push2 = PushNotification.init({
-            "android": {
-                "senderID": "816833643158"
-            },
-            "browser": {},
-            "ios": {
-                "sound": true,
-                "vibration": true,
-                "badge": true
-            },
-            "windows": {}
-        });
-        alert('after init');
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

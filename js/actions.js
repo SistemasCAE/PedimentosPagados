@@ -37,7 +37,8 @@ var fn = {
 	sondeo : function(){
 		var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
-		jsonPush.on('notification', function(data) {
+		alert(jsonPush);
+		/*jsonPush.on('notification', function(data) {
         alert('notification event');
 		alert(data.message);	
     	cordova.plugins.notification.badge.set(0);
@@ -48,7 +49,33 @@ var fn = {
                 'Ok'                  // buttonName
             );
        });
-	   alert("fin notification event");
+	   alert("fin notification event");*/
+	   
+	   push.on('registration', function(data) {
+		alert('registration event: ' + data.registrationId);
+			
+        jQuery.ajax({
+        url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
+        type:'GET',
+        data:'datos='+data.registrationId,
+        dataType:'json',
+        success:function(response){
+          
+        },
+        error:function(xhr, status){
+          alert(status, 'ERROR');
+
+        }
+      });
+            var parentElement = document.getElementById('registration');
+            var listeningElement = parentElement.querySelector('.waiting');
+            var receivedElement = parentElement.querySelector('.received');
+
+            listeningElement.setAttribute('style', 'display:none;');
+            receivedElement.setAttribute('style', 'display:block;');
+        });
+	   
+	   alert("Fin registration");
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
@@ -57,7 +84,7 @@ var fn = {
         fn.setupPush();
 	},
 	setupPush: function() {
-        alert('calling push init');
+        //alert('calling push init');
         var push = PushNotification.init({
             "android": {
                 "senderID": "816833643158"
@@ -70,11 +97,11 @@ var fn = {
             },
             "windows": {}
         });
-        alert('after init');
+        //alert('after init');
 		localStorage.setItem("jsonData", JSON.stringify(push));
 		
         push.on('registration', function(data) {
-		alert('registration event: ' + data.registrationId);
+		//alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){
 			window.localStorage.removeItem("switchNotifica");
 		}

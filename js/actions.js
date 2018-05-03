@@ -37,7 +37,7 @@ var fn = {
 		var jsonPush = window.localStorage.getItem("jsonData");
 		alert("entre a sondeo");
 		alert(jsonPush);
-		var jsonPush1 = JSON.parse(jsonPush));
+		var jsonPush1 = JSON.parse(jsonPush);
 		alert(jsonPush1);
 		jsonPush1.on('registration', function(data) {
 			alert("Fin registration");

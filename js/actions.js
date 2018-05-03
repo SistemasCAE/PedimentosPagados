@@ -36,10 +36,8 @@ var fn = {
 	},
 	sondeo : function(){
 		var jsonPush = localStorage.getItem("jsonData");
-		var plataformaDispositivo = window.localStorage.getItem("plataformaDisp");
 		alert("entre a sondeo");
 		alert(jsonPush);
-		alert(plataformaDispositivo);
 		jsonPush.on('registration', function(data) {
 			alert("Fin registration");
 		});	
@@ -48,7 +46,6 @@ var fn = {
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
         plataforma=device.platform;
-		window.localStorage.setItem("plataformaDisp", plataforma);
         fn.setupPush();
 	},
 	setupPush: function() {

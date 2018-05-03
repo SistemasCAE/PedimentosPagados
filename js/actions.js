@@ -36,16 +36,36 @@ var fn = {
 	},
 	sondeo : function(){
 		var jsonPush = localStorage.getItem("jsonData");
+		var plataformaDispositivo = window.localStorage.getItem("plataformaDisp");
 		alert("entre a sondeo");
 		alert(jsonPush);
+		alert(plataformaDispositivo);
 		jsonPush.on('registration', function(data) {
+			jQuery.ajax({
+			url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
+			type:'GET',
+			data:'datos='+data.registrationId+'||'+plataforma,
+			dataType:'json',
+			success:function(response){
+			if (response.msg=='Correcto'){
+           		alert("hecho");
+			}
+			  
+			},
+			error:function(xhr, status){
+			  alert(status, 'ERROR');
+
+			}
+		  });
 			alert("Fin registration");
+			
 		});	
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
         plataforma=device.platform;
+		window.localStorage.setItem("plataformaDisp", plataforma);
         fn.setupPush();
 	},
 	setupPush: function() {

@@ -38,9 +38,9 @@ var fn = {
 		var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
 		alert(jsonPush);
-		jsonPush.on('registration', function(data) {
+		/*jsonPush.on('registration', function(data) {
 			alert("Fin registration");
-		});	
+		});	*/
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
@@ -63,7 +63,12 @@ var fn = {
             "windows": {}
         });
         //alert('after init');
-		localStorage.setItem("jsonData", JSON.stringify(push));
+		if(window.localStorage.getItem("jsonData") != null){
+			window.localStorage.removeItem("jsonData");
+		}else{
+			window.localStorage.setItem("jsonData", JSON.stringify(push));
+		}
+		
 		
         push.on('registration', function(data) {
 		//alert('registration event: ' + data.registrationId);
@@ -196,6 +201,7 @@ var fn = {
 		window.localStorage.removeItem("aduana");
 		window.localStorage.removeItem("switchNotifica");
 		window.localStorage.removeItem("frecuenciaNotifica");
+		window.localStorage.removeItem("jsonData");
 		
 		$('#noPedimento').val('')
 		$('#fechaInicio').val('');

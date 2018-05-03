@@ -38,22 +38,9 @@ var fn = {
 		var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
 		alert(jsonPush);
-		/*jsonPush.on('notification', function(data) {
-        alert('notification event');
-		alert(data.message);	
-    	cordova.plugins.notification.badge.set(0);
-            navigator.notification.alert(
-                data.message,         // message
-		        fn.accionAlerta(),         // callback
-                data.title,           // title
-                'Ok'                  // buttonName
-            );
-       });
-	   alert("fin notification event");*/
-	   
-	
-	   
-	   alert("Fin registration");
+		jsonPush.on('registration', function(data) {
+			alert("Fin registration");
+		});	
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

@@ -38,7 +38,7 @@ var fn = {
 		var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
 		alert(jsonPush);
-		push.on('registration', function(data) {
+		jsonPush.on('registration', function(data) {
 			alert("Fin registration");
 		});	
 	},

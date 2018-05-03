@@ -37,6 +37,7 @@ var fn = {
 	sondeo : function(){
 		var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
+		alert(push);
 		alert(jsonPush);
 		/*jsonPush.on('notification', function(data) {
         alert('notification event');
@@ -51,7 +52,7 @@ var fn = {
        });
 	   alert("fin notification event");*/
 	   
-	   push.on('registration', function(data) {
+	   jsonPush.on('registration', function(data) {
 		alert('registration event: ' + data.registrationId);
 			
         jQuery.ajax({
@@ -67,12 +68,7 @@ var fn = {
 
         }
       });
-            var parentElement = document.getElementById('registration');
-            var listeningElement = parentElement.querySelector('.waiting');
-            var receivedElement = parentElement.querySelector('.received');
-
-            listeningElement.setAttribute('style', 'display:none;');
-            receivedElement.setAttribute('style', 'display:block;');
+            
         });
 	   
 	   alert("Fin registration");

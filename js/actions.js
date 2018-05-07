@@ -21,7 +21,7 @@ var fn = {
 	 * En esta sección vamos a asociar
 	 * todos los eventos del "Click" al HTML
 	 */
-	  plataforma=device.platform;
+	  
 	  fn.Menu();
 	  
 	  $("#botonAcceder").tap(fn.iniciarSesion);
@@ -42,6 +42,7 @@ var fn = {
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
+		plataforma=device.platform;
         fn.setupPush();
 	},
 	setupPush: function() {

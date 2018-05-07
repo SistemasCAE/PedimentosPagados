@@ -22,18 +22,6 @@ var fn = {
 	 * todos los eventos del "Click" al HTML
 	 */
 	  plataforma=device.platform;
-	  var push = PushNotification.init({
-            "android": {
-                "senderID": "816833643158"
-            },
-            "browser": {},
-            "ios": {
-                "sound": true,
-                "vibration": true,
-                "badge": true
-            	},
-            "windows": {}
-       });
 	  fn.Menu();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
@@ -57,7 +45,18 @@ var fn = {
 	},
 	setupPush: function() {
         //alert('calling push init');
-       
+        var push = PushNotification.init({
+            "android": {
+                "senderID": "816833643158"
+            },
+            "browser": {},
+            "ios": {
+                "sound": true,
+                "vibration": true,
+                "badge": true
+            	},
+            "windows": {}
+        });
         //alert('after init');
 		/*if(localStorage.getItem("jsonData") != null){
 			localStorage.removeItem("jsonData");

@@ -207,7 +207,7 @@ var fn = {
 	},
 	
 	compruebaSesion: function(){
-		var jsonPush = JSON.parse(localStorage.getItem("jsonData"));
+		
 		
 		push.on('notification', function(data) {
         alert('notification event');

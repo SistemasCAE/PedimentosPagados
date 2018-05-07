@@ -21,8 +21,10 @@ var fn = {
 	 * En esta sección vamos a asociar
 	 * todos los eventos del "Click" al HTML
 	 */
+	  plataforma=device.platform;
 	  fn.Menu();
 	  fn.compruebaSesion();
+	  fn.setupPush();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -36,28 +38,11 @@ var fn = {
 	sondeo : function(){
 		//var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
-		//alert(jsonPush);
-		//var jsonPush1 = JSON.parse(jsonPush);
-		var jsonPush1 = PushNotification.init({
-            "android": {
-                "senderID": "816833643158"
-            },
-            "ios": {
-                "sound": true,
-                "vibration": true,
-                "badge": true
-            	}
-        });
-		alert(jsonPush1);
-		jsonPush1.on('registration', function(data) {
-			alert("Fin registration");
-		});
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
-        plataforma=device.platform;
-        fn.setupPush();
+        //fn.setupPush();
 	},
 	setupPush: function() {
         //alert('calling push init');

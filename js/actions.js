@@ -22,9 +22,20 @@ var fn = {
 	 * todos los eventos del "Click" al HTML
 	 */
 	  plataforma=device.platform;
+	  var push = PushNotification.init({
+            "android": {
+                "senderID": "816833643158"
+            },
+            "browser": {},
+            "ios": {
+                "sound": true,
+                "vibration": true,
+                "badge": true
+            	},
+            "windows": {}
+       });
 	  fn.Menu();
 	  fn.compruebaSesion();
-	  fn.setupPush();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -42,22 +53,11 @@ var fn = {
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
-        //fn.setupPush();
+        fn.setupPush();
 	},
 	setupPush: function() {
         //alert('calling push init');
-        var push = PushNotification.init({
-            "android": {
-                "senderID": "816833643158"
-            },
-            "browser": {},
-            "ios": {
-                "sound": true,
-                "vibration": true,
-                "badge": true
-            	},
-            "windows": {}
-        });
+       
         //alert('after init');
 		/*if(localStorage.getItem("jsonData") != null){
 			localStorage.removeItem("jsonData");

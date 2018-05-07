@@ -23,7 +23,7 @@ var fn = {
 	 */
 	  
 	  fn.Menu();
-	  
+	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -36,7 +36,6 @@ var fn = {
 	},
 	sondeo : function(){
 		//var jsonPush = localStorage.getItem("jsonData");
-		fn.compruebaSesion();
 		alert("entre a sondeo");
 	},
 	inicioRegistroCel : function(){
@@ -60,11 +59,11 @@ var fn = {
             "windows": {}
         });
         //alert('after init');
-		/*if(localStorage.getItem("jsonData") != null){
+		if(localStorage.getItem("jsonData") != null){
 			localStorage.removeItem("jsonData");
 		}else{
 			localStorage.setItem("jsonData", JSON.stringify(push));
-		}*/
+		}
         push.on('registration', function(data) {
 		//alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){
@@ -208,6 +207,24 @@ var fn = {
 	},
 	
 	compruebaSesion: function(){
+		if(window.localStorage.getItem("jsonData") != null){
+			var jsonPush = JSON.parse(localStorage.getItem("jsonData"));
+			alert(window.localStorage.getItem("jsonData"));
+		}
+		
+		push.on('notification', function(data) {
+        alert('notification event');
+		alert(data.message);	
+    	cordova.plugins.notification.badge.set(0);
+            navigator.notification.alert(
+                data.message,         // message
+		        fn.accionAlerta(data.message),         // callback
+                data.title,           // title
+                'Ok'                  // buttonName
+            );
+       });
+		
+		
 		if(window.localStorage.getItem("switchNotifica") != null){
 			//alert(window.localStorage.getItem("switchNotifica"));
 			$("#switchNotificaciones").val(window.localStorage.getItem("switchNotifica"));

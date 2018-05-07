@@ -23,7 +23,7 @@ var fn = {
 	 */
 	  plataforma=device.platform;
 	  fn.Menu();
-	  fn.compruebaSesion();
+	  
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
    	  $("#botonConsultarPedimento").tap(fn.consultaPedimento);
@@ -36,6 +36,7 @@ var fn = {
 	},
 	sondeo : function(){
 		//var jsonPush = localStorage.getItem("jsonData");
+		fn.compruebaSesion();
 		alert("entre a sondeo");
 	},
 	inicioRegistroCel : function(){

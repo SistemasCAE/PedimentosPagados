@@ -51,6 +51,7 @@ var fn = {
         fn.setupPush();
 	},
 	setupPush: function() {
+		alert(push);
         alert('calling push init');
         var push = PushNotification.init({
             "android": {

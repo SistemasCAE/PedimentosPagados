@@ -75,7 +75,7 @@ var fn = {
 		
 		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
 		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
-		
+		alert(window.localStorage.getItem("configuracion");
 		if(window.localStorage.getItem("configuracion")=='guardada')
 		{
 			jQuery.ajax({
@@ -252,6 +252,7 @@ var fn = {
 				}
 				window.location.href="#inicio";
 				fn.setupPush();
+				alert("al inicio");
 			}
 		}
 	},

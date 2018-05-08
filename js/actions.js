@@ -216,7 +216,7 @@ var fn = {
 		window.localStorage.removeItem("switchNotifica");
 		window.localStorage.removeItem("frecuenciaNotifica");
 		window.localStorage.removeItem("jsonData");
-		
+		window.localStorage.removeItem("configuracion");
 		$('#noPedimento').val('')
 		$('#fechaInicio').val('');
 		$('#fechaFin').val('');

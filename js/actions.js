@@ -252,9 +252,10 @@ var fn = {
 					$("#aduanaNp").text('Aduana: AICM');
 					$("#aduanaFp").text('Aduana: AICM');
 				}
-				window.location.href="#inicio";
 				fn.setupPush();
 				alert("al inicio");
+				window.location.href="#inicio";
+				
 			}
 		}
 	},

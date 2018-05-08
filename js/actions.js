@@ -21,9 +21,9 @@ var fn = {
 	 * En esta sección vamos a asociar
 	 * todos los eventos del "Click" al HTML
 	 */
-	  if(window.localStorage.getItem("configuracion") == null){
+	  /*if(window.localStorage.getItem("configuracion") == null){
 			window.localStorage.setItem("configuracion","");
-		}
+		}*/
 	  fn.Menu();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);

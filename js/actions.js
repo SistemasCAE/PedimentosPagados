@@ -41,7 +41,6 @@ var fn = {
 		//var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
 		alert(window.localStorage.getItem("configuracion"));
-		plataforma=device.platform;
 		fn.setupPush();
 	},
 	inicioRegistroCel : function(){

@@ -36,6 +36,8 @@ var fn = {
 	  $("#cierraSesion").tap(fn.cierraSesion);
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
+	  $("#botonPrueba").tap(fn.sondeo);
+	  
 	},
 	sondeo : function(){
 		//var jsonPush = localStorage.getItem("jsonData");
@@ -258,7 +260,7 @@ var fn = {
 				}
 				alert("al inicio");
 				window.location.href="#inicio";
-				fn.sondeo();
+				//fn.sondeo();
 			}
 		}
 	},

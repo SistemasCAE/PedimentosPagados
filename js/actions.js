@@ -75,24 +75,44 @@ var fn = {
 		
 		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
 		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
-			
-        jQuery.ajax({
-        url: 'http://enlinea.cae3076.com/Notificaciones/funciones.php',
-        type:'GET',
-        data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario"),
-        dataType:'json',
-        success:function(response){
-          if (response.msg=='primera'){
-            alert('Se ha guardado su configuración');
-          }else{
-		    alert('Se ha actualizado su configuración');
-		  }
-        },
-        error:function(xhr, status){
-          alert(status, 'ERROR');
+		
+		if(window.localStorage.getItem("configuracion")=='guardada')
+		{
+			jQuery.ajax({
+				url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
+				type:'GET',
+				data:'datos='+data.registrationId,
+				dataType:'json',
+				success:function(response){
+					alert('funciones2 chingon');
+				},
+				error:function(xhr, status){
+				  alert(status, 'ERROR');
 
-        }
-      });
+				}
+			  });
+		}
+		else{
+			jQuery.ajax({
+				url: 'http://enlinea.cae3076.com/Notificaciones/funciones.php',
+				type:'GET',
+				data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario"),
+				dataType:'json',
+				success:function(response){
+				  if (response.msg=='primera'){
+					alert('Se ha guardado su configuración');
+					window.localStorage.setItem("configuracion","guardada");
+				  }else{
+					alert('Se ha actualizado su configuración');
+				  }
+				},
+				error:function(xhr, status){
+				  alert(status, 'ERROR');
+
+				}
+			  });
+		}
+        
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
@@ -231,7 +251,7 @@ var fn = {
 					$("#aduanaFp").text('Aduana: AICM');
 				}
 				window.location.href="#inicio";
-				fn.sondeo();
+				fn.setupPush();
 			}
 		}
 	},

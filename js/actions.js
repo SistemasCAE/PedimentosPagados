@@ -23,7 +23,8 @@ var fn = {
 	 */
 	  if(window.localStorage.getItem("configuracion") == null){
 			window.localStorage.setItem("configuracion","");
-		}
+	  }
+	  
 	  fn.Menu();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
@@ -49,6 +50,7 @@ var fn = {
 	},
 	setupPush: function() {
         alert('calling push init');
+		alert(push);
         var push = PushNotification.init({
             "android": {
                 "senderID": "816833643158"

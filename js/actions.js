@@ -40,6 +40,7 @@ var fn = {
 	sondeo : function(){
 		//var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
+		plataforma=device.platform;
 		fn.setupPush();
 	},
 	inicioRegistroCel : function(){
@@ -50,7 +51,6 @@ var fn = {
 	},
 	setupPush: function() {
         alert('calling push init');
-		alert(push);
         var push = PushNotification.init({
             "android": {
                 "senderID": "816833643158"

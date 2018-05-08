@@ -42,7 +42,7 @@ var fn = {
 	sondeo : function(){
 		//var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
-		alert(window.localStorage.getItem("configuracion"));
+		//alert(window.localStorage.getItem("configuracion"));
 		fn.setupPush();
 	},
 	inicioRegistroCel : function(){
@@ -52,8 +52,8 @@ var fn = {
         fn.setupPush();
 	},
 	setupPush: function() {
-		alert(push);
-        alert('calling push init');
+		//alert(push);
+        //alert('calling push init');
         var push = PushNotification.init({
             "android": {
                 "senderID": "816833643158"
@@ -66,14 +66,14 @@ var fn = {
             	},
             "windows": {}
         });
-        alert('after init');
+        //alert('after init');
 		/*if(localStorage.getItem("jsonData") != null){
 			localStorage.removeItem("jsonData");
 		}else{
 			localStorage.setItem("jsonData", JSON.stringify(push));
 		}*/
         push.on('registration', function(data) {
-		alert('registration event: ' + data.registrationId);
+		//alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){
 			window.localStorage.removeItem("switchNotifica");
 		}
@@ -120,7 +120,7 @@ var fn = {
 				}
 			  });
 		}
-        alert(window.localStorage.getItem("configuracion"));
+        //alert(window.localStorage.getItem("configuracion"));
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
@@ -136,7 +136,7 @@ var fn = {
         });
 		
         push.on('notification', function(data) {
-        alert('notification event');
+        //alert('notification event');
 		alert(data.message);	
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
@@ -148,8 +148,8 @@ var fn = {
        });
     },
 	accionAlerta : function (message){
-		alert("entre a accionAlerta");
-		alert(message);
+		//alert("entre a accionAlerta");
+		//alert(message);
 	},
 	Menu : function()
 	{

@@ -39,6 +39,7 @@ var fn = {
 	sondeo : function(){
 		//var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
+		fn.setupPush();
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
@@ -252,10 +253,9 @@ var fn = {
 					$("#aduanaNp").text('Aduana: AICM');
 					$("#aduanaFp").text('Aduana: AICM');
 				}
-				fn.setupPush();
 				alert("al inicio");
 				window.location.href="#inicio";
-				
+				fn.sondeo();
 			}
 		}
 	},

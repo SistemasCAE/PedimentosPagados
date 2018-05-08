@@ -21,9 +21,9 @@ var fn = {
 	 * En esta sección vamos a asociar
 	 * todos los eventos del "Click" al HTML
 	 */
-	  /*if(window.localStorage.getItem("configuracion") == null){
+	  if(window.localStorage.getItem("configuracion") == null){
 			window.localStorage.setItem("configuracion","");
-		}*/
+		}
 	  fn.Menu();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
@@ -77,7 +77,7 @@ var fn = {
 		
 		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
 		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
-		alert(window.localStorage.getItem("configuracion");
+		alert(window.localStorage.getItem("configuracion"));
 		if(window.localStorage.getItem("configuracion")=='guardada')
 		{
 			jQuery.ajax({

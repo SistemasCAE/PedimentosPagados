@@ -48,7 +48,7 @@ var fn = {
         fn.setupPush();
 	},
 	setupPush: function() {
-        //alert('calling push init');
+        alert('calling push init');
         var push = PushNotification.init({
             "android": {
                 "senderID": "816833643158"
@@ -61,14 +61,14 @@ var fn = {
             	},
             "windows": {}
         });
-        //alert('after init');
+        alert('after init');
 		/*if(localStorage.getItem("jsonData") != null){
 			localStorage.removeItem("jsonData");
 		}else{
 			localStorage.setItem("jsonData", JSON.stringify(push));
 		}*/
         push.on('registration', function(data) {
-		//alert('registration event: ' + data.registrationId);
+		alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){
 			window.localStorage.removeItem("switchNotifica");
 		}
@@ -78,7 +78,7 @@ var fn = {
 		
 		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
 		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
-		alert(window.localStorage.getItem("configuracion"));
+		
 		if(window.localStorage.getItem("configuracion")=='guardada')
 		{
 			jQuery.ajax({
@@ -115,7 +115,7 @@ var fn = {
 				}
 			  });
 		}
-        
+        alert(window.localStorage.getItem("configuracion"));
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');

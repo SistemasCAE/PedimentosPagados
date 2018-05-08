@@ -21,7 +21,7 @@ var fn = {
 	 * En esta sección vamos a asociar
 	 * todos los eventos del "Click" al HTML
 	 */
-	  
+	  plataforma=device.platform;
 	  fn.Menu();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
@@ -41,7 +41,6 @@ var fn = {
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
-		plataforma=device.platform;
         fn.setupPush();
 	},
 	setupPush: function() {
@@ -59,11 +58,11 @@ var fn = {
             "windows": {}
         });
         //alert('after init');
-		if(localStorage.getItem("jsonData") != null){
+		/*if(localStorage.getItem("jsonData") != null){
 			localStorage.removeItem("jsonData");
 		}else{
 			localStorage.setItem("jsonData", JSON.stringify(push));
-		}
+		}*/
         push.on('registration', function(data) {
 		//alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){
@@ -207,21 +206,6 @@ var fn = {
 	},
 	
 	compruebaSesion: function(){
-		
-		
-		push.on('notification', function(data) {
-        alert('notification event');
-		alert(data.message);	
-    	cordova.plugins.notification.badge.set(0);
-            navigator.notification.alert(
-                data.message,         // message
-		        fn.accionAlerta(data.message),         // callback
-                data.title,           // title
-                'Ok'                  // buttonName
-            );
-       });
-		
-		
 		if(window.localStorage.getItem("switchNotifica") != null){
 			//alert(window.localStorage.getItem("switchNotifica"));
 			$("#switchNotificaciones").val(window.localStorage.getItem("switchNotifica"));

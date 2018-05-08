@@ -41,13 +41,13 @@ var fn = {
 		//var jsonPush = localStorage.getItem("jsonData");
 		alert("entre a sondeo");
 		alert(window.localStorage.getItem("configuracion"));
-		var plataforma=device.platform;
+		plataforma=device.platform;
 		fn.setupPush();
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
-		var plataforma=device.platform;
+		plataforma=device.platform;
         fn.setupPush();
 	},
 	setupPush: function() {

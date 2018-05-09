@@ -36,10 +36,12 @@ var fn = {
 	  $("#cierraSesion").tap(fn.cierraSesion);
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
+	  $("#opcion2").tap(fn.sondeo);
 	  //$("#botonPrueba").tap(fn.sondeo);
 	  
 	},
 	sondeo : function(){
+	alert("Aqui se realizara la carga de notificaciones");
 		//var jsonPush = localStorage.getItem("jsonData");
 		//alert("entre a sondeo");
 		//alert(window.localStorage.getItem("configuracion"));

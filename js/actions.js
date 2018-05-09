@@ -36,14 +36,14 @@ var fn = {
 	  $("#cierraSesion").tap(fn.cierraSesion);
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
-	  $("#botonPrueba").tap(fn.sondeo);
+	  //$("#botonPrueba").tap(fn.sondeo);
 	  
 	},
 	sondeo : function(){
 		//var jsonPush = localStorage.getItem("jsonData");
-		alert("entre a sondeo");
+		//alert("entre a sondeo");
 		//alert(window.localStorage.getItem("configuracion"));
-		fn.setupPush();
+		//fn.setupPush();
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
@@ -92,7 +92,7 @@ var fn = {
 				data:'datos='+data.registrationId,
 				dataType:'json',
 				success:function(response){
-					alert('funciones2 chingon');
+					//alert('funciones2 chingon');
 				},
 				error:function(xhr, status){
 				  alert(status, 'ERROR');
@@ -156,9 +156,9 @@ var fn = {
 		var tamArreglo=ArrMenu.length;
 		for(var i = 0; i<tamArreglo; i++)
 		{
-			$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow">'+ArrMenu[i].nombre+'</a></li>');
-			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow">'+ArrMenu[i].nombre+'</a></li>');
-			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion'+i+'">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion'+i+'">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion'+i+'">'+ArrMenu[i].nombre+'</a></li>');
 		}
 	},
 	iniciarSesion: function(){

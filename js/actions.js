@@ -26,6 +26,7 @@ var fn = {
 	  }
 	  
 	  fn.Menu();
+	  fn.cargaNotificaciones();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
 	  $("#botonGuardaConfig").tap(fn.inicioRegistroCel);
@@ -36,13 +37,13 @@ var fn = {
 	  $("#cierraSesion").tap(fn.cierraSesion);
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
-	  $("#0notificaciones1").tap(fn.sondeo);
-	  $("#1notificaciones1").tap(fn.sondeo);
-	  $("#2notificaciones1").tap(fn.sondeo);
+	 // $("#0notificaciones1").tap(fn.sondeo);
+	  //$("#1notificaciones1").tap(fn.sondeo);
+	  //$("#2notificaciones1").tap(fn.sondeo);
 	  //$("#botonPrueba").tap(fn.sondeo);
 	  
 	},
-	sondeo : function(){
+	cargaNotificaciones : function(){
 		window.plugins.toast.show("Llegue!! aqui se mostrara la información", 'long', 'center');
 	},
 	inicioRegistroCel : function(){

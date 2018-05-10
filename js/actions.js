@@ -43,7 +43,7 @@ var fn = {
 	  
 	},
 	sondeo : function(){
-		alert("carga de informacion");
+		//alert("carga de informacion");
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

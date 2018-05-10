@@ -43,7 +43,7 @@ var fn = {
 	  
 	},
 	sondeo : function(){
-		//alert("carga de informacion");
+		window.plugins.toast.show("Llegue!! aqui se mostrara la información", 'long', 'center');
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

@@ -36,7 +36,9 @@ var fn = {
 	  $("#cierraSesion").tap(fn.cierraSesion);
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
-	  $("#opcion1").tap(fn.sondeo);
+	  $("#opcion01").tap(fn.sondeo);
+	  $("#opcion11").tap(fn.sondeo);
+	  $("#opcion21").tap(fn.sondeo);
 	  //$("#botonPrueba").tap(fn.sondeo);
 	  
 	},
@@ -158,9 +160,9 @@ var fn = {
 		var tamArreglo=ArrMenu.length;
 		for(var i = 0; i<tamArreglo; i++)
 		{
-			$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion'+i+'">'+ArrMenu[i].nombre+'</a></li>');
-			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion'+i+'">'+ArrMenu[i].nombre+'</a></li>');
-			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion'+i+'">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion0'+i+'">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion1'+i+'">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion2'+i+'">'+ArrMenu[i].nombre+'</a></li>');
 		}
 	},
 	iniciarSesion: function(){

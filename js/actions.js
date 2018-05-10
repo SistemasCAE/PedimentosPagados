@@ -44,6 +44,7 @@ var fn = {
 	},
 	sondeo : function(){
 	alert("Aqui se realizara la carga de notificaciones");
+	window.location.href="#notificaciones";
 		//var jsonPush = localStorage.getItem("jsonData");
 		//alert("entre a sondeo");
 		//alert(window.localStorage.getItem("configuracion"));

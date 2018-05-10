@@ -36,19 +36,14 @@ var fn = {
 	  $("#cierraSesion").tap(fn.cierraSesion);
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
-	  $("#opcion01").tap(fn.sondeo);
-	  $("#opcion11").tap(fn.sondeo);
-	  $("#opcion21").tap(fn.sondeo);
+	  $("#opcion0notificaciones0").tap(fn.sondeo);
+	  $("#opcion1notificaciones1").tap(fn.sondeo);
+	  $("#opcion2notificaciones2").tap(fn.sondeo);
 	  //$("#botonPrueba").tap(fn.sondeo);
 	  
 	},
 	sondeo : function(){
-	alert("Aqui se realizara la carga de notificaciones");
-	window.location.href="#notificaciones";
-		//var jsonPush = localStorage.getItem("jsonData");
-		//alert("entre a sondeo");
-		//alert(window.localStorage.getItem("configuracion"));
-		//fn.setupPush();
+
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
@@ -161,9 +156,9 @@ var fn = {
 		var tamArreglo=ArrMenu.length;
 		for(var i = 0; i<tamArreglo; i++)
 		{
-			$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion0'+i+'">'+ArrMenu[i].nombre+'</a></li>');
-			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion1'+i+'">'+ArrMenu[i].nombre+'</a></li>');
-			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="opcion2'+i+'">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="0'+ArrMenu[i].url+i+'">'+ArrMenu[i].urlurlurl+'</a></li>');
+			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="1'+ArrMenu[i].url+i+'">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="2'+ArrMenu[i].url+i+'">'+ArrMenu[i].nombre+'</a></li>');
 		}
 	},
 	iniciarSesion: function(){

@@ -36,9 +36,9 @@ var fn = {
 	  $("#cierraSesion").tap(fn.cierraSesion);
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
-	  $("#opcion0notificaciones0").tap(fn.sondeo);
-	  $("#opcion1notificaciones1").tap(fn.sondeo);
-	  $("#opcion2notificaciones2").tap(fn.sondeo);
+	  $("#0notificaciones0").tap(fn.sondeo);
+	  $("#1notificaciones1").tap(fn.sondeo);
+	  $("#2notificaciones2").tap(fn.sondeo);
 	  //$("#botonPrueba").tap(fn.sondeo);
 	  
 	},

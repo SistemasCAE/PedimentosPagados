@@ -36,7 +36,7 @@ var fn = {
 	  $("#cierraSesion").tap(fn.cierraSesion);
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
-	  $("#opcion2").tap(fn.sondeo);
+	  $("#opcion1").tap(fn.sondeo);
 	  //$("#botonPrueba").tap(fn.sondeo);
 	  
 	},
@@ -260,9 +260,7 @@ var fn = {
 					$("#aduanaNp").text('Aduana: AICM');
 					$("#aduanaFp").text('Aduana: AICM');
 				}
-				alert("al inicio");
 				window.location.href="#inicio";
-				//fn.sondeo();
 			}
 		}
 	},

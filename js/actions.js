@@ -44,7 +44,15 @@ var fn = {
 	  
 	},
 	cargaNotificaciones : function(){
-		window.plugins.toast.show("Llegue!! aqui se mostrara la información", 'long', 'center');
+		if(window.localStorage.getItem("switchNotifica") != null){
+			var tiempo = new Date();
+			var hora = tiempo.getHours();
+			if(hora=='08' || hora=='09' || hora=='10' || hora=='11' || hora=='12')
+			{
+				window.plugins.toast.show("Llegue!! aqui se mostrara la información", 'long', 'center');	
+			}
+		}
+		
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

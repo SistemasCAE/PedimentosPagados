@@ -46,23 +46,22 @@ var fn = {
 			if(hora=='08' || hora=='09' || hora=='10' || hora=='11' || hora=='12')
 			{
 				var idDispositivo = window.localStorage.getItem("registrationID");
-				window.plugins.toast.show("Llegue!! aqui se mostrara la información", 'long', 'center');
+				window.plugins.toast.show(idDispositivo, 'long', 'center');
 				jQuery.ajax({
 				url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
 				type:'GET',
 				data:'datos='+idDispositivo,
 				dataType:'json',
 				success:function(response){
-					window.plugins.toast.show(response.Mensaje +" - "+response.Fecha_Hora, 'long', 'center');
+					window.plugins.toast.show("Exito", 'long', 'center');
 				},
 				error:function(xhr, status){
-				  alert(status, 'ERROR');
+				  alert("Se fue al error");
 
 				}
 			  });
 			}
 		}
-		
 	},
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');

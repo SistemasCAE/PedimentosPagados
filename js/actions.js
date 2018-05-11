@@ -37,10 +37,6 @@ var fn = {
 	  $("#cierraSesion").tap(fn.cierraSesion);
 	  $("#cierraSesion2").tap(fn.cierraSesion);
 	  $("#cierraSesion3").tap(fn.cierraSesion);
-	 // $("#0notificaciones1").tap(fn.sondeo);
-	  //$("#1notificaciones1").tap(fn.sondeo);
-	  //$("#2notificaciones1").tap(fn.sondeo);
-	  //$("#botonPrueba").tap(fn.sondeo);
 	  
 	},
 	cargaNotificaciones : function(){
@@ -57,7 +53,7 @@ var fn = {
 				data:'datos='+idDispositivo,
 				dataType:'json',
 				success:function(response){
-					window.plugins.toast.show(response.msg, 'long', 'center');
+					window.plugins.toast.show(response.Mensaje +" - "+response.Fecha_Hora, 'long', 'center');
 				},
 				error:function(xhr, status){
 				  alert(status, 'ERROR');

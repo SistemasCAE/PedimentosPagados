@@ -49,7 +49,21 @@ var fn = {
 			var hora = tiempo.getHours();
 			if(hora=='08' || hora=='09' || hora=='10' || hora=='11' || hora=='12')
 			{
-				window.plugins.toast.show("Llegue!! aqui se mostrara la información", 'long', 'center');	
+				var idDispositivo = window.localStorage.getItem("registrationID");
+				window.plugins.toast.show("Llegue!! aqui se mostrara la información", 'long', 'center');
+				jQuery.ajax({
+				url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
+				type:'GET',
+				data:'datos='+idDispositivo,
+				dataType:'json',
+				success:function(response){
+					window.plugins.toast.show(response.msg, 'long', 'center');
+				},
+				error:function(xhr, status){
+				  alert(status, 'ERROR');
+
+				}
+			  });
 			}
 		}
 		
@@ -75,12 +89,7 @@ var fn = {
             	},
             "windows": {}
         });
-        //alert('after init');
-		/*if(localStorage.getItem("jsonData") != null){
-			localStorage.removeItem("jsonData");
-		}else{
-			localStorage.setItem("jsonData", JSON.stringify(push));
-		}*/
+		
         push.on('registration', function(data) {
 		//alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){
@@ -93,42 +102,26 @@ var fn = {
 		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
 		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
 		
-		if(window.localStorage.getItem("configuracion")=='guardada')
-		{
-			jQuery.ajax({
-				url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
-				type:'GET',
-				data:'datos='+data.registrationId,
-				dataType:'json',
-				success:function(response){
-					//alert('funciones2 chingon');
-				},
-				error:function(xhr, status){
-				  alert(status, 'ERROR');
+		window.localStorage.setItem("registrationID", data.registrationId);
+		
+		jQuery.ajax({
+			url: 'http://enlinea.cae3076.com/Notificaciones/funciones.php',
+			type:'GET',
+			data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario"),
+			dataType:'json',
+			success:function(response){
+			  if (response.msg=='primera'){
+				alert('Se ha guardado su configuración');
+				window.localStorage.setItem("configuracion","guardada");
+			  }else{
+				alert('Se ha actualizado su configuración');
+			  }
+			},
+			error:function(xhr, status){
+			  alert(status, 'ERROR');
 
-				}
-			  });
-		}
-		else{
-			jQuery.ajax({
-				url: 'http://enlinea.cae3076.com/Notificaciones/funciones.php',
-				type:'GET',
-				data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario"),
-				dataType:'json',
-				success:function(response){
-				  if (response.msg=='primera'){
-					alert('Se ha guardado su configuración');
-					window.localStorage.setItem("configuracion","guardada");
-				  }else{
-					alert('Se ha actualizado su configuración');
-				  }
-				},
-				error:function(xhr, status){
-				  alert(status, 'ERROR');
-
-				}
-			  });
-		}
+			}
+		  });
         //alert(window.localStorage.getItem("configuracion"));
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
@@ -234,6 +227,7 @@ var fn = {
 		window.localStorage.removeItem("frecuenciaNotifica");
 		window.localStorage.removeItem("jsonData");
 		window.localStorage.removeItem("configuracion");
+		window.localStorage.removeItem("registrationID");
 		$('#noPedimento').val('')
 		$('#fechaInicio').val('');
 		$('#fechaFin').val('');

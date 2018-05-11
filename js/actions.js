@@ -46,33 +46,47 @@ var fn = {
 			if(hora=='08' || hora=='09' || hora=='10' || hora=='11' || hora=='12')
 			{
 				var idDispositivo = window.localStorage.getItem("registrationID");
-				window.plugins.toast.show(idDispositivo, 'long', 'center');
-				
-				/*jQuery.ajax({
-				url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
-				type:'GET',
-				data:'datos='+idDispositivo,
-				dataType:'json',
-				success:function(response){
-					window.plugins.toast.show("Exito", 'long', 'center');
-				},
-				error:function(xhr, status){
-				  alert("Se fue al error");
-
-				}
-			  });*/
-			  
-				  $.ajax({
-					method: "POST",
+				/*$.ajax({
+					method: "GET",
 					url: "http://enlinea.cae3076.com/Notificaciones/funciones2.php",
 					data: { 
 						datos: idDispositivo
 					}
 				}).done(function(mensaje){
 					window.plugins.toast.show("Exito", 'long', 'center');
+					
+					
 				}).fail(function(error){
 					alert("Se fue al error");
-				});
+				});*/
+				for(var x=0; x<data.length; x++)
+				{
+					$('#resultado').append('<div id="'+data[x].Archivo+'" onClick="fn.abrePDF('+"'"+data[x].Archivo+"','"+data[x].Ruta+"'"+')">'+data[x].Archivo+'</div></br>');
+				}
+				
+				////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
+		$.ajax({
+				type: "GET",
+				url: "http://enlinea.cae3076.com/Notificaciones/funciones2.php",
+				data: { 
+					datos : idDispositivo
+				},
+				dataType: "json"
+			}).done(function(data, textStatus, jqXHR){
+				for(var x=0; x<data.length; x++)
+				{
+					$('#contenidoNotificaciones').append('<div>'+data[x].Mensaje+'</div>');
+				}
+			}).fail(function(error){
+				alert(error.status);
+				alert(error.message);
+				alert(error.responseText);
+			});
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				
+				
+				
+				
 			}
 		}
 	},

@@ -47,7 +47,8 @@ var fn = {
 			{
 				var idDispositivo = window.localStorage.getItem("registrationID");
 				window.plugins.toast.show(idDispositivo, 'long', 'center');
-				jQuery.ajax({
+				
+				/*jQuery.ajax({
 				url: 'http://enlinea.cae3076.com/Notificaciones/funciones2.php',
 				type:'GET',
 				data:'datos='+idDispositivo,
@@ -59,7 +60,19 @@ var fn = {
 				  alert("Se fue al error");
 
 				}
-			  });
+			  });*/
+			  
+				  $.ajax({
+					method: "POST",
+					url: "http://enlinea.cae3076.com/Notificaciones/funciones2.php",
+					data: { 
+						datos: idDispositivo
+					}
+				}).done(function(mensaje){
+					window.plugins.toast.show("Exito", 'long', 'center');
+				}).fail(function(error){
+					alert("Se fue al error");
+				});
 			}
 		}
 	},

@@ -70,14 +70,12 @@ var fn = {
 			}).done(function(data, textStatus, jqXHR){
 				for(var x=0; x<data.length; x++)
 				{
-					$('#contenidoNotificaciones').append('<div>'+data[x].Mensaje+'</div>');
+					$('#contenidoNotificaciones').append('<div data-role="collapsible" data-collapsed="true">'+data[x].Mensaje+'</div>');
 				}
 			}).fail(function(error){
-				alert(error.status);
-				alert(error.message);
-				alert(error.responseText);
+				
 			});
-				///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			}
 		}
 	},

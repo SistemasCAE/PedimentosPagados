@@ -58,7 +58,7 @@ var fn = {
 				}).done(function(data, textStatus, jqXHR){
 					for(var x=0; x<data.length; x++)
 					{
-						$('#contenidoNotificaciones').append('<li><a href="#" data-role="button" data-icon="alert">'+data[x].Mensaje+'</a></li>');
+						$('#contenidoNotificaciones').append('<li><a href="#" data-role="button" data-icon="alert" data-theme="a">'+data[x].Mensaje+'</a></li>');
 					}
 				}).fail(function(error){
 

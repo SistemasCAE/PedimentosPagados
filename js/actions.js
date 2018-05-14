@@ -74,6 +74,7 @@ var fn = {
         //alert('calling setup push');
 		plataforma=device.platform;
         fn.setupPush();
+		$('#cargando').append('<img src="img/loading3.png" alt="" width="200">');
 	},
 	setupPush: function() {
 		//alert(push);
@@ -116,6 +117,7 @@ var fn = {
 				window.localStorage.setItem("configuracion","guardada");
 			  }else{
 				alert('Se ha actualizado su configuración');
+				$('#cargando').html('');
 			  }
 			},
 			error:function(xhr, status){

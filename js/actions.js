@@ -40,43 +40,32 @@ var fn = {
 	  
 	},
 	cargaNotificaciones : function(){
+		var frecuenciaNotificaciones = window.localStorage.getItem("frecuenciaNotifica");
 		if(window.localStorage.getItem("switchNotifica") != null){
 			var tiempo = new Date();
 			var hora = tiempo.getHours();
-			if(hora=='08' || hora=='09' || hora=='10' || hora=='11' || hora=='12')
+			if(hora >= '08' && hora <= '00')
 			{
 				var idDispositivo = window.localStorage.getItem("registrationID");
-				/*$.ajax({
-					method: "GET",
+				////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
+				$.ajax({
+					type: "GET",
 					url: "http://enlinea.cae3076.com/Notificaciones/funciones2.php",
 					data: { 
-						datos: idDispositivo
+						datos : idDispositivo
+					},
+					dataType: "json"
+				}).done(function(data, textStatus, jqXHR){
+					for(var x=0; x<data.length; x++)
+					{
+						$('#contenidoNotificaciones').append('<li><a href="#">'+data[x].Mensaje+'</a></li>');
 					}
-				}).done(function(mensaje){
-					window.plugins.toast.show("Exito", 'long', 'center');
-					
-					
 				}).fail(function(error){
-					alert("Se fue al error");
-				});*/
-				////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
-		$.ajax({
-				type: "GET",
-				url: "http://enlinea.cae3076.com/Notificaciones/funciones2.php",
-				data: { 
-					datos : idDispositivo
-				},
-				dataType: "json"
-			}).done(function(data, textStatus, jqXHR){
-				for(var x=0; x<data.length; x++)
-				{
-					$('#contenidoNotificaciones').append('<li><a href="#">'+data[x].Mensaje+'</a><a href="#" data-role="button" data-icon="delete" data-theme="d"></a></li>');
-				}
-			}).fail(function(error){
-				
-			});
-			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+				});
+				///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			}
+			
 		}
 	},
 	inicioRegistroCel : function(){
@@ -153,10 +142,10 @@ var fn = {
 		alert(data.message);	
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
-                data.message,         // message
-		        fn.accionAlerta(data.message),         // callback
-                data.title,           // title
-                'Ok'                  // buttonName
+                data.message,         					// message
+		        fn.accionAlerta(data.message),          // callback
+                data.title,           					// title
+                'Ok'                   					// buttonName
             );
        });
     },

@@ -44,8 +44,7 @@ var fn = {
 		if(window.localStorage.getItem("switchNotifica") != null){
 			var tiempo = new Date();
 			var hora = tiempo.getHours();
-			alert(hora);
-			if(hora >= '08' && hora <= '00')
+			if(hora >= '08' && hora <= '23')
 			{
 				var idDispositivo = window.localStorage.getItem("registrationID");
 				////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
@@ -67,7 +66,6 @@ var fn = {
 				///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			}
 			else{
-			alert("no entre");
 			}
 		}
 	},

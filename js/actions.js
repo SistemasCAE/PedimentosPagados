@@ -70,7 +70,7 @@ var fn = {
 			}).done(function(data, textStatus, jqXHR){
 				for(var x=0; x<data.length; x++)
 				{
-					//$('#contenidoNotificaciones').append('<div>'+data[x].Mensaje+'</div>');
+					$('#contenidoNotificaciones').append('<li><a href="#">'+data[x].Mensaje+'</a><a href="#" data-role="button" data-icon="delete" data-theme="d"></a></li>');
 				}
 			}).fail(function(error){
 				

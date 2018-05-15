@@ -72,14 +72,13 @@ var fn = {
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
-		$('#popup1').html('<center><img src="img/loading3.png" alt="" width="200"></center>');
-		$("#popup1").popup("open");
 		plataforma=device.platform;
         fn.setupPush();
 		
 	},
 	setupPush: function() {
-		alert(push);
+		$('#popup1').html('<center><img src="img/loading3.png" alt="" width="200"></center>');
+		$("#popup1").popup("open");
         alert('calling push init');
         var push = PushNotification.init({
             "android": {
@@ -122,6 +121,7 @@ var fn = {
 				$("#popup1").popup("close");
 			  }else{
 				alert('Se ha actualizado su configuración');
+				$('#popup1').html('');
 				$("#popup1").popup("close");
 			  }
 			},

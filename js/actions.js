@@ -117,6 +117,8 @@ var fn = {
 			  if (response.msg=='primera'){
 				alert('Se ha guardado su configuración');
 				window.localStorage.setItem("configuracion","guardada");
+				$('#popup1').html('');
+				$("#popup1").popup("close");
 			  }else{
 				alert('Se ha actualizado su configuración');
 				$("#popup1").popup("close");

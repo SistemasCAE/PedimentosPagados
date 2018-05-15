@@ -109,7 +109,7 @@ var fn = {
 		jQuery.ajax({
 			url: 'http://enlinea.cae3076.com/Notificaciones/funciones.php',
 			type:'GET',
-			data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario"),
+			data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario")+"||"+window.localStorage.getItem("aduana"),
 			dataType:'json',
 			success:function(response){
 			//alert(response);

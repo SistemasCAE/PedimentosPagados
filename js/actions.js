@@ -77,8 +77,8 @@ var fn = {
 		
 	},
 	setupPush: function() {
-		$('#popup1').html('<center><img src="img/loading3.png" alt="" width="200"></center>');
-		$("#popup1").popup("open");
+		//$('#popup1').html('<center><img src="img/loading3.png" alt="" width="200"></center>');
+		//$("#popup1").popup("open");
         alert('calling push init');
         var push = PushNotification.init({
             "android": {

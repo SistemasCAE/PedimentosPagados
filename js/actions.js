@@ -72,7 +72,7 @@ var fn = {
 	inicioRegistroCel : function(){
 		//alert('Received Device Ready Event');
         //alert('calling setup push');
-		$('#popup1').append('<img src="img/loading3.png" alt="" width="200">');
+		$('#popup1').append('<center><img src="img/loading3.png" alt="" width="200"></center>');
 		$("#popup1").popup("open");
 		plataforma=device.platform;
         fn.setupPush();

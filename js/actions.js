@@ -146,20 +146,16 @@ var fn = {
 		
         push.on('notification', function(data) {
         //alert('notification event');
-		alert(data.message);	
+		//alert(data.message);	
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         					// message
-		        fn.accionAlerta(data.message),          // callback
+		        "null",          // callback
                 data.title,           					// title
                 'Ok'                   					// buttonName
             );
        });
     },
-	accionAlerta : function (message){
-		//alert("entre a accionAlerta");
-		//alert(message);
-	},
 	Menu : function()
 	{
 		var tamArreglo=ArrMenu.length;
@@ -246,11 +242,9 @@ var fn = {
 	
 	compruebaSesion: function(){
 		if(window.localStorage.getItem("switchNotifica") != null){
-			//alert(window.localStorage.getItem("switchNotifica"));
 			$("#switchNotificaciones").val(window.localStorage.getItem("switchNotifica"));
 		}
 		if(window.localStorage.getItem("frecuenciaNotifica") != null){
-			//alert(window.localStorage.getItem("frecuenciaNotifica"));
 			$('#slider').html('');
 			var cadena = '<input type="range" data-show-value="true" data-popup-enabled="true" min="1" max="6" value="'+window.localStorage.getItem("frecuenciaNotifica")+'" id="rango">';
 			$('#slider').html(cadena);
@@ -356,7 +350,6 @@ var fn = {
 			var archivoConsulta = 'http://enlinea.cae3076.com/AppConsultaPedimentos/buscaPedimento47.php';
 		}
 		
-		
 		try{
 			if(fechaInicio == ""){
 				throw new Error("No ha indicado Fecha Inicio");
@@ -414,7 +407,6 @@ var fn = {
 					}
 				}
 			}).fail(function(error){
-				//alert("Error");
 				console.log(error.responseText);
 			});
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

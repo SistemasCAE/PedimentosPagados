@@ -74,12 +74,11 @@ var fn = {
         //alert('calling setup push');
 		plataforma=device.platform;
         fn.setupPush();
-		
+		$('#popup1').html('<center><img src="img/loading3.png" alt="" width="200"></center>');
+		$("#popup1").popup("open");
 	},
 	setupPush: function() {
-		//$('#popup1').html('<center><img src="img/loading3.png" alt="" width="200"></center>');
-		//$("#popup1").popup("open");
-        alert('calling push init');
+        //alert('calling push init');
         var push = PushNotification.init({
             "android": {
                 "senderID": "816833643158"
@@ -94,7 +93,7 @@ var fn = {
         });
 		
         push.on('registration', function(data) {
-		alert('registration event: ' + data.registrationId);
+		//alert('registration event: ' + data.registrationId);
 		if(window.localStorage.getItem("switchNotifica") != null){
 			window.localStorage.removeItem("switchNotifica");
 		}
@@ -113,7 +112,7 @@ var fn = {
 			data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario"),
 			dataType:'json',
 			success:function(response){
-				alert(response);
+			//alert(response);
 			  if (response.msg=='primera'){
 				alert('Se ha guardado su configuración');
 				window.localStorage.setItem("configuracion","guardada");

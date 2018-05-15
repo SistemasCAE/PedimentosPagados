@@ -277,7 +277,7 @@ var fn = {
 	if(networkInfo.estaConectado() == false){
 			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
 		}else{
-		$('#resultado').html("Cargando...");
+		$('#resultado').html('<center><img src="img/loading3.png" alt="" width="200"></center>');
 		var empresa_rfc = window.localStorage.getItem("nombreUsuario");
 		var noPedimento= $("#noPedimento").val();
 		try{
@@ -341,7 +341,7 @@ var fn = {
 	if(networkInfo.estaConectado() == false){
 			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
 		}else{
-		$('#resultado').html("Cargando...");
+		$('#resultado').html('<center><img src="img/loading3.png" alt="" width="200"></center>');
 		var empresa_rfc = window.localStorage.getItem("nombreUsuario");
 		var fechaInicio= $("#fechaInicio").val();
 		var operacion= $("#combo").val();

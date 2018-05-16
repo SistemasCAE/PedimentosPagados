@@ -93,19 +93,10 @@ var fn = {
         });
 		
         push.on('registration', function(data) {
-		//alert('registration event: ' + data.registrationId);
-		/*if(window.localStorage.getItem("switchNotifica") != null){
-			window.localStorage.removeItem("switchNotifica");
-		}
-		if(window.localStorage.getItem("frecuenciaNotifica") != null){
-			window.localStorage.removeItem("frecuenciaNotifica");
-		}*/
 		
 		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
 		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
 		
-		alert(window.localStorage.getItem("switchNotifica"));
-		alert(window.localStorage.getItem("frecuenciaNotifica"));
 		
 		window.localStorage.setItem("registrationID", data.registrationId);
 		
@@ -244,8 +235,6 @@ var fn = {
 	},
 	
 	compruebaSesion: function(){
-		alert(window.localStorage.getItem("switchNotifica"));
-		alert(window.localStorage.getItem("frecuenciaNotifica"));
 		if(window.localStorage.getItem("switchNotifica") != null){
 			$("#switchNotificaciones").val(window.localStorage.getItem("switchNotifica"));
 		}

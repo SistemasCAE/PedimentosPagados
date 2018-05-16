@@ -99,10 +99,10 @@ var fn = {
 		}
 		if(window.localStorage.getItem("frecuenciaNotifica") != null){
 			window.localStorage.removeItem("frecuenciaNotifica");
-		}
+		}*/
 		
 		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
-		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());*/
+		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
 		
 		alert(window.localStorage.getItem("switchNotifica"));
 		alert(window.localStorage.getItem("frecuenciaNotifica"));

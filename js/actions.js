@@ -50,7 +50,7 @@ var fn = {
 				////////////////////////////////////////////////////////////// Envio AJAX//////////////////////////////////////////////////////////////////
 				$.ajax({
 					type: "GET",
-					url: "http://enlinea.cae3076.com/Notificaciones/funciones2.php",
+					url: "http://enlinea.cae3076.com/AppConsultaPedimentos/Notificaciones/funciones2.php",
 					data: { 
 						datos : idDispositivo
 					},
@@ -107,7 +107,7 @@ var fn = {
 		window.localStorage.setItem("registrationID", data.registrationId);
 		
 		jQuery.ajax({
-			url: 'http://enlinea.cae3076.com/Notificaciones/funciones.php',
+			url: 'http://enlinea.cae3076.com/AppConsultaPedimentos/Notificaciones/funciones.php',
 			type:'GET',
 			data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario")+'||'+window.localStorage.getItem("aduana"),
 			dataType:'json',

@@ -70,15 +70,12 @@ var fn = {
 		}
 	},
 	inicioRegistroCel : function(){
-		//alert('Received Device Ready Event');
-        //alert('calling setup push');
 		plataforma=device.platform;
         fn.setupPush();
 		$('#popup1').html('<center><img src="img/loading3.png" alt="" width="200"></center>');
 		$("#popup1").popup("open");
 	},
 	setupPush: function() {
-        //alert('calling push init');
         var push = PushNotification.init({
             "android": {
                 "senderID": "816833643158"
@@ -96,8 +93,6 @@ var fn = {
 		
 		window.localStorage.setItem("switchNotifica", $("#switchNotificaciones").val());
 		window.localStorage.setItem("frecuenciaNotifica", $("#rango").val());
-		
-		
 		window.localStorage.setItem("registrationID", data.registrationId);
 		
 		jQuery.ajax({
@@ -106,7 +101,6 @@ var fn = {
 			data:'datos='+data.registrationId+'||'+plataforma+'||'+window.localStorage.getItem("switchNotifica")+'||'+window.localStorage.getItem("frecuenciaNotifica")+'||'+window.localStorage.getItem("nombreUsuario")+'||'+window.localStorage.getItem("aduana"),
 			dataType:'json',
 			success:function(response){
-			//alert(response);
 			  if (response.msg=='primera'){
 				alert('Se ha guardado su configuración');
 				window.localStorage.setItem("configuracion","guardada");
@@ -123,7 +117,7 @@ var fn = {
 
 			}
 		  });
-        //alert(window.localStorage.getItem("configuracion"));
+		 
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
@@ -133,18 +127,14 @@ var fn = {
         });
 
         push.on('error', function(e) {
-		//alert("push error = " + e.message);
-      	//alert("push error = " + e.message);
 
         });
 		
         push.on('notification', function(data) {
-        //alert('notification event');
-		//alert(data.message);	
     	cordova.plugins.notification.badge.set(0);
             navigator.notification.alert(
                 data.message,         					// message
-		        "null",          // callback
+		        "null",          						// callback
                 data.title,           					// title
                 'Ok'                   					// buttonName
             );

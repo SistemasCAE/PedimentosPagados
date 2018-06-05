@@ -72,19 +72,22 @@ var fn = {
 	inicioRegistroCel : function(){
 		plataforma=device.platform;
         fn.setupPush();
-		$('#popup1').html('<center><img src="img/loading3.png" alt="" width="200"></center>');
+		$('#popup1').html('<center><img src="img/loading3.png" alt="" width="150"></center>');
 		$("#popup1").popup("open");
 	},
 	setupPush: function() {
         var push = PushNotification.init({
             "android": {
-                "senderID": "816833643158"
+                "senderID": "816833643158",
+				"sound": true,
+                "vibration": true,
+                "badge": false
             },
             "browser": {},
             "ios": {
                 "sound": true,
                 "vibration": true,
-                "badge": true
+                "badge": false
             	},
             "windows": {}
         });

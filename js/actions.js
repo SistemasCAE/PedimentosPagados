@@ -451,6 +451,8 @@ var fn = {
 	mostrarPopUp : function()
 	{
 		$("#popup").popup("open");
+		$('html, body').animate({scrollTop:0}, 'slow');
+		return false;
 	},
 	
 	divPorPedimento: function(){

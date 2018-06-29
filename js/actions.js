@@ -211,20 +211,60 @@ var fn = {
 	},
 	
 	cierraSesion: function(){
-		window.localStorage.removeItem("nombreUsuario");
-		window.localStorage.removeItem("aduana");
-		window.localStorage.removeItem("switchNotifica");
-		window.localStorage.removeItem("frecuenciaNotifica");
-		window.localStorage.removeItem("jsonData");
-		window.localStorage.removeItem("configuracion");
-		window.localStorage.removeItem("registrationID");
-		$('#noPedimento').val('')
-		$('#fechaInicio').val('');
-		$('#fechaFin').val('');
-		$('#resultado').html('');
-		$("#usuario").val("");
-		$("#password").val("");
-		window.location.href = "#paginaInicio";
+		
+		////////////////////////////////////////////////////////////////////	AJAX	//////////////////////////////////////////////////////////////////////////
+		var idDispositivo = window.localStorage.getItem("registrationID");
+		var rfc_sesion = window.localStorage.getItem("nombreUsuario");
+		if(networkInfo.estaConectado() == false){
+			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
+		}else{
+			$.ajax({
+				method: "POST",
+				url: "http://enlinea.cae3076.com/AppConsultaPedimentos/cierraSesion.php",
+				data: { 
+					id: idDispositivo,
+					rfc: rfc_sesion
+				}
+			}).done(function(mensaje){
+				if(mensaje != "0"){
+					window.localStorage.removeItem("nombreUsuario");
+					window.localStorage.removeItem("aduana");
+					window.localStorage.removeItem("switchNotifica");
+					window.localStorage.removeItem("frecuenciaNotifica");
+					window.localStorage.removeItem("jsonData");
+					window.localStorage.removeItem("configuracion");
+					window.localStorage.removeItem("registrationID");
+					$('#noPedimento').val('')
+					$('#fechaInicio').val('');
+					$('#fechaFin').val('');
+					$('#resultado').html('');
+					$("#usuario").val("");
+					$("#password").val("");
+					window.location.href = "#paginaInicio";
+				}else{
+					window.plugins.toast.show("", 'long', 'center');
+					window.localStorage.removeItem("nombreUsuario");
+					window.localStorage.removeItem("aduana");
+					window.localStorage.removeItem("switchNotifica");
+					window.localStorage.removeItem("frecuenciaNotifica");
+					window.localStorage.removeItem("jsonData");
+					window.localStorage.removeItem("configuracion");
+					window.localStorage.removeItem("registrationID");
+					$('#noPedimento').val('')
+					$('#fechaInicio').val('');
+					$('#fechaFin').val('');
+					$('#resultado').html('');
+					$("#usuario").val("");
+					$("#password").val("");
+					window.location.href = "#paginaInicio";
+				}
+			}).fail(function(error){
+				alert("hubo error");
+			});
+		}
+		
+		////////////////////////////////////////////////////////////////////	AJAX	//////////////////////////////////////////////////////////////////////////
+		
 	},
 	
 	compruebaSesion: function(){

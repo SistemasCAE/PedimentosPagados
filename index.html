@@ -11,6 +11,11 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
+		<link rel="stylesheet" href="css/themes/login.css" />
+		<link rel="stylesheet" href="css/themes/pag_inicio.css" />
+  		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+		
+		
 	</head>
 	<body>
 		
@@ -18,30 +23,30 @@
 		<!---------------------------------------PAGINA DE INICIO DE SESION-------------------------------------->
 		<!------------------------------------------------------------------------------------------------------->
 		
-		<section id="paginaInicio" data-role="page"  data-content-theme="a">
-			<div data-role="header" data-theme="b">
-				<h1>Bienvenido</h1>
-			</div>
+		<section id="paginaInicio" data-role="page"  data-content-theme="login">
 			<div data-role="content">
-				<div class="loginBody">
-					<h1>Log in</h1>
-					<input type="text" placeholder="Usuario" id="usuario">
-					<input type="password" placeholder="Contraseña" id="password">
-					<br>
-					<center>
-						<fieldset data-role="controlgroup" data-type="horizontal">
-							<legend for="select1">Aduana:</legend>
-							<select name="aduana" id="aduana">
-								<option value="puebla">Puebla</option>
-								<option value="aicm">AICM</option>
-							</select>
-						</fieldset>
-					</center>
-					<br>
-					<button data-icon="css/images/icons-png/carat-r-black.png" data-iconpos="right" id="botonAcceder">Acceder</button>
-				</div>
+				<center>
+					<img src="img/tu_logo_aqui.png" width="55%" id="img_logo">
+					<h1 class="texto1">Log in</h1>
+					<div class="loginBody">
+						<input type="text" placeholder="Usuario" id="usuario">
+						<input type="password" placeholder="Contraseña" id="password">
+						<br>
+						<center>
+							<fieldset data-role="controlgroup" data-type="horizontal">
+								<select name="aduana" id="aduana">
+									<option value="puebla">Puebla</option>
+									<option value="aicm">AICM</option>
+								</select>
+							</fieldset>
+						</center>
+						<button data-icon="carat-r" data-iconpos="right" id="botonAcceder">Log In</button>
+						<br>
+						<p class="texto2">Forgot your password?</p>
+					</div>
+				</center>	
 			</div>
-			<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="footer" data-position="fixed">
 				<h1>Corporativo Aduanal Especializado S. C.</h1>
 			</div>
 		</section>
@@ -50,13 +55,13 @@
 		<!----------------------------------------------------  PAGINA CONSULTAS  ---------------------------------------------------------------->
 		<!---------------------------------------------------------------------------------------------------------------------------------------->
 		
-		<section id="inicio" data-role="page" data-content-theme="a" data-fullscreen="true">
+		<section id="inicio" data-role="page" data-content-theme="pag_inicio" data-fullscreen="true">
 			<div data-role="panel" id="miPanel">
 				<h3>Menu</h3>
 				<ul data-role="listview" id="listaPanel">
 				</ul>
 			</div>
-			<div data-role="header" data-theme="b">
+			<div data-role="header">
 				<div data-role="controlgroup" data-type="horizontal" class="ui-btn-left">
 					<a href="#miPanel" data-role="button" data-icon="bars" data-inline="true" id="botonMenu">Menu</a>
 				</div>
@@ -65,63 +70,8 @@
 					<a href="" data-role="button" data-icon="delete" id="cierraSesion">Cerrar</a>
 				</div>	
 			</div>
-			<div data-role="content">
-				<div data-role="tabs">
-					<div data-role="navbar" data-theme="a">
-						<ul>
-							<li>
-								<a id="linkConsultaNoPedimento" href="#contenido1">
-									No. de Pedimento
-								</a>
-							</li>
-							<li>
-								<a id="linkConsultaFechaPago" href="#contenido2">
-									Fecha de Pago
-								</a>
-							</li>
-						</ul>
-					</div>
-					<br><br>
-					<center>
-						<div id="contenido1">
-							<strong><span id="aduanaNp"></span></strong>
-							<br><br>
-							<h1>Pedimento</h1>
-							<input type="text" id="noPedimento">
-							<br>
-							<button id="botonConsultarPedimento">Consultar</button>
-						</div>
-					</center>
-					<div id="contenido2">
-						<center>
-							<strong><span id="aduanaFp"></span></strong>
-							<br><br>
-							<h1>Pedimentos por Fecha de Pago</h1>
-							<input type="date" data-role="date" id="fechaInicio" class="hasDatepicker">
-							<br>
-							<input type="date" data-role="date" id="fechaFin" class="hasDatepicker">
-							<br>
-							<fieldset>
-								<select name="combo" id="combo">
-									<option value="0">IMP / EXP</option>
-									<option value="1">IMPORTACION</option>
-									<option value="2">EXPORTACION</option>
-								</select>
-							</fieldset>
-							<br>
-							<button id="botonConsultarFecha">Consultar</button>
-						</center>
-					</div>
-					<br>
-					<div id="popup" data-role="popup">
-					</div>
-					<br>
-					<div id="resultado" style="overflow:scroll; height:500px; width: auto;">
-						
-					</div>
-				</div>
-			</div>
-			<div data-role="footer" data-position="fixed" data-theme="b">
+			
+			<div data-role="footer" data-position="fixed">
 				<h1>Corporativo Aduanal Especializado S. C.</h1>
 			</div>
 		</section>
@@ -136,7 +86,7 @@
 				<ul data-role="listview" id="listaPanel2">
 				</ul>
 			</div>
-			<div data-role="header" data-theme="b">
+			<div data-role="header">
 				<div data-role="controlgroup" data-type="horizontal" class="ui-btn-left">
 					<a href="#miPanel2" data-role="button" data-icon="bars" data-inline="true" id="botonMenu1">Menu</a>
 				</div>
@@ -156,7 +106,7 @@
 					</center>
 				</div>
 			</div>
-			<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="footer" data-position="fixed">
 				<h1>Corporativo Aduanal Especializado S. C.</h1>
 			</div>
 		</section>
@@ -165,13 +115,13 @@
 		<!----------------------------------------------------  PAGINA CONFIGURACION  ------------------------------------------------------------>
 		<!---------------------------------------------------------------------------------------------------------------------------------------->
 		
-		<section  id="configuracion" data-role="page" data-content-theme="a" data-fullscreen="true">
+		<section  id="configuracion" data-role="page" data-content-theme="login" data-fullscreen="true">
 			<div data-role="panel" id="miPanel3">
 				<h3>Menu</h3>
 				<ul data-role="listview" id="listaPanel3">
 				</ul>
 			</div>
-			<div data-role="header" data-theme="b">
+			<div data-role="header">
 				<div data-role="controlgroup" data-type="horizontal" class="ui-btn-left">
 					<a href="#miPanel3" data-role="button" data-icon="bars" data-inline="true" id="botonMenu2">Menu</a>
 				</div>
@@ -181,11 +131,11 @@
 				</div>
 			</div>
 			<div data-role="content">
-				<div data-role="tabs">
-					<center>
+				<center>
+					<div data-role="tabs" class="loginBody">	
 						<div>
 							<br>
-							<h1>Notificaciones PUSH</h1>
+							<h1 class="texto3">Notificaciones PUSH</h1>
 							<select data-role="slider" id="switchNotificaciones">
 								<option value="NO">Off</option>
 								<option value="SI">On</option>
@@ -194,19 +144,19 @@
 						</div>
 						<div>
 							<br>
-							<h1>Frecuencia en Horas</h1>
+							<h1 class="texto3">Frecuencia en Horas</h1>
 								<div id="slider">
 									<input type="range" data-show-value="true" data-popup-enabled="true" min="1" max="6" value="2" id="rango">
 								</div>
 							<br>
 						</div>
 						<button data-icon="css/images/icons-png/carat-r-black.png" data-iconpos="right" id="botonGuardaConfig">Guardar</button>
-					</center>
-					<div id="popup1" data-role="popup">
+						<div id="popup1" data-role="popup">
+						</div>				
 					</div>
-				</div>
+				</center>
 			</div>
-			<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="footer" data-position="fixed">
 				<h1>Corporativo Aduanal Especializado S. C.</h1>
 			</div>
 		</section>

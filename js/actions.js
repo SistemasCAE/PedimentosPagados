@@ -2,18 +2,32 @@ var ArrMenu =[
 	{
 		nombre: "Consulta Operación",
 		url:"inicio",
-		descripcion: "Visualiza el estatus actual"
+		descripcion: "Visualiza el estatus actual",
+		data_icon:"search"
 	},
 	{
 		nombre: "Buzón Notificaciones",
 		url:"notificaciones",
-		descripcion: "Consulta el historial del día"
-		
+		descripcion: "Consulta el historial del día",
+		data_icon:"mail"
 	},
 	{
 		nombre: "Configuración de Alertas",
 		url:"configuracion",
-		descripcion: "Selecciona tu configuración"
+		descripcion: "Selecciona tu configuración",
+		data_icon:"gear"
+	},
+	{
+		nombre: "Aviso de Privacidad",
+		url:"aviso_privacidad",
+		descripcion: "Consulta nuestro aviso de privacidad",
+		data_icon:"eye"
+	},
+	{
+		nombre: "Cerrar Sesión",
+		url:"",
+		descripcion: "Salir de CPEDI CAE",
+		data_icon:"delete"
 	}
 ]
 var fn = {
@@ -152,10 +166,9 @@ var fn = {
 		var tamArreglo=ArrMenu.length;
 		for(var i = 0; i<tamArreglo; i++)
 		{
-			
-			$("#miPanel").append('<ul data-role="listview" data-split-icon="home"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="slideup"></a></li></ul>');
-			$("#miPanel2").append('<ul data-role="listview" data-split-icon="home"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="slideup"></a></li></ul>');
-			$("#miPanel3").append('<ul data-role="listview" data-split-icon="home"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="slideup"></a></li></ul>');	
+			$("#miPanel").append('<ul data-role="listview" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');
+			$("#miPanel2").append('<ul data-role="listview" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');
+			$("#miPanel3").append('<ul data-role="listview" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');	
 			/*$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="0'+ArrMenu[i].url+i+'" data-icon="home">'+ArrMenu[i].nombre+'</a></li>');
 			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="1'+ArrMenu[i].url+i+'" data-icon="mail">'+ArrMenu[i].nombre+'</a></li>');
 			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="2'+ArrMenu[i].url+i+'" data-icon="gear">'+ArrMenu[i].nombre+'</a></li>');*/

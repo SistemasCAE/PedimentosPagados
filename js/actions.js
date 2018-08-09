@@ -25,7 +25,7 @@ var fn = {
 			window.localStorage.setItem("configuracion","");
 	  }
 	  
-	  fn.Menu();
+	  //fn.Menu();
 	  fn.cargaNotificaciones();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
@@ -143,7 +143,7 @@ var fn = {
             );
        });
     },
-	Menu : function()
+	/*Menu : function()
 	{
 		var tamArreglo=ArrMenu.length;
 		for(var i = 0; i<tamArreglo; i++)
@@ -152,7 +152,7 @@ var fn = {
 			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="1'+ArrMenu[i].url+i+'" data-icon="mail">'+ArrMenu[i].nombre+'</a></li>');
 			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="2'+ArrMenu[i].url+i+'" data-icon="gear">'+ArrMenu[i].nombre+'</a></li>');
 		}
-	},
+	},*/
 	iniciarSesion: function(){
 		var usuario = $("#usuario").val();
 		var password = $("#password").val();

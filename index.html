@@ -56,19 +56,27 @@
 		<section id="inicio" data-role="page" data-theme="a" data-fullscreen="true">
 			<div data-role="panel" id="miPanel">
 				<center>
-				<h3>Menu</h3>
+				<h3>Menú</h3>
 				<img src="img/tu_logo_aqui.png" width="35%" height="35%"/>
 				</center>
 				<br><br>
 			</div>
 			<div data-role="header">
 				<div data-role="controlgroup" data-type="horizontal" class="ui-btn-left">
-					<a href="#miPanel" data-role="button"  data-inline="true" id="botonMenu"><img src="img/menu.png" width="25px" height="15px"></a>
+					<a href="#miPanel" data-role="button" data-icon="bars" data-inline="true" id="botonMenu">Menú</a>
 				</div>
 				<h1>Consulta</h1>
 				<!--<div data-role="controlgroup" data-type="horizontal" class="ui-btn-right">
 					<a href="" data-role="button" data-icon="delete" id="cierraSesion">Cerrar</a>
 				</div>-->	
+			</div>
+			<div data-role="content">
+				<center>
+					<h1 class="texto1">Consulta Operación</h1>
+					<button data-icon="carat-r" data-iconpos="right" id="crea_grafica">Genera</button>
+					<canvas id="popChart" width="600" height="400"></canvas>
+				</center>
+				
 			</div>
 			
 			<div data-role="footer" data-position="fixed">
@@ -83,14 +91,14 @@
 		<section  id="notificaciones" data-role="page" data-theme="c" data-fullscreen="true">
 			<div data-role="panel" id="miPanel2">
 				<center>
-				<h3>Menu</h3>
+				<h3>Menú</h3>
 				<img src="img/tu_logo_aqui.png" width="35%" height="35%"/>
 				</center>
 				<br><br>
 			</div>
 			<div data-role="header">
 				<div data-role="controlgroup" data-type="horizontal" class="ui-btn-left">
-					<a href="#miPanel2" data-role="button" data-inline="true" id="botonMenu1"><img src="img/menu.png" width="16px"></a>
+					<a href="#miPanel2" data-role="button" data-icon="bars" data-inline="true" id="botonMenu1">Menú</a>
 				</div>
 				<h1>Notificaciones</h1>
 				<!--<div data-role="controlgroup" data-type="horizontal" class="ui-btn-right">
@@ -120,14 +128,14 @@
 		<section  id="configuracion" data-role="page" data-theme="c" data-fullscreen="true">
 			<div data-role="panel" id="miPanel3">
 				<center>
-				<h3>Menu</h3>
+				<h3>Menú</h3>
 				<img src="img/tu_logo_aqui.png" width="35%" height="35%"/>
 				</center>
 				<br><br>
 			</div>
 			<div data-role="header">
 				<div data-role="controlgroup" data-type="horizontal" class="ui-btn-left">
-					<a href="#miPanel3" data-role="button" data-inline="true" id="botonMenu2"><img src="img/menu.png" width="16px"></a>
+					<a href="#miPanel3" data-role="button" data-icon="bars" data-inline="true" id="botonMenu2">Menú</a>
 				</div>
 				<h1>Configuración</h1>
 				<!--<div data-role="controlgroup" data-type="horizontal" class="ui-btn-right">
@@ -170,9 +178,15 @@
 		<!---------------------------------------------------------------------------------------------------------------------------------------->
 		
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script src="js/chart/Chart.js"></script>
+		<script src="js/chart/Chart.min.js"></script>
 		<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 		<script type="text/javascript" src="js/API/networkInformation.js"></script>
 		<script type="text/javascript" src="js/actions.js"></script>
+		<script>
+		
+		</script>
+		
 	</body>	
 </html>

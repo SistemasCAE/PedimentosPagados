@@ -318,7 +318,7 @@ var fn = {
 	creaGrafica : function(){
 		var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {
-		  type: 'bar',
+		  type: 'pie',
 		  data: {
 			labels: ["China", "India", "United States", "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Japan"],
 			datasets: [{

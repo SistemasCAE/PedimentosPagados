@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-	<head>
+<html><head>
 		<meta charset="utf-8">
 		<title>Pedimentos Pagados</title>
 		<!--<meta name="viewport" content="width=device-width, user-scalable=no">
@@ -11,7 +10,6 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
-		<link rel="stylesheet" href="css/themes/login.css" />
 		<link rel="stylesheet" href="css/themes/pag_inicio.css" />
   		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
 		
@@ -23,15 +21,14 @@
 		<!---------------------------------------PAGINA DE INICIO DE SESION-------------------------------------->
 		<!------------------------------------------------------------------------------------------------------->
 		
-		<section id="paginaInicio" data-role="page"  data-content-theme="login">
+		<section id="paginaInicio" data-role="page"  data-theme="a">
 			<div data-role="content">
 				<center>
-					<img src="img/tu_logo_aqui.png" width="55%" id="img_logo">
+					<img src="img/tu_logo_aqui.png" width="55%" height="50%" id="img_logo">
 					<h1 class="texto1">Log in</h1>
 					<div class="loginBody">
 						<input type="text" placeholder="Usuario" id="usuario">
 						<input type="password" placeholder="Contraseña" id="password">
-						<br>
 						<center>
 							<fieldset data-role="controlgroup" data-type="horizontal">
 								<select name="aduana" id="aduana">
@@ -40,6 +37,7 @@
 								</select>
 							</fieldset>
 						</center>
+						<br><br>
 						<button data-icon="carat-r" data-iconpos="right" id="botonAcceder">Log In</button>
 						<br>
 						<p class="texto2">Forgot your password?</p>
@@ -55,7 +53,7 @@
 		<!----------------------------------------------------  PAGINA CONSULTAS  ---------------------------------------------------------------->
 		<!---------------------------------------------------------------------------------------------------------------------------------------->
 		
-		<section id="inicio" data-role="page" data-content-theme="pag_inicio" data-fullscreen="true">
+		<section id="inicio" data-role="page" data-theme="a" data-fullscreen="true">
 			<div data-role="panel" id="miPanel">
 				<h3>Menu</h3>
 				<ul data-role="listview" id="listaPanel">
@@ -80,7 +78,7 @@
 		<!----------------------------------------------------  PAGINA NOTIFICACIONES  ----------------------------------------------------------->
 		<!---------------------------------------------------------------------------------------------------------------------------------------->
 		
-		<section  id="notificaciones" data-role="page" data-content-theme="a" data-fullscreen="true">
+		<section  id="notificaciones" data-role="page" data-theme="c" data-fullscreen="true">
 			<div data-role="panel" id="miPanel2">
 				<h3>Menu</h3>
 				<ul data-role="listview" id="listaPanel2">
@@ -115,7 +113,7 @@
 		<!----------------------------------------------------  PAGINA CONFIGURACION  ------------------------------------------------------------>
 		<!---------------------------------------------------------------------------------------------------------------------------------------->
 		
-		<section  id="configuracion" data-role="page" data-content-theme="login" data-fullscreen="true">
+		<section  id="configuracion" data-role="page" data-theme="c" data-fullscreen="true">
 			<div data-role="panel" id="miPanel3">
 				<h3>Menu</h3>
 				<ul data-role="listview" id="listaPanel3">
@@ -150,7 +148,7 @@
 								</div>
 							<br>
 						</div>
-						<button data-icon="css/images/icons-png/carat-r-black.png" data-iconpos="right" id="botonGuardaConfig">Guardar</button>
+						<button data-icon="check" data-iconpos="right" id="botonGuardaConfig">Guardar</button>
 						<div id="popup1" data-role="popup">
 						</div>				
 					</div>

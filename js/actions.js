@@ -1,15 +1,19 @@
 var ArrMenu =[
 	{
-		nombre: "Consulta operación",
-		url:"inicio"
+		nombre: "Consulta Operación",
+		url:"inicio",
+		descripcion: "Visualiza el estatus actual"
 	},
 	{
 		nombre: "Buzón Notificaciones",
-		url:"notificaciones"
+		url:"notificaciones",
+		descripcion: "Consulta el historial del día"
+		
 	},
 	{
 		nombre: "Configuración de Alertas",
-		url:"configuracion"
+		url:"configuracion",
+		descripcion: "Selecciona tu configuración"
 	}
 ]
 var fn = {
@@ -25,7 +29,7 @@ var fn = {
 			window.localStorage.setItem("configuracion","");
 	  }
 	  
-	  //fn.Menu();
+	  fn.Menu();
 	  fn.cargaNotificaciones();
 	  fn.compruebaSesion();
 	  $("#botonAcceder").tap(fn.iniciarSesion);
@@ -143,16 +147,20 @@ var fn = {
             );
        });
     },
-	/*Menu : function()
+	Menu : function()
 	{
 		var tamArreglo=ArrMenu.length;
 		for(var i = 0; i<tamArreglo; i++)
 		{
-			$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="0'+ArrMenu[i].url+i+'" data-icon="home">'+ArrMenu[i].nombre+'</a></li>');
+			
+			$("#miPanel").append('<ul data-role="listview" data-split-icon="home"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="slideup"></a></li></ul>');
+			$("#miPanel2").append('<ul data-role="listview" data-split-icon="home"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="slideup"></a></li></ul>');
+			$("#miPanel3").append('<ul data-role="listview" data-split-icon="home"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="slideup"></a></li></ul>');	
+			/*$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="0'+ArrMenu[i].url+i+'" data-icon="home">'+ArrMenu[i].nombre+'</a></li>');
 			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="1'+ArrMenu[i].url+i+'" data-icon="mail">'+ArrMenu[i].nombre+'</a></li>');
-			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="2'+ArrMenu[i].url+i+'" data-icon="gear">'+ArrMenu[i].nombre+'</a></li>');
+			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="2'+ArrMenu[i].url+i+'" data-icon="gear">'+ArrMenu[i].nombre+'</a></li>');*/
 		}
-	},*/
+	},
 	iniciarSesion: function(){
 		var usuario = $("#usuario").val();
 		var password = $("#password").val();

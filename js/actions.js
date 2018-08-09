@@ -52,9 +52,9 @@ var fn = {
 	  $("#botonConsultarFecha").tap(fn.consultaFechaPago);
 	  $("#linkConsultaNoPedimento").tap(fn.divPorPedimento);
 	  $("#linkConsultaFechaPago").tap(fn.divPorFechaPago);
-	  $("#cierraSesion").tap(fn.cierraSesion);
-	  $("#cierraSesion2").tap(fn.cierraSesion);
-	  $("#cierraSesion3").tap(fn.cierraSesion);
+	  $("#1Adelete").tap(fn.cierraSesion);
+	  $("#2Adelete").tap(fn.cierraSesion);
+	  $("#3Adelete").tap(fn.cierraSesion);
 	  
 	},
 	cargaNotificaciones : function(){
@@ -166,9 +166,9 @@ var fn = {
 		var tamArreglo=ArrMenu.length;
 		for(var i = 0; i<tamArreglo; i++)
 		{
-			$("#miPanel").append('<ul data-role="listview" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');
-			$("#miPanel2").append('<ul data-role="listview" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');
-			$("#miPanel3").append('<ul data-role="listview" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');	
+			$("#miPanel").append('<ul data-role="listview" id="1A'+ArrMenu[i].data_icon+'" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');
+			$("#miPanel2").append('<ul data-role="listview" id="2A'+ArrMenu[i].data_icon+'" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');
+			$("#miPanel3").append('<ul data-role="listview" id="3A'+ArrMenu[i].data_icon+'" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');	
 			/*$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="0'+ArrMenu[i].url+i+'" data-icon="home">'+ArrMenu[i].nombre+'</a></li>');
 			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="1'+ArrMenu[i].url+i+'" data-icon="mail">'+ArrMenu[i].nombre+'</a></li>');
 			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="2'+ArrMenu[i].url+i+'" data-icon="gear">'+ArrMenu[i].nombre+'</a></li>');*/
@@ -318,9 +318,9 @@ var fn = {
 /*
  *Llamar al metodo Init en el navegador
  */
-//fn.init();
+fn.init();
 
 /*
  *Llamar deviceready para compilar
  */
-fn.deviceready();
+//fn.deviceready();

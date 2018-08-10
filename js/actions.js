@@ -56,7 +56,7 @@ var fn = {
 	  $("#2Adelete").tap(fn.cierraSesion);
 	  $("#3Adelete").tap(fn.cierraSesion);
 	  $("#crea_grafica").tap(fn.creaGrafica);
-	  $("#boton_pastel").tap(fn.borraGrafica2);
+	  //$("#boton_pastel").tap(fn.borraGrafica2);
 	  $("#boton_barras").tap(fn.borraGrafica);
 	},
 	cargaNotificaciones : function(){

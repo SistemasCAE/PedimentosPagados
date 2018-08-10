@@ -101,12 +101,12 @@
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
 	width: 25%;
 }
-#boton_barras{
+/*#boton_barras{
 	display: none;
 }
 #boton_pastel{
 	display: none;
-}
+}*/
 #popChart{
 	display: none;
 }

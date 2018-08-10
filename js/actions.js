@@ -348,31 +348,25 @@ var fn = {
 		
 	},
 	borraGrafica : function (){
-		setTimeout(function() {}, 5000);
 		var popCanvas = document.getElementById("popChart");
 		var ctx = popCanvas.getContext("2d");
 		ctx.clearRect(0, 0, popCanvas.width, popCanvas.height);
-		setTimeout(function() {}, 5000);
 		$("#popChart").hide();
 		$("#info").html('');
-		setTimeout(function() {}, 5000);
 		fn.cambiaGrafica();
 	},
 	borraGrafica2 : function (){
-		setTimeout(function() {}, 5000);
 		var popCanvas2 = document.getElementById("popChart2");
 		var ctx2 = popCanvas2.getContext("2d");
 		ctx2.clearRect(0, 0, popCanvas2.width, popCanvas2.height);
-		setTimeout(function() {}, 5000);
 		$("#popChart2").hide();
 		$("#info").html('');
-		setTimeout(function() {}, 5000);
-		fn.creaGrafica();
+		//fn.creaGrafica();
 	},
 	cambiaGrafica : function(){
 		$("#info").html('');
 		$("#popChart2").show();
-		$("#popChart1").hide();
+		$("#popChart").hide();
 		var popCanvas2 = document.getElementById("popChart2");
 		var barChart2 = new Chart(popCanvas2, {
 		  type: 'bar',

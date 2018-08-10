@@ -335,7 +335,7 @@ var fn = {
 			  }
 			}
 		});
-		$("#info").append('<div onClick="fn.infoPopup" class="texto2">Mas Información</div>');
+		$("#info").append('<div onClick="fn.infoPopup()" class="texto2">Mas Información</div>');
 		$("#boton_barras").show();
 		$("#boton_pastel").hide();
 		

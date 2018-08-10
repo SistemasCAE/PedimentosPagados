@@ -317,10 +317,6 @@ var fn = {
 		}
 	},
 	creaGrafica : function(){
-		if (window.barChart1) {
-			window.barChart1.clear();
-			window.barChart1.destroy();
-		}
 		if (window.barChart) {
 			window.barChart.clear();
 			window.barChart.destroy();
@@ -360,13 +356,9 @@ var fn = {
 			window.barChart.clear();
 			window.barChart.destroy();
 		}
-		if (window.barChart1) {
-			window.barChart1.clear();
-			window.barChart1.destroy();
-		}
 		$("#info").html('');
-		var popCanvas1 = document.getElementById("popChart1");
-		var barChart1 = new Chart(popCanvas1, {
+		/*var popCanvas = document.getElementById("popChart");
+		var barChart = new Chart(popCanvas, {
 		  type: 'bar',
 		  data: {
 			labels: ["Pagados", "En Captura", "Revision", "Por Pagar", "Errores Validacion", "Por Capturar"],
@@ -389,7 +381,7 @@ var fn = {
 				text: 'Total Pedimentos: 350'
 			  }
 			}
-		});
+		});*/
 		$("#info").append('<p class="texto2">Mas Información</p>');
 		$("#boton_barras").hide();
 		$("#boton_pastel").show();

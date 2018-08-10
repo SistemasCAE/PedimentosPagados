@@ -58,6 +58,7 @@ var fn = {
 	  $("#crea_grafica").tap(fn.creaGrafica);
 	  //$("#boton_pastel").tap(fn.borraGrafica2);
 	  $("#boton_barras").tap(fn.borraGrafica);
+	  $("#boton_info").tap(fn.infoPopup);
 	},
 	cargaNotificaciones : function(){
 		var frecuenciaNotificaciones = window.localStorage.getItem("frecuenciaNotifica");
@@ -324,7 +325,7 @@ var fn = {
 			labels: ["Pagados", "En Captura", "Revision", "Por Pagar", "Por Capturar"],
 			datasets: [{
 			  label: 'Pedimentos',
-			  data: ["150", "50", "75", "45", "1", "29"],
+			  data: ["150", "50", "75", "45", "29"],
 			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"]
 			}]
 		  },
@@ -369,7 +370,7 @@ var fn = {
 				{
 				  label: "Pedimentos (Total)",
 				  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-				  data: ["150", "50", "75", "45", "1", "29"]
+				  data: ["150", "50", "75", "45", "29"]
 				}
 			  ]
 			},
@@ -381,9 +382,12 @@ var fn = {
 			  }
 			}
 		});
-		$("#info").append('<p class="texto2">Mas Información</p>');
+		$("#info").append('<a href="" id="boton_info">Mas Información</a>');
 		$("#boton_barras").hide();
 		$("#boton_pastel").hide();
+	},
+	infoPopup : function(){
+		$("#popup2").popup("open");
 	}
 }
 /*

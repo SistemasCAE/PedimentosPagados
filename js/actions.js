@@ -348,21 +348,19 @@ var fn = {
 		var popCanvas = document.getElementById("popChart");
 		var ctx = popCanvas.getContext("2d");
 		ctx.clearRect(0, 0, popCanvas.width, popCanvas.height);
-		alert("llegue");
-		//window.barChart.clear();
-		//window.barChart.destroy();
-		//$("#info").html('');
-		//fn.cambiaGrafica();
+		$("#info").html('');
+		fn.cambiaGrafica();
 	},
 	borraGrafica2 : function (){
-		window.barChart.clear();
-		window.barChart.destroy();
+		var popCanvas = document.getElementById("popChart");
+		var ctx = popCanvas.getContext("2d");
+		ctx.clearRect(0, 0, popCanvas.width, popCanvas.height);
+		$("#info").html('');
 		$("#info").html('');
 		fn.creaGrafica();
 	},
 	cambiaGrafica : function(){
-	
-		/*var popCanvas = document.getElementById("popChart");
+		var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {
 		  type: 'bar',
 		  data: {
@@ -386,7 +384,7 @@ var fn = {
 				text: 'Total Pedimentos: 350'
 			  }
 			}
-		});*/
+		});
 		$("#info").append('<p class="texto2">Mas Información</p>');
 		$("#boton_barras").hide();
 		$("#boton_pastel").show();

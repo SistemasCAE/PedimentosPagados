@@ -357,7 +357,7 @@ var fn = {
 			window.barChart.destroy();
 		}
 		$("#info").html('');
-		var popCanvas1 = document.getElementById("popChart");
+		var popCanvas1 = document.getElementById("popChart1");
 		var barChart1 = new Chart(popCanvas1, {
 		  type: 'bar',
 		  data: {

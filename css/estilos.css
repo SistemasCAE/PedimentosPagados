@@ -97,7 +97,15 @@
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
 }
 .div_estrecho{
-	width: 40%;
+	font-size: 10px;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+	width: 25%;
+}
+#boton_barras{
+	display: none;
+}
+#boton_pastel{
+	display: none;
 }
 
 

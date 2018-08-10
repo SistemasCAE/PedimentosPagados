@@ -56,8 +56,8 @@ var fn = {
 	  $("#2Adelete").tap(fn.cierraSesion);
 	  $("#3Adelete").tap(fn.cierraSesion);
 	  $("#crea_grafica").tap(fn.creaGrafica);
-	  $("#cam_gra1").tap(fn.creaGrafica);
-	  $("#cam_gra2").tap(fn.cambiaGrafica);
+	  $("#boton_pastel").tap(fn.creaGrafica);
+	  $("#boton_barras").tap(fn.cambiaGrafica);
 	  
 	  
 	  
@@ -317,7 +317,8 @@ var fn = {
 		}
 	},
 	creaGrafica : function(){
-		$("#popChart").html('');
+		window.barChart.clear();
+		window.barChart.destroy();
 		$("#info").html('');
 		var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {
@@ -344,10 +345,13 @@ var fn = {
 			  }
 			}
 		});
-		$("#info").append('<p class="texto2">Mas Información</p><button data-icon="recycle" data-iconpos="right" id="cam_gra1">Barras</button>');
+		$("#info").append('<p class="texto2">Mas Información</p>');
+		$("#boton_barras").show();
+		$("#boton_pastel").hide();
 	},
 	cambiaGrafica : function(){
-		$("#popChart").html('');
+		window.barChart.clear();
+		window.barChart.destroy();
 		$("#info").html('');
 		var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {
@@ -374,7 +378,9 @@ var fn = {
 			  }
 			}
 		});
-		$("#info").append('<p class="texto2">Mas Información</p><button data-icon="recycle" data-iconpos="right" id="cam_gra2">Pastel</button>');
+		$("#info").append('<p class="texto2">Mas Información</p>');
+		$("#boton_barras").hide();
+		$("#boton_pastel").show();
 	}
 }
 /*

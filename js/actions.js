@@ -317,6 +317,8 @@ var fn = {
 		}
 	},
 	creaGrafica : function(){
+		$("#popChart").html('');
+		$("#info").html('');
 		var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {
 		  type: 'pie',
@@ -345,6 +347,8 @@ var fn = {
 		$("#info").append('<p class="texto2">Mas Información</p><button data-icon="recycle" data-iconpos="right" id="cam_gra1">Barras</button>');
 	},
 	cambiaGrafica : function(){
+		$("#popChart").html('');
+		$("#info").html('');
 		var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {
 		  type: 'bar',

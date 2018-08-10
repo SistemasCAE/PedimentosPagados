@@ -359,6 +359,7 @@ var fn = {
 	cambiaGrafica : function(){
 		$("#info").html('');
 		$("#popChart2").show();
+		$("#info").html('');
 		var popCanvas2 = document.getElementById("popChart2");
 		var barChart2 = new Chart(popCanvas2, {
 		  type: 'bar',

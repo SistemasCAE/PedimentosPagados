@@ -56,6 +56,10 @@ var fn = {
 	  $("#2Adelete").tap(fn.cierraSesion);
 	  $("#3Adelete").tap(fn.cierraSesion);
 	  $("#crea_grafica").tap(fn.creaGrafica);
+	  $("#cam_gra1").tap(fn.creaGrafica);
+	  $("#cam_gra2").tap(fn.cambiaGrafica);
+	  
+	  
 	  
 	},
 	cargaNotificaciones : function(){
@@ -169,10 +173,7 @@ var fn = {
 		{
 			$("#miPanel").append('<ul data-role="listview" id="1A'+ArrMenu[i].data_icon+'" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');
 			$("#miPanel2").append('<ul data-role="listview" id="2A'+ArrMenu[i].data_icon+'" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');
-			$("#miPanel3").append('<ul data-role="listview" id="3A'+ArrMenu[i].data_icon+'" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');	
-			/*$("#listaPanel").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="0'+ArrMenu[i].url+i+'" data-icon="home">'+ArrMenu[i].nombre+'</a></li>');
-			$("#listaPanel2").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="1'+ArrMenu[i].url+i+'" data-icon="mail">'+ArrMenu[i].nombre+'</a></li>');
-			$("#listaPanel3").append('<li><a href="#'+ArrMenu[i].url+'" data-transition="flow" id="2'+ArrMenu[i].url+i+'" data-icon="gear">'+ArrMenu[i].nombre+'</a></li>');*/
+			$("#miPanel3").append('<ul data-role="listview" id="3A'+ArrMenu[i].data_icon+'" data-split-icon="'+ArrMenu[i].data_icon+'"><li><a href="#'+ArrMenu[i].url+'"><h3>'+ArrMenu[i].nombre+'</h3><p>'+ArrMenu[i].descripcion+'</p></a><a href="" data-rel="dialog" data-transition="flow"></a></li></ul>');
 		}
 	},
 	iniciarSesion: function(){
@@ -320,26 +321,56 @@ var fn = {
 		var barChart = new Chart(popCanvas, {
 		  type: 'pie',
 		  data: {
-			labels: ["China", "India", "United States", "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Japan"],
+			labels: ["Pagados", "En Captura", "Revision", "Por Pagar", "Errores Validacion", "Por Capturar"],
 			datasets: [{
-			  label: 'Population',
-			  data: [1379302771, 1281935911, 326625791, 260580739, 207353391, 204924861, 190632261, 157826578, 142257519, 126451398],
+			  label: 'Pedimentos',
+			  data: ["150", "50", "75", "45", "1", "29"],
 			  backgroundColor: [
 				'rgba(255, 99, 132, 0.6)',
 				'rgba(54, 162, 235, 0.6)',
 				'rgba(255, 206, 86, 0.6)',
 				'rgba(75, 192, 192, 0.6)',
 				'rgba(153, 102, 255, 0.6)',
-				'rgba(255, 159, 64, 0.6)',
+				'rgba(255, 159, 64, 0.6)'
+			  ]
+			}]
+		  },
+		  options: {
+			  title: {
+				display: true,
+				text: 'Total Pedimentos: 350'
+			  }
+			}
+		});
+		$("#info").append('<p class="texto2">Mas Información</p><button data-icon="recycle" data-iconpos="right" id="cam_gra1">Barras</button>');
+	},
+	cambiaGrafica : function(){
+		var popCanvas = document.getElementById("popChart");
+		var barChart = new Chart(popCanvas, {
+		  type: 'bar',
+		  data: {
+			labels: ["Pagados", "En Captura", "Revision", "Por Pagar", "Errores Validacion", "Por Capturar"],
+			datasets: [{
+			  label: 'Pedimentos',
+			  data: ["150", "50", "75", "45", "1", "29"],
+			  backgroundColor: [
 				'rgba(255, 99, 132, 0.6)',
 				'rgba(54, 162, 235, 0.6)',
 				'rgba(255, 206, 86, 0.6)',
 				'rgba(75, 192, 192, 0.6)',
-				'rgba(153, 102, 255, 0.6)'
+				'rgba(153, 102, 255, 0.6)',
+				'rgba(255, 159, 64, 0.6)'
 			  ]
 			}]
-		  }
+		  },
+		  options: {
+			  title: {
+				display: true,
+				text: 'Total Pedimentos: 350'
+			  }
+			}
 		});
+		$("#info").append('<p class="texto2">Mas Información</p><button data-icon="recycle" data-iconpos="right" id="cam_gra2">Pastel</button>');
 	}
 }
 /*

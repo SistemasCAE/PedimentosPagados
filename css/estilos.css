@@ -96,6 +96,9 @@
 	font-size: 15px;
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
 }
+.div_estrecho{
+	width: 40%;
+}
 
 
 /*#div_usu{

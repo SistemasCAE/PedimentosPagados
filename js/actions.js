@@ -321,18 +321,11 @@ var fn = {
 		var barChart = new Chart(popCanvas, {
 		  type: 'pie',
 		  data: {
-			labels: ["Pagados", "En Captura", "Revision", "Por Pagar", "Errores Validacion", "Por Capturar"],
+			labels: ["Pagados", "En Captura", "Revision", "Por Pagar", "Por Capturar"],
 			datasets: [{
 			  label: 'Pedimentos',
-			  data: ["150", "50", "75", "45", "1", "29"],
-			  backgroundColor: [
-				'rgba(255, 99, 132, 0.6)',
-				'rgba(54, 162, 235, 0.6)',
-				'rgba(255, 206, 86, 0.6)',
-				'rgba(75, 192, 192, 0.6)',
-				'rgba(153, 102, 255, 0.6)',
-				'rgba(255, 159, 64, 0.6)'
-			  ]
+			  data: [150, 50, 75, 45, 30],
+			  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"]
 			}]
 		  },
 		  options: {
@@ -369,22 +362,18 @@ var fn = {
 		var popCanvas2 = document.getElementById("popChart2");
 		var barChart2 = new Chart(popCanvas2, {
 		  type: 'bar',
-		  data: {
-			labels: ["Pagados", "En Captura", "Revision", "Por Pagar", "Errores Validacion", "Por Capturar"],
-			datasets: [{
-			  label: 'Pedimentos',
-			  data: ["150", "50", "75", "45", "1", "29"],
-			  backgroundColor: [
-				'rgba(255, 99, 132, 0.6)',
-				'rgba(54, 162, 235, 0.6)',
-				'rgba(255, 206, 86, 0.6)',
-				'rgba(75, 192, 192, 0.6)',
-				'rgba(153, 102, 255, 0.6)',
-				'rgba(255, 159, 64, 0.6)'
+			data: {
+			  labels: ["Pagados", "En Captura", "Revision", "Por Pagar", "Por Capturar"],
+			  datasets: [
+				{
+				  label: "Pedimentos (total)",
+				  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+				  data: [150, 50, 75, 45, 30]
+				}
 			  ]
-			}]
-		  },
-		  options: {
+			},
+			options: {
+			  legend: { display: false },
 			  title: {
 				display: true,
 				text: 'Total Pedimentos: 350'

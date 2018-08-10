@@ -381,7 +381,7 @@ var fn = {
 			  }
 			}
 		});
-		$("#info").append('<div onClick="fn.infoPopup" class="texto2">Mas Información</div>');
+		$("#info").append('<div onClick="fn.infoPopup()" class="texto2">Mas Información</div>');
 		$("#boton_barras").hide();
 		$("#boton_pastel").hide();
 	},

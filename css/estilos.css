@@ -107,6 +107,12 @@
 #boton_pastel{
 	display: none;
 }
+#popChart{
+	display: none;
+}
+#popChart2{
+	display: none;
+}
 
 
 /*#div_usu{

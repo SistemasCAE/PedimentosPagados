@@ -314,6 +314,9 @@ var fn = {
 		}
 	},
 	creaGrafica : function(){
+		$("#info").html('');
+		$("#popChart").show();
+		$("#popChart2").hide();
 		var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {
 		  type: 'pie',
@@ -348,20 +351,24 @@ var fn = {
 		var popCanvas = document.getElementById("popChart");
 		var ctx = popCanvas.getContext("2d");
 		ctx.clearRect(0, 0, popCanvas.width, popCanvas.height);
+		$("#popChart").hide();
 		$("#info").html('');
 		fn.cambiaGrafica();
 	},
 	borraGrafica2 : function (){
-		var popCanvas = document.getElementById("popChart");
-		var ctx = popCanvas.getContext("2d");
+		var popCanvas2 = document.getElementById("popChart2");
+		var ctx2 = popCanvas2.getContext("2d");
 		ctx.clearRect(0, 0, popCanvas.width, popCanvas.height);
-		$("#info").html('');
+		$("#popChart2").hide();
 		$("#info").html('');
 		fn.creaGrafica();
 	},
 	cambiaGrafica : function(){
-		var popCanvas = document.getElementById("popChart");
-		var barChart = new Chart(popCanvas, {
+		$("#info").html('');
+		$("#popChart2").show();
+		$("#popChart1").hide();
+		var popCanvas2 = document.getElementById("popChart2");
+		var barChart2 = new Chart(popCanvas2, {
 		  type: 'bar',
 		  data: {
 			labels: ["Pagados", "En Captura", "Revision", "Por Pagar", "Errores Validacion", "Por Capturar"],

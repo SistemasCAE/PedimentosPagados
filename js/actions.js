@@ -314,11 +314,6 @@ var fn = {
 		}
 	},
 	creaGrafica : function(){
-		if (window.barChart) {
-			window.barChart.clear();
-			window.barChart.destroy();
-		}
-		$("#info").html('');
 		var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {
 		  type: 'pie',
@@ -350,10 +345,11 @@ var fn = {
 		
 	},
 	borraGrafica : function (){
+		alert("llegue");
 		window.barChart.clear();
 		window.barChart.destroy();
-		$("#info").html('');
-		fn.cambiaGrafica();
+		//$("#info").html('');
+		//fn.cambiaGrafica();
 	},
 	borraGrafica2 : function (){
 		window.barChart.clear();

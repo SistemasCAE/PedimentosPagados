@@ -317,9 +317,9 @@ var fn = {
 		}
 	},
 	creaGrafica : function(){
-		if (window.barChart) {
-			window.barChart.clear();
-			window.barChart.destroy();
+		if (window.barChart1) {
+			window.barChart1.clear();
+			window.barChart1.destroy();
 		}
 		$("#info").html('');
 		var popCanvas = document.getElementById("popChart");
@@ -357,8 +357,8 @@ var fn = {
 			window.barChart.destroy();
 		}
 		$("#info").html('');
-		var popCanvas = document.getElementById("popChart");
-		var barChart = new Chart(popCanvas, {
+		var popCanvas1 = document.getElementById("popChart");
+		var barChart1 = new Chart(popCanvas1, {
 		  type: 'bar',
 		  data: {
 			labels: ["Pagados", "En Captura", "Revision", "Por Pagar", "Errores Validacion", "Por Capturar"],

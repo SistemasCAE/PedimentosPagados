@@ -353,6 +353,7 @@ var fn = {
 		ctx.clearRect(0, 0, popCanvas.width, popCanvas.height);
 		$("#popChart").hide();
 		$("#info").html('');
+		setTimeout(function() {}, 5000);
 		fn.cambiaGrafica();
 	},
 	borraGrafica2 : function (){
@@ -361,6 +362,7 @@ var fn = {
 		ctx2.clearRect(0, 0, popCanvas2.width, popCanvas2.height);
 		$("#popChart2").hide();
 		$("#info").html('');
+		setTimeout(function() {}, 5000);
 		fn.creaGrafica();
 	},
 	cambiaGrafica : function(){

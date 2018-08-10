@@ -358,7 +358,7 @@ var fn = {
 	borraGrafica2 : function (){
 		var popCanvas2 = document.getElementById("popChart2");
 		var ctx2 = popCanvas2.getContext("2d");
-		ctx.clearRect(0, 0, popCanvas.width, popCanvas.height);
+		ctx2.clearRect(0, 0, popCanvas2.width, popCanvas2.height);
 		$("#popChart2").hide();
 		$("#info").html('');
 		fn.creaGrafica();
@@ -366,7 +366,6 @@ var fn = {
 	cambiaGrafica : function(){
 		$("#info").html('');
 		$("#popChart2").show();
-		$("#popChart1").hide();
 		var popCanvas2 = document.getElementById("popChart2");
 		var barChart2 = new Chart(popCanvas2, {
 		  type: 'bar',

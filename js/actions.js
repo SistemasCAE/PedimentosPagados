@@ -345,9 +345,12 @@ var fn = {
 		
 	},
 	borraGrafica : function (){
+		var popCanvas = document.getElementById("popChart");
+		var ctx = popCanvas.getContext("2d");
+		ctx.clearRect(0, 0, popCanvas.width, popCanvas.height);
 		alert("llegue");
-		window.barChart.clear();
-		window.barChart.destroy();
+		//window.barChart.clear();
+		//window.barChart.destroy();
 		//$("#info").html('');
 		//fn.cambiaGrafica();
 	},

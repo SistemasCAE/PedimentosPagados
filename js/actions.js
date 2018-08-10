@@ -361,7 +361,7 @@ var fn = {
 		ctx2.clearRect(0, 0, popCanvas2.width, popCanvas2.height);
 		$("#popChart2").hide();
 		$("#info").html('');
-		//fn.creaGrafica();
+		fn.creaGrafica();
 	},
 	cambiaGrafica : function(){
 		$("#info").html('');

@@ -56,11 +56,8 @@ var fn = {
 	  $("#2Adelete").tap(fn.cierraSesion);
 	  $("#3Adelete").tap(fn.cierraSesion);
 	  $("#crea_grafica").tap(fn.creaGrafica);
-	  $("#boton_pastel").tap(fn.creaGrafica);
-	  $("#boton_barras").tap(fn.cambiaGrafica);
-	  
-	  
-	  
+	  $("#boton_pastel").tap(fn.borraGrafica2);
+	  $("#boton_barras").tap(fn.borraGrafica);
 	},
 	cargaNotificaciones : function(){
 		var frecuenciaNotificaciones = window.localStorage.getItem("frecuenciaNotifica");
@@ -350,13 +347,22 @@ var fn = {
 		$("#info").append('<p class="texto2">Mas Información</p>');
 		$("#boton_barras").show();
 		$("#boton_pastel").hide();
+		
+	},
+	borraGrafica : function (){
+		window.barChart.clear();
+		window.barChart.destroy();
+		$("#info").html('');
+		fn.cambiaGrafica();
+	},
+	borraGrafica2 : function (){
+		window.barChart.clear();
+		window.barChart.destroy();
+		$("#info").html('');
+		fn.creaGrafica();
 	},
 	cambiaGrafica : function(){
-		if (window.barChart) {
-			window.barChart.clear();
-			window.barChart.destroy();
-		}
-		$("#info").html('');
+	
 		/*var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {
 		  type: 'bar',

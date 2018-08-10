@@ -317,8 +317,10 @@ var fn = {
 		}
 	},
 	creaGrafica : function(){
-		window.barChart.clear();
-		window.barChart.destroy();
+		if (window.barChart) {
+			window.barChart.clear();
+			window.barChart.destroy();
+		}
 		$("#info").html('');
 		var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {
@@ -350,8 +352,10 @@ var fn = {
 		$("#boton_pastel").hide();
 	},
 	cambiaGrafica : function(){
-		window.barChart.clear();
-		window.barChart.destroy();
+		if (window.barChart) {
+			window.barChart.clear();
+			window.barChart.destroy();
+		}
 		$("#info").html('');
 		var popCanvas = document.getElementById("popChart");
 		var barChart = new Chart(popCanvas, {

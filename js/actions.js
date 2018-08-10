@@ -59,6 +59,7 @@ var fn = {
 	  //$("#boton_pastel").tap(fn.borraGrafica2);
 	  $("#boton_barras").tap(fn.borraGrafica);
 	  $("#boton_info").tap(fn.infoPopup);
+	  $("#boton_info2").tap(fn.infoPopup);
 	},
 	cargaNotificaciones : function(){
 		var frecuenciaNotificaciones = window.localStorage.getItem("frecuenciaNotifica");
@@ -336,7 +337,7 @@ var fn = {
 			  }
 			}
 		});
-		$("#info").append('<p class="texto2">Mas Información</p>');
+		$("#info").append('<a href="" id="boton_info">Mas Información</a>');
 		$("#boton_barras").show();
 		$("#boton_pastel").hide();
 		
@@ -382,11 +383,12 @@ var fn = {
 			  }
 			}
 		});
-		$("#info").append('<a href="" id="boton_info">Mas Información</a>');
+		$("#info").append('<a href="" id="boton_info2">Mas Información</a>');
 		$("#boton_barras").hide();
 		$("#boton_pastel").hide();
 	},
 	infoPopup : function(){
+		$('#popup2').html('<p>Aqui se muestra mas información</p>');
 		$("#popup2").popup("open");
 	}
 }
